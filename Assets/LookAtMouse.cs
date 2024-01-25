@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class LookAtMouse : MonoBehaviour
 {
-    private void Update()
+    public Vector3 worldPosition;
+    Plane plane = new(Vector3.up, 0);
+
+    void Update()
     {
-        Vector3 mousePosition;
-        
+        float distance;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (plane.Raycast(ray, out distance))
+        {
+            worldPosition = ray.GetPoint(distance);
+        }
+
+        transform.LookAt(worldPosition);
     }
 }
