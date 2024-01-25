@@ -34,7 +34,7 @@ public class GoofyController : MonoBehaviour
 
     private void Update()
     {
-        Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInput, 1);
+        Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInputRaw, 1);
 
 
         _desiredVelocity =
@@ -114,6 +114,7 @@ public class GoofyController : MonoBehaviour
             return false;
         }
 
+        Debug.Log("here");
         _groundContactCount = 1;
         _contactPointNormal = hit.normal;
 

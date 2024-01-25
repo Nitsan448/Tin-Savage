@@ -276,6 +276,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 795951447606017989, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 795951447606017989, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3932990360768580915, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -316,6 +324,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050420043944723096, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
+      propertyPath: _maxGroundAngle
+      value: 69.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7252346168039542878, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 15
@@ -347,7 +359,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4321371113916901352, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1412109787}
+      addedObject: {fileID: 1412109794}
   m_SourcePrefab: {fileID: 100100000, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
 --- !u!1 &1095331676
 GameObject:
@@ -436,7 +448,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4321371113916901352, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
   m_PrefabInstance: {fileID: 850118806}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1412109787
+--- !u!114 &1412109794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,9 +457,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412109780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d267e3879403f084b9fdbc36ce89c1d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 40e11382bf971cc4093914cc0f378498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 10
+  _maxGroundAcceleration: 10
+  _maxGroundAngle: 25
+  _maxSpeedToSnapToGround: 100
+  _probeDistance: 1
+  _probeMask:
+    serializedVersion: 2
+    m_Bits: 503
 --- !u!1001 &3301431582476907744
 PrefabInstance:
   m_ObjectHideFlags: 0
