@@ -278,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 795951447606017989, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       propertyPath: m_Constraints
-      value: 80
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 795951447606017989, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       propertyPath: m_Interpolate
@@ -461,18 +461,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 10
-  _maxGroundAcceleration: 30
+  _maxGroundAcceleration: 20
   _maxAirAcceleration: 10
   _jumpHeight: 2
-  _maxAirJumps: 0
-  _airJumpStrengthWhenFalling: 2
+  _airJumpStrengthWhenFalling: 0.5
   _maxGroundAngle: 64.2
   _maxSpeedToSnapToGround: 100
   _probeDistance: 1
   _probeMask:
     serializedVersion: 2
     m_Bits: 499
-  _playerInputSpace: {fileID: 0}
 --- !u!1001 &3301431582476907744
 PrefabInstance:
   m_ObjectHideFlags: 0
