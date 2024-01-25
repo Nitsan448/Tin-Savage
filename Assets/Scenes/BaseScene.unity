@@ -357,6 +357,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1402027531}
     m_Modifications:
+    - target: {fileID: 96860858707543786, guid: f8aee210ddcc2954ea4fc6cf6f1adbf5, type: 3}
+      propertyPath: _jumpInputKeyCodes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96860858707543786, guid: f8aee210ddcc2954ea4fc6cf6f1adbf5, type: 3}
+      propertyPath: _jumpInputKeyCodes.Array.data[1]
+      value: 273
+      objectReference: {fileID: 0}
     - target: {fileID: 5040369844902794500, guid: f8aee210ddcc2954ea4fc6cf6f1adbf5, type: 3}
       propertyPath: m_Name
       value: InputManager
