@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+
 namespace Platformer3D
 {
     public class CharacterController : MonoBehaviour
@@ -12,18 +13,26 @@ namespace Platformer3D
 
         [SerializeField, Range(0f, 100f)] private float _maxSpeed = 10f;
         [SerializeField, Range(0f, 100f)] private float _maxGroundAcceleration = 10f;
+        [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 10f;
+        [SerializeField, Range(0f, 10f)] private float _jumpHeight = 2f;
+        [SerializeField, Range(0f, 5f)] private int _maxAirJumps;
+        [SerializeField, Range(0f, 1f)] private float _airJumpStrengthWhenFalling = 2;
         [SerializeField, Range(0f, 90f)] private float _maxGroundAngle = 25f;
         [SerializeField, Range(0f, 100f)] private float _maxSpeedToSnapToGround = 100f;
         [SerializeField, Min(0f)] private float _probeDistance = 1f;
         [SerializeField] private LayerMask _probeMask = -1;
+        [SerializeField] private Transform _playerInputSpace;
 
         private Vector3 _velocity;
         private Vector3 _desiredVelocity;
         private Rigidbody _rigidBody;
+        private bool _desiredJump;
+        private int _jumpPhase;
         private float _minGroundDotProduct;
         private Vector3 _contactPointNormal;
         private int _groundContactCount;
         private int _physicsStepsSinceLastGrounded;
+        private int _physicsStepsSinceLastJump;
 
         private void Awake()
         {
@@ -40,8 +49,28 @@ namespace Platformer3D
         {
             Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInput, 1);
 
-            _desiredVelocity =
-                new Vector3(directionalInput.x, 0f, directionalInput.y) * _maxSpeed;
+            if (_playerInputSpace)
+            {
+                Vector3 forward = _playerInputSpace.forward;
+                forward.y = 0f;
+                forward.Normalize();
+                Vector3 right = _playerInputSpace.right;
+                right.y = 0f;
+                right.Normalize();
+
+                _desiredVelocity =
+                    (forward * directionalInput.y + right * directionalInput.x) * _maxSpeed;
+            }
+            else
+            {
+                _desiredVelocity =
+                    new Vector3(directionalInput.x, 0f, directionalInput.y) * _maxSpeed;
+            }
+
+
+            //TODO: add this to platformer controller
+            //Once desired jump is set to true, it remains true until we set it to false
+            _desiredJump = false;
         }
 
 
@@ -50,6 +79,12 @@ namespace Platformer3D
             UpdateState();
             AdjustVelocity();
 
+            if (_desiredJump)
+            {
+                _desiredJump = false;
+                Jump();
+            }
+
             _rigidBody.velocity = _velocity;
             ClearState();
         }
@@ -57,10 +92,12 @@ namespace Platformer3D
         private void UpdateState()
         {
             _physicsStepsSinceLastGrounded++;
+            _physicsStepsSinceLastJump++;
             _velocity = _rigidBody.velocity;
             if (OnGround || SnapToGround())
             {
                 _physicsStepsSinceLastGrounded = 0;
+                _jumpPhase = 0;
                 if (_groundContactCount > 1)
                 {
                     _contactPointNormal.Normalize();
@@ -80,7 +117,8 @@ namespace Platformer3D
             float currentXVelocity = Vector3.Dot(_velocity, xAxis);
             float currentZVelocity = Vector3.Dot(_velocity, zAxis);
 
-            float maxSpeedChange = _maxGroundAcceleration * Time.deltaTime;
+            float acceleration = OnGround ? _maxGroundAcceleration : _maxAirAcceleration;
+            float maxSpeedChange = acceleration * Time.deltaTime;
 
             float newXVelocity = Mathf.MoveTowards(currentXVelocity, _desiredVelocity.x, maxSpeedChange);
             float newZVelocity = Mathf.MoveTowards(currentZVelocity, _desiredVelocity.z, maxSpeedChange);
@@ -95,7 +133,7 @@ namespace Platformer3D
 
         private bool SnapToGround()
         {
-            if (_physicsStepsSinceLastGrounded > 1)
+            if (_physicsStepsSinceLastGrounded > 1 || _physicsStepsSinceLastJump <= 2)
             {
                 return false;
             }
@@ -127,6 +165,31 @@ namespace Platformer3D
             }
 
             return true;
+        }
+
+        private void Jump()
+        {
+            if (!OnGround && _jumpPhase >= _maxAirJumps) return;
+            _physicsStepsSinceLastJump = 0;
+            _jumpPhase++;
+            float jumpSpeed = CalculateJumpSpeed();
+            _velocity.y += jumpSpeed;
+        }
+
+        private float CalculateJumpSpeed()
+        {
+            float jumpSpeed = Mathf.Sqrt(-2f * Physics.gravity.y * _jumpHeight);
+            if (_velocity.y > 0)
+            {
+                jumpSpeed = Mathf.Max(jumpSpeed - _velocity.y, 0);
+            }
+            else if (_velocity.y < 0)
+            {
+                //TODO: make this clearer
+                jumpSpeed += -_velocity.y * _airJumpStrengthWhenFalling;
+            }
+
+            return jumpSpeed;
         }
 
         private void ClearState()

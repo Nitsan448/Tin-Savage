@@ -461,13 +461,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 10
-  _maxGroundAcceleration: 10
-  _maxGroundAngle: 25
+  _maxGroundAcceleration: 30
+  _maxAirAcceleration: 10
+  _jumpHeight: 2
+  _maxAirJumps: 0
+  _airJumpStrengthWhenFalling: 2
+  _maxGroundAngle: 64.2
   _maxSpeedToSnapToGround: 100
   _probeDistance: 1
   _probeMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 499
+  _playerInputSpace: {fileID: 0}
 --- !u!1001 &3301431582476907744
 PrefabInstance:
   m_ObjectHideFlags: 0
