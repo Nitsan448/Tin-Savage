@@ -15,19 +15,16 @@ namespace Platformer3D
         [SerializeField, Range(0f, 100f)] private float _maxGroundAcceleration = 10f;
         [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 10f;
         [SerializeField, Range(0f, 10f)] private float _jumpHeight = 2f;
-        [SerializeField, Range(0f, 5f)] private int _maxAirJumps;
         [SerializeField, Range(0f, 1f)] private float _airJumpStrengthWhenFalling = 2;
         [SerializeField, Range(0f, 90f)] private float _maxGroundAngle = 25f;
         [SerializeField, Range(0f, 100f)] private float _maxSpeedToSnapToGround = 100f;
         [SerializeField, Min(0f)] private float _probeDistance = 1f;
         [SerializeField] private LayerMask _probeMask = -1;
-        [SerializeField] private Transform _playerInputSpace;
 
         private Vector3 _velocity;
         private Vector3 _desiredVelocity;
         private Rigidbody _rigidBody;
         private bool _desiredJump;
-        private int _jumpPhase;
         private float _minGroundDotProduct;
         private Vector3 _contactPointNormal;
         private int _groundContactCount;
@@ -49,23 +46,8 @@ namespace Platformer3D
         {
             Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInput, 1);
 
-            if (_playerInputSpace)
-            {
-                Vector3 forward = _playerInputSpace.forward;
-                forward.y = 0f;
-                forward.Normalize();
-                Vector3 right = _playerInputSpace.right;
-                right.y = 0f;
-                right.Normalize();
-
-                _desiredVelocity =
-                    (forward * directionalInput.y + right * directionalInput.x) * _maxSpeed;
-            }
-            else
-            {
-                _desiredVelocity =
-                    new Vector3(directionalInput.x, 0f, directionalInput.y) * _maxSpeed;
-            }
+            _desiredVelocity =
+                new Vector3(directionalInput.x, 0f, directionalInput.y) * _maxSpeed;
 
 
             //TODO: add this to platformer controller
@@ -97,7 +79,6 @@ namespace Platformer3D
             if (OnGround || SnapToGround())
             {
                 _physicsStepsSinceLastGrounded = 0;
-                _jumpPhase = 0;
                 if (_groundContactCount > 1)
                 {
                     _contactPointNormal.Normalize();
@@ -169,9 +150,8 @@ namespace Platformer3D
 
         private void Jump()
         {
-            if (!OnGround && _jumpPhase >= _maxAirJumps) return;
+            if (!OnGround) return;
             _physicsStepsSinceLastJump = 0;
-            _jumpPhase++;
             float jumpSpeed = CalculateJumpSpeed();
             _velocity.y += jumpSpeed;
         }
