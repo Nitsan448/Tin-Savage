@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: _maxGroundAngle
       value: 69.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6692118917657639628, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7252346168039542878, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 15
@@ -360,6 +364,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4321371113916901352, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1412109794}
+    - targetCorrespondingSourceObject: {fileID: 4321371113916901352, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412109801}
   m_SourcePrefab: {fileID: 100100000, guid: 2d36393efdcb20d4d8404478bbc4f0c1, type: 3}
 --- !u!1 &1095331676
 GameObject:
@@ -471,6 +478,19 @@ MonoBehaviour:
   _probeMask:
     serializedVersion: 2
     m_Bits: 499
+--- !u!114 &1412109801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412109780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e687d23187a7a49b187ae4f36877f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &3301431582476907744
 PrefabInstance:
   m_ObjectHideFlags: 0
