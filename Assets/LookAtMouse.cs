@@ -5,18 +5,27 @@ using UnityEngine;
 
 public class LookAtMouse : MonoBehaviour
 {
-    public Vector3 worldPosition;
-    Plane plane = new(Vector3.up, 0);
+    [SerializeField, Range(0, 30)] private float _rotationSpeed;
+
+    private Vector3 _worldPosition;
+    Plane _plane = new(Vector3.up, 0);
+
+    private Vector3 _previousEulerAngles;
 
     void Update()
     {
-        float distance;
+        _worldPosition = Vector3.Lerp(_worldPosition, GetMousePosition(), _rotationSpeed * Time.deltaTime);
+        transform.LookAt(_worldPosition);
+    }
+
+    private Vector3 GetMousePosition()
+    {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (plane.Raycast(ray, out distance))
+        if (_plane.Raycast(ray, out float distance))
         {
-            worldPosition = ray.GetPoint(distance);
+            return ray.GetPoint(distance);
         }
 
-        transform.LookAt(worldPosition);
+        return Vector3.zero;
     }
 }
