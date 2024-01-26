@@ -90,7 +90,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
             if (hit.GetComponent<Player>() != null)
             {
-                _separateSpeed /= 3;
+                _separateSpeed = Random.Range(_seperateSpeedRange.x, _seperateSpeedRange.y) / 3;
             }
         }
 
