@@ -497,7 +497,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -1045,9 +1045,9 @@ MonoBehaviour:
     G_CustomForceNOTAttach: 0
     Owner: {fileID: 4245765588117595006}
     LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 0.8560895
-    LegRaiseMultiplier: 0.8081622
-    GlueThresholdMultiplier: 0.89630574
+    LegMoveSpeedMultiplier: 0.9463992
+    LegRaiseMultiplier: 0.88561547
+    GlueThresholdMultiplier: 0.88759017
     GluePointOffset: {x: 0, y: 0}
     LegStretchMultiplier: 1
     CustomLegAnimating: {fileID: 0}
@@ -1076,9 +1076,9 @@ MonoBehaviour:
     G_CustomForceNOTAttach: 0
     Owner: {fileID: 4245765588117595006}
     LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 0.81780416
-    LegRaiseMultiplier: 0.9461845
-    GlueThresholdMultiplier: 0.8868104
+    LegMoveSpeedMultiplier: 0.97267455
+    LegRaiseMultiplier: 0.8433156
+    GlueThresholdMultiplier: 0.9445058
     GluePointOffset: {x: 0, y: 0}
     LegStretchMultiplier: 1
     CustomLegAnimating: {fileID: 0}
@@ -1107,9 +1107,9 @@ MonoBehaviour:
     G_CustomForceNOTAttach: 0
     Owner: {fileID: 4245765588117595006}
     LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 0.82100385
-    LegRaiseMultiplier: 0.9829879
-    GlueThresholdMultiplier: 0.8994091
+    LegMoveSpeedMultiplier: 0.842209
+    LegRaiseMultiplier: 0.8883902
+    GlueThresholdMultiplier: 0.9436845
     GluePointOffset: {x: 0, y: 0}
     LegStretchMultiplier: 1
     CustomLegAnimating: {fileID: 0}
@@ -1138,9 +1138,9 @@ MonoBehaviour:
     G_CustomForceNOTAttach: 0
     Owner: {fileID: 4245765588117595006}
     LegBlendWeight: 1
-    LegMoveSpeedMultiplier: 0.8408631
-    LegRaiseMultiplier: 0.8686532
-    GlueThresholdMultiplier: 0.979704
+    LegMoveSpeedMultiplier: 0.8560572
+    LegRaiseMultiplier: 0.8794002
+    GlueThresholdMultiplier: 0.9238816
     GluePointOffset: {x: 0, y: 0}
     LegStretchMultiplier: 1
     CustomLegAnimating: {fileID: 0}
