@@ -12,31 +12,39 @@ public class LookAtMouse : MonoBehaviour
 
     private Vector3 _previousEulerAngles;
     private readonly List<Vector3> _previousRotations = new();
+    public bool Enabled = true;
+    [SerializeField] private LayerMask _mouseDetectionMask;
 
-    void Update()
+    private void FixedUpdate()
     {
         _previousRotations.Add(transform.eulerAngles);
-        if (_previousRotations.Count > 10)
+        if (_previousRotations.Count > 5)
         {
             _previousRotations.RemoveAt(0);
         }
 
         _worldPosition = Vector3.Lerp(_worldPosition, GetMousePosition(), _rotationSpeed * Time.deltaTime);
-        transform.LookAt(_worldPosition);
+        if (Enabled)
+        {
+            transform.LookAt(_worldPosition);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        }
     }
 
     private Vector3 GetMousePosition()
     {
+        _plane.distance = -transform.position.y;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (_plane.Raycast(ray, out float distance))
         {
+            Vector3 mousePosition = ray.GetPoint(distance);
+            Debug.Log(mousePosition);
             return ray.GetPoint(distance);
         }
 
         return Vector3.zero;
     }
 
-    //TODO: return to this after figuring out shoot object
     public float GetCurrentRotationVelocity()
     {
         float rotationVelocity = 0;
@@ -47,7 +55,6 @@ public class LookAtMouse : MonoBehaviour
 
         rotationVelocity /= _previousRotations.Count;
 
-        Debug.Log(rotationVelocity);
         return rotationVelocity;
     }
 }
