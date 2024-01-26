@@ -28,8 +28,13 @@ public class GameManager : ASingleton<GameManager>
         State = State == EGameState.Running ? EGameState.Paused : EGameState.Running;
         if (State == EGameState.Paused)
         {
+            Time.timeScale = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
 
         UIManager.Instance.UpdatePauseMenuState();
