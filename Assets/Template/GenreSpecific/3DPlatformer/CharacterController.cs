@@ -74,6 +74,7 @@ namespace Platformer3D
                 Jump();
             }
 
+            _velocity = new Vector3(_velocity.x, 0, _velocity.z);
             _rigidBody.velocity = _velocity;
             ClearState();
         }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4097901008064458382}
   - component: {fileID: 1690427238661615437}
   - component: {fileID: 5357251992768093782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Interior head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7205528730502363665}
   - component: {fileID: 5420416242502080648}
   - component: {fileID: 543822372414541571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8562016485634218378}
   - component: {fileID: 5177432145547436751}
   - component: {fileID: 691764904526509171}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 6188360846957109825}
   - component: {fileID: 6882184979091454204}
   - component: {fileID: 3689044522301108287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spikes (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 8386432528394533794}
   - component: {fileID: 7159489841828469256}
   - component: {fileID: 8865841171881402106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spikes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8754499357261646566}
   - component: {fileID: 7145666275601963302}
   - component: {fileID: 6414838439060392322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.6606709
-  m_Center: {x: 0, y: 1.1606724, z: 0}
+  m_Center: {x: 0, y: 1.66, z: 0}
 --- !u!54 &6414838439060392322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &8122393543119032554
 GameObject:
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 124584654205578764}
   - component: {fileID: 1017874046433568803}
   - component: {fileID: 3946353369445456033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 259701373358213353}
   - component: {fileID: 5151224621003162277}
   - component: {fileID: 5424584143605125832}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cone head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
