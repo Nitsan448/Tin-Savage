@@ -23,7 +23,7 @@ public class ShootObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _lookAtMouse.GetCurrentRotationVelocity();
+        // _lookAtMouse.GetCurrentRotationVelocity();
         if (Input.GetMouseButtonDown(0))
         {
             Aim().Forget();
@@ -38,8 +38,8 @@ public class ShootObject : MonoBehaviour
     private async UniTask Aim()
     {
         _aim = true;
-        _lookAtMouse.Enabled = false;
-        _currentRotationVelocity = _lookAtMouse.GetCurrentRotationVelocity() * (1 / _rotationSpeed);
+        _lookAtMouse._enabled = false;
+        // _currentRotationVelocity = _lookAtMouse.GetCurrentRotationVelocity() * (1 / _rotationSpeed);
         while (_aim)
         {
             transform.Rotate(Vector3.up, _currentRotationVelocity * _rotationSpeed);
@@ -54,7 +54,7 @@ public class ShootObject : MonoBehaviour
     private void Shoot()
     {
         _aim = false;
-        _lookAtMouse.Enabled = true;
+        _lookAtMouse._enabled = true;
         Vector3 force = transform.forward * (_currentRotationVelocity) * _shootStrength;
         if (_currentRotationVelocity < 0)
         {

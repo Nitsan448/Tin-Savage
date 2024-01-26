@@ -11,24 +11,23 @@ public class LookAtMouse : MonoBehaviour
     Plane _plane = new(Vector3.up, 0);
 
     private Vector3 _previousEulerAngles;
-    private readonly List<Vector3> _previousRotations = new();
-    [HideInInspector] public bool Enabled = true;
+    public bool _enabled = true;
+    private Vector3 _worldPositionOnDisable;
 
     private void FixedUpdate()
     {
-        _previousRotations.Add(transform.eulerAngles);
-        if (_previousRotations.Count > 5)
+        if (_enabled)
         {
-            _previousRotations.RemoveAt(0);
-        }
+            _worldPosition = Vector3.Lerp(_worldPosition, GetMousePosition(), _rotationSpeed * Time.deltaTime);
 
-        _worldPosition = Vector3.Lerp(_worldPosition, GetMousePosition(), _rotationSpeed * Time.deltaTime);
-        if (Enabled)
-        {
-            transform.LookAt(_worldPosition);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            Vector3 direction = _worldPosition - transform.position;
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
         }
     }
+
 
     private Vector3 GetMousePosition()
     {
@@ -36,23 +35,15 @@ public class LookAtMouse : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (_plane.Raycast(ray, out float distance))
         {
-            Vector3 mousePosition = ray.GetPoint(distance);
             return ray.GetPoint(distance);
         }
 
         return Vector3.zero;
     }
 
-    public float GetCurrentRotationVelocity()
+
+    public void SetEnabledState(bool enabled)
     {
-        float rotationVelocity = 0;
-        for (int index = 1; index < _previousRotations.Count; index++)
-        {
-            rotationVelocity += _previousRotations[index].y - _previousRotations[index - 1].y;
-        }
-
-        rotationVelocity /= _previousRotations.Count;
-
-        return rotationVelocity;
+        _enabled = enabled;
     }
 }

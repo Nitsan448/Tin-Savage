@@ -51,7 +51,7 @@ public static class Fader
             }
 
             canvasGroup.alpha = Mathf.Lerp(startingAlpha, targetAlphaValue, currentTime / Durations.UIFadeDuration);
-            currentTime += Time.deltaTime;
+            currentTime += Time.unscaledDeltaTime;
             await UniTask.Yield();
         }
 
@@ -96,7 +96,7 @@ public static class Fader
 
             float newAlphaValue = Mathf.Lerp(startingAlpha, targetAlphaValue, currentTime / Durations.UIFadeDuration);
             image.color = image.color.GetWithNewAlpha(newAlphaValue);
-            currentTime += Time.deltaTime;
+            currentTime += Time.unscaledDeltaTime;
             await UniTask.Yield();
         }
 
