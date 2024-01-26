@@ -9,6 +9,7 @@ public class Dasher : MonoBehaviour
     [HideInInspector] public bool Dashing;
     private CharacterController _controller;
     private LookAtMouse _lookAtMouse;
+    private KeyManager _keyManager;
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
     [SerializeField] private float _dashChargeTime;
@@ -20,6 +21,7 @@ public class Dasher : MonoBehaviour
 
     private void Awake()
     {
+        _keyManager = GetComponent<KeyManager>();
         _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
     }
@@ -30,6 +32,7 @@ public class Dasher : MonoBehaviour
         Dashing = true;
         _controller.SetVelocity(Vector3.zero);
         await ChargeDash();
+        _keyManager.DropKey();
         Vector3 startingPosition = transform.position;
         Vector3 targetDirection = transform.forward;
 

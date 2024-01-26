@@ -14,7 +14,6 @@ namespace Platformer3D
 
         [SerializeField, Range(0f, 100f)] private float _maxSpeed = 10f;
         [SerializeField, Range(0f, 100f)] private float _maxGroundAcceleration = 10f;
-        [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 10f;
         [SerializeField, Range(0f, 10f)] private float _jumpHeight = 2f;
         [SerializeField, Range(0f, 1f)] private float _airJumpStrengthWhenFalling = 2;
         [SerializeField, Range(0f, 90f)] private float _maxGroundAngle = 25f;
@@ -106,7 +105,7 @@ namespace Platformer3D
             float currentXVelocity = Vector3.Dot(_velocity, xAxis);
             float currentZVelocity = Vector3.Dot(_velocity, zAxis);
 
-            float acceleration = OnGround ? _maxGroundAcceleration : _maxAirAcceleration;
+            float acceleration = _maxGroundAcceleration;
             float maxSpeedChange = acceleration * Time.deltaTime;
 
             float newXVelocity = Mathf.MoveTowards(currentXVelocity, _desiredVelocity.x, maxSpeedChange);
