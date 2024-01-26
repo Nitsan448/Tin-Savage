@@ -10,6 +10,7 @@ public class Dasher : MonoBehaviour
     private CharacterController _controller;
     private LookAtMouse _lookAtMouse;
     private KeyManager _keyManager;
+    private Knocker _knocker;
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
     [SerializeField] private float _dashChargeTime;
@@ -24,11 +25,13 @@ public class Dasher : MonoBehaviour
         _keyManager = GetComponent<KeyManager>();
         _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
+        _knocker = GetComponent<Knocker>();
     }
 
     public async UniTask Dash()
     {
         _lookAtMouse.SetEnabledState(false);
+        _knocker.BeingKnocked = false;
         Dashing = true;
         _controller.SetVelocity(Vector3.zero);
         await ChargeDash();

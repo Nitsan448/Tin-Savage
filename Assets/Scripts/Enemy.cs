@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Enemy : MonoBehaviour
 {
+    public int KnockBackDistance = 30;
     [SerializeField] private GameObject _deathParticleSystemPrefab;
     private Wave _wave;
 
