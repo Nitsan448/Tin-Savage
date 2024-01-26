@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 7149630986851920634}
   - component: {fileID: 7827192551038664838}
   - component: {fileID: 7004035183336598193}
+  - component: {fileID: 503703189310225577}
   m_Layer: 8
   m_Name: Enemy_Small
   m_TagString: Untagged
@@ -514,6 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KnockBackDistance: 30
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
 --- !u!114 &7004035183336598193
 MonoBehaviour:
@@ -533,6 +535,22 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 8}
   _seperateRadiusRange: {x: 0, y: 15}
+--- !u!111 &503703189310225577
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347466557518357159}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c05f1dc394444f941959a1f6dd96ef11, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c05f1dc394444f941959a1f6dd96ef11, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2440238371963316387
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +755,7 @@ Transform:
   m_Children:
   - {fileID: 1446348157228962138}
   m_Father: {fileID: 1953177231457172246}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 356.40952, z: 0}
 --- !u!114 &4245765588117595006
 MonoBehaviour:
   m_ObjectHideFlags: 0
