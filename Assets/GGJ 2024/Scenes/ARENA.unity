@@ -175,10 +175,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1056786546}
     m_Modifications:
-    - target: {fileID: 256004251305013082, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.9
@@ -218,10 +214,6 @@ PrefabInstance:
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4179057145393833347, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
-      propertyPath: _keyDropDistanceFromPlayer.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4209717066384063609, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_Name
