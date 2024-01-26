@@ -6,6 +6,7 @@ using UnityEngine;
 public class SceneReferencer : ASingleton<SceneReferencer>
 {
     public Player Player;
+    public Danger danger;
 
     protected override void DoOnAwake()
     {
@@ -13,6 +14,11 @@ public class SceneReferencer : ASingleton<SceneReferencer>
         if (Player == null)
         {
             Player = FindObjectOfType<Player>();
+        }
+
+        if (danger == null)
+        {
+            danger = FindObjectOfType<Danger>();
         }
     }
 }

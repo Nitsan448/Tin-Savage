@@ -27,8 +27,6 @@ public class KeyManager : MonoBehaviour
 
     public void PickUpKey(Key key)
     {
-        Debug.Log(Time.time);
-        Debug.Log(_keyDropTime);
         if (Time.time < _keyDropTime + _minimumTimeBetweenDropToPickup)
         {
             return;

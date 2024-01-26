@@ -61,4 +61,9 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    public void Die()
+    {
+        LevelLoader.Instance.LoadCurrentLevel();
+    }
 }
