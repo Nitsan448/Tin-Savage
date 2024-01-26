@@ -90,6 +90,9 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, 10);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.x);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.y);
     }
 }
