@@ -22,8 +22,9 @@ public class ObjectFollowPlayer : MonoBehaviour
     private float _timeSinceLastSeparateSpeedChanged;
     private float _timeBetweenRandomizations;
     private Rigidbody _rigidbody;
-    private Vector3 nextRotation;
+    private Quaternion _nextRotation;
     private float _timeSinceLookAtRotationSaved = 0;
+    private bool _saveLookAtRotation;
 
 
     private void Awake()
@@ -45,7 +46,8 @@ public class ObjectFollowPlayer : MonoBehaviour
         _timeSinceLookAtRotationSaved += Time.deltaTime;
         if (_timeSinceLookAtRotationSaved > 0.2f)
         {
-            // _timeSinceLookAtRotationSaved = 
+            _saveLookAtRotation = true;
+            _timeSinceLookAtRotationSaved = 0;
         }
     }
 
@@ -56,11 +58,17 @@ public class ObjectFollowPlayer : MonoBehaviour
         Vector3 desiredVelocity = direction * _movementSpeed;
         Vector3 deltaVelocity = desiredVelocity - _rigidbody.velocity;
         Vector3 moveForce = deltaVelocity * (_movementAccuracy * ForcePower * Time.fixedDeltaTime);
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
-        // transform.LookAt(direction);
-        // transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        if (_saveLookAtRotation)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+            _nextRotation = lookRotation;
+            _saveLookAtRotation = false;
+        }
+
+        transform.LookAt(direction);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        moveForce = new Vector3(moveForce.x, 0, moveForce.z);
         _rigidbody.AddForce(moveForce);
     }
 
@@ -90,7 +98,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.x);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.y);
