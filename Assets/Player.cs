@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _startingDashSpeed;
     [SerializeField] private float _maxDashSpeed;
     [SerializeField] private float _dashChargeTime;
+    [SerializeField] private float _dashVelocityOnEnd;
 
     private bool _dashing;
 
@@ -75,6 +76,9 @@ public class Player : MonoBehaviour
             passedTime += Time.fixedDeltaTime;
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         }
+
+        // _controller.SetVelocity(targetDirection * _dashVelocityOnEnd);
+        _controller.SetVelocity(Vector3.zero);
 
         Debug.Log("here");
         _dashing = false;
