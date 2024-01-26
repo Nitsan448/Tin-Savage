@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8889637208791490845, guid: 368c9ded015e97547baf79cd6b080d73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8889637208791490845, guid: 368c9ded015e97547baf79cd6b080d73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1087,6 +1087,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4245765588117595006, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: finalScaleReference
+      value: 2.4912124
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 8334504098061706787, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1120,8 +1132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 10
-  _seperateSpeed: 2
   _movementAccuracy: 30
+  _rotationSpeed: 10
+  _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
+  _seperateSpeedRange: {x: 1, y: 8}
+  _seperateRadiusRange: {x: 2, y: 15}
 --- !u!114 &221743357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1512,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 8334504098061706787, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1527,8 +1550,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 10
-  _seperateSpeed: 2
   _movementAccuracy: 30
+  _rotationSpeed: 10
+  _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
+  _seperateSpeedRange: {x: 1, y: 8}
+  _seperateRadiusRange: {x: 2, y: 15}
 --- !u!1001 &273568424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7778,8 +7804,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 10
-  _seperateSpeed: 2
   _movementAccuracy: 30
+  _rotationSpeed: 10
+  _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
+  _seperateSpeedRange: {x: 1, y: 8}
+  _seperateRadiusRange: {x: 2, y: 15}
 --- !u!1001 &1427575067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7967,6 +7996,14 @@ PrefabInstance:
     - target: {fileID: 2347466557518357159, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8334504098061706787, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: playOnAwake
@@ -10696,6 +10733,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 223663049}
     m_Modifications:
+    - target: {fileID: 256004251305013082, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256004251305013082, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10736,9 +10781,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4179057145393833347, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: _keyPrefab
+      value: 
+      objectReference: {fileID: 6517285927963964741, guid: cffac27bc8784114c994f163e1c5a01b, type: 3}
     - target: {fileID: 4209717066384063609, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_Name
       value: KNIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025373038463838656, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6842959617749977563, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: finalScaleReference
