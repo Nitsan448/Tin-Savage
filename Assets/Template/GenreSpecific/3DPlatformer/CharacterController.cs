@@ -13,7 +13,7 @@ namespace Platformer3D
         public bool OnGround => _groundContactCount > 0;
 
         [SerializeField, Range(0f, 100f)] private float _maxSpeed = 10f;
-        [SerializeField, Range(0f, 100f)] private float _maxGroundAcceleration = 10f;
+        [SerializeField, Range(0f, 1000f)] private float _maxGroundAcceleration = 10f;
         [SerializeField, Range(0f, 10f)] private float _jumpHeight = 2f;
         [SerializeField, Range(0f, 1f)] private float _airJumpStrengthWhenFalling = 2;
         [SerializeField, Range(0f, 90f)] private float _maxGroundAngle = 25f;
