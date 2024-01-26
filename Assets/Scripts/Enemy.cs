@@ -7,6 +7,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject _deathParticleSystemPrefab;
+    private Wave _wave;
+
+    public void Init(Wave wave)
+    {
+        _wave = wave;
+    }
 
     public void Die()
     {
@@ -15,6 +21,7 @@ public class Enemy : MonoBehaviour
             Instantiate(_deathParticleSystemPrefab, transform.position, Quaternion.identity);
         }
 
+        _wave.OnEnemyDeath();
         Destroy(gameObject);
     }
 }
