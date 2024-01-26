@@ -24,7 +24,6 @@ public class Knocker : MonoBehaviour
 
     public async UniTask Knock(Vector3 knockingObjectPosition, float knockBackDistance)
     {
-        //TODO: remember to rotate the player as he is being knocked back
         BeingKnocked = true;
         _lookAtMouse.SetEnabledState(false);
         Vector3 startingPosition = transform.position;
