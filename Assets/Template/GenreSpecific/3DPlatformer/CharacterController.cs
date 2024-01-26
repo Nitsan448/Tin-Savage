@@ -52,7 +52,7 @@ namespace Platformer3D
 
         public void UpdateInput()
         {
-            Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInput, 1);
+            Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInputRaw, 1);
 
             _desiredVelocity =
                 new Vector3(directionalInput.x, 0f, directionalInput.y) * _maxSpeed;

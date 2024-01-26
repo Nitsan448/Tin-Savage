@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 412357180014318222}
   - component: {fileID: 256004251305013082}
   - component: {fileID: 6816626662274624810}
+  - component: {fileID: 1185325364221321451}
   m_Layer: 8
   m_Name: KNIGHT
   m_TagString: Untagged
@@ -991,7 +992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4209717066384063609}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1011,10 +1012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e11382bf971cc4093914cc0f378498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 11.7
-  _maxGroundAcceleration: 97.3
+  _maxSpeed: 40
+  _maxGroundAcceleration: 80
   _maxAirAcceleration: 10
-  _jumpHeight: 2
+  _jumpHeight: 0
   _airJumpStrengthWhenFalling: 0.8
   _maxGroundAngle: 60
   _maxSpeedToSnapToGround: 100
@@ -1221,7 +1222,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6816626662274624810
@@ -1236,11 +1237,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e687d23187a7a49b187ae4f36877f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 2.7
+  _rotationSpeed: 5
   Enabled: 1
-  _mouseDetectionMask:
+--- !u!114 &1185325364221321451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209717066384063609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b139b48cc8e40d245b6bfcbe6abe17be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dashDistance: 30
+  _maxDashSpeed: 120
+  _dashChargeTime: 1
+  _dashCurve:
     serializedVersion: 2
-    m_Bits: 0
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.4976415
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.30833334
+      value: 0.9316038
+      inSlope: 0.49468818
+      outSlope: 0.49468818
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4958333
+      value: 0.9929245
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6666667
+      value: 0.9316038
+      inSlope: -0.4905658
+      outSlope: -0.4905658
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9958333
+      value: 0.16981131
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _rig: {fileID: 132188474015297818}
+  _chargedDashYPosition: -1.5
+  _chargedDashXRotation: 15
 --- !u!1 &4333567095136598065
 GameObject:
   m_ObjectHideFlags: 0
