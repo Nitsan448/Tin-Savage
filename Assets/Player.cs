@@ -45,4 +45,12 @@ public class Player : MonoBehaviour
             _keyManager.PickUpKey(key);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            enemy.Die();
+        }
+    }
 }
