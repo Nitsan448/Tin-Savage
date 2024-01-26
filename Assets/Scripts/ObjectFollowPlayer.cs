@@ -80,12 +80,17 @@ public class ObjectFollowPlayer : MonoBehaviour
         var hits = Physics.OverlapSphere(transform.position, _separateRadius);
         foreach (var hit in hits)
         {
-            if (hit.GetComponent<Enemy>() != null && hit.transform != transform)
+            if (hit.TryGetComponent(out Enemy enemy) && hit.transform != transform)
             {
                 Vector2 direction = transform.position - hit.transform.position;
                 direction = direction.normalized / Mathf.Abs(direction.magnitude);
                 finalDirection += direction;
                 count++;
+            }
+
+            if (hit.GetComponent<Player>() != null)
+            {
+                _separateSpeed = Random.Range(_seperateSpeedRange.x, _seperateSpeedRange.y) / 3;
             }
         }
 

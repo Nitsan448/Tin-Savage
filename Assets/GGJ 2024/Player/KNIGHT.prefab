@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 5135666151796202758}
   - component: {fileID: 4120090253830892407}
   - component: {fileID: 4179057145393833347}
+  - component: {fileID: 9053219121046163614}
   m_Layer: 9
   m_Name: KNIGHT
   m_TagString: Untagged
@@ -1067,7 +1068,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6816626662274624810
@@ -1180,8 +1181,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyPrefab: {fileID: 6517285927963964741, guid: cffac27bc8784114c994f163e1c5a01b, type: 3}
   _keyOnPlayer: {fileID: 3618534067311290360}
-  _keyDropDistanceFromPlayer: {x: 0, y: 3, z: -1.55}
+  _keyDropDistanceFromPlayer: {x: 0, y: 5, z: -1.55}
   _minimumTimeBetweenDropToPickup: 1
+--- !u!114 &9053219121046163614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209717066384063609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06b9578279a8234e861168fead1676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxKnockBackSpeed: 80
+  _knockBackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25416663
+      value: 0.9292453
+      inSlope: 0.55675834
+      outSlope: 0.55675834
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5083333
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.68333334
+      value: 0.9481132
+      inSlope: -0.4185825
+      outSlope: -0.4185825
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0041667
+      value: 0.16037732
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _rig: {fileID: 132188474015297818}
+  BeingKnocked: 0
 --- !u!1 &4333567095136598065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1870,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 3.288475
+  finalScaleReference: 3.288476
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0
