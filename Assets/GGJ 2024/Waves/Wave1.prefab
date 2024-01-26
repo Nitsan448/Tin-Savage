@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: finalScaleReference
       value: 2.4912121
       objectReference: {fileID: 0}
+    - target: {fileID: 7004035183336598193, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: _seperateRadiusRange.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -164,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4103866414546287023, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 23.4
       objectReference: {fileID: 0}
     - target: {fileID: 4103866414546287023, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_LocalRotation.w
@@ -198,6 +202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8754499357261646566, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _seperateRadiusRange.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -218,7 +226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1953177231457172246, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.16
+      value: 23.3
       objectReference: {fileID: 0}
     - target: {fileID: 1953177231457172246, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -263,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 4245765588117595006, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: finalScaleReference
       value: 2.4912121
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004035183336598193, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
+      propertyPath: _seperateRadiusRange.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7149630986851920634, guid: edf10467d0c5f474cb3bce3cb5977ddc, type: 3}
       propertyPath: m_Constraints

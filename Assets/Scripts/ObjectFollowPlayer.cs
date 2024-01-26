@@ -66,9 +66,8 @@ public class ObjectFollowPlayer : MonoBehaviour
             _saveLookAtRotation = false;
         }
 
-        // transform.rotation = Quaternion.Lerp(transform.rotation, _nextRotation, _rotationSpeed * Time.deltaTime);
-        // transform.LookAt(direction);
-        // transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        transform.LookAt(direction);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         moveForce = new Vector3(moveForce.x, 0, moveForce.z);
         _rigidbody.AddForce(moveForce);
     }
@@ -99,7 +98,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.x);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.y);
