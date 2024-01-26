@@ -9,6 +9,7 @@ namespace Platformer3D
 {
     public class CharacterController : MonoBehaviour
     {
+        public Rigidbody RigidBody => _rigidBody;
         public bool OnGround => _groundContactCount > 0;
 
         [SerializeField, Range(0f, 100f)] private float _maxSpeed = 10f;
@@ -42,7 +43,14 @@ namespace Platformer3D
             _minGroundDotProduct = Mathf.Cos(_maxGroundAngle * Mathf.Deg2Rad);
         }
 
-        private void Update()
+        public void SetVelocity(Vector3 velocity)
+        {
+            _rigidBody.velocity = velocity;
+            _velocity = velocity;
+            _desiredVelocity = velocity;
+        }
+
+        public void UpdateInput()
         {
             Vector2 directionalInput = Vector2.ClampMagnitude(InputManager.Instance.DirectionalInput, 1);
 
@@ -56,7 +64,7 @@ namespace Platformer3D
         }
 
 
-        private void FixedUpdate()
+        public void CalculateVelocity()
         {
             UpdateState();
             AdjustVelocity();

@@ -12,8 +12,7 @@ public class LookAtMouse : MonoBehaviour
 
     private Vector3 _previousEulerAngles;
     private readonly List<Vector3> _previousRotations = new();
-    public bool Enabled = true;
-    [SerializeField] private LayerMask _mouseDetectionMask;
+    [HideInInspector] public bool Enabled = true;
 
     private void FixedUpdate()
     {
@@ -38,7 +37,6 @@ public class LookAtMouse : MonoBehaviour
         if (_plane.Raycast(ray, out float distance))
         {
             Vector3 mousePosition = ray.GetPoint(distance);
-            Debug.Log(mousePosition);
             return ray.GetPoint(distance);
         }
 
