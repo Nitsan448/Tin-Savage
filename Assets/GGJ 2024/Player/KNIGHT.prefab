@@ -856,7 +856,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4304075438223403151, guid: 45db75dc0a4324342b881a5b2d21334a, type: 3}
+  - {fileID: 2100000, guid: 194e152b60456624fbc42de34942742d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 3.2884748
+  finalScaleReference: 3.288475
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0
