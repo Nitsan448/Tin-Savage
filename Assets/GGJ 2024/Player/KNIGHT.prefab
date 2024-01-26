@@ -822,8 +822,8 @@ Transform:
   m_GameObject: {fileID: 3618534067311290360}
   serializedVersion: 2
   m_LocalRotation: {x: -0.004565581, y: 0.0898847, z: -0.9946595, w: -0.050522484}
-  m_LocalPosition: {x: 0.002, y: 0.021, z: -0.79}
-  m_LocalScale: {x: 0.7584, y: 0.7584, z: 0.7584}
+  m_LocalPosition: {x: 0.0024708, y: 0.071311, z: -1.0664}
+  m_LocalScale: {x: 1.3804396, y: 1.3804396, z: 1.3804396}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 767282108204477345}
@@ -1041,8 +1041,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.95, z: 0}
+  m_Radius: 0.80850315
+  m_Center: {x: 0, y: 1.2585032, z: 0}
 --- !u!54 &256004251305013082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1065,10 +1065,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &6816626662274624810
 MonoBehaviour:
@@ -1178,9 +1178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba4d1ee799ec6e40b97ba3eb6d44f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyPrefab: {fileID: 1866673078048560322, guid: 68cc63c135f90394ab01a4d7d8ec5b9a, type: 3}
+  _keyPrefab: {fileID: 6517285927963964741, guid: cffac27bc8784114c994f163e1c5a01b, type: 3}
   _keyOnPlayer: {fileID: 3618534067311290360}
-  _keyDropDistanceFromPlayer: {x: 0, y: 0.5, z: -1.55}
+  _keyDropDistanceFromPlayer: {x: 0, y: 3, z: -1.55}
   _minimumTimeBetweenDropToPickup: 1
 --- !u!1 &4333567095136598065
 GameObject:
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   SendOnMovingGlue: 0
   StepEventOnLanding: 0
   StepInfoReceiver: {fileID: 0}
-  ExtraPelvisOffset: {x: 0, y: 0.35, z: 0}
+  ExtraPelvisOffset: {x: 0, y: -0.5, z: 0}
   ReposeGluingAfter: 0
   GlueOnlyOnIdle: 0
   LocalWorldUp: 1
@@ -1792,10 +1792,10 @@ MonoBehaviour:
   _Editor_EnsureCount: 0
   _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
-  _EditorCategory: 1
+  _EditorCategory: 2
   _EditorSetupCategory: 2
-  _EditorMotionCategory: 0
-  _EditorExtraCategory: 2
+  _EditorMotionCategory: 3
+  _EditorExtraCategory: 0
   IKHintMode: 0
   LimitLegStretch: 0.99
   FeetYOffset: 0
