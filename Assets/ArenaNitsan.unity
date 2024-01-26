@@ -10433,10 +10433,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2051097520746191568, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
-      propertyPath: _maxGroundAcceleration
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 4209717066384063609, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_Name
       value: KNIGHT
