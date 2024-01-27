@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4179057145393833347, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: _minimumTimeBetweenDropToPickup
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4209717066384063609, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_Name
       value: KNIGHT
@@ -322,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &62595440
 Transform:
   m_ObjectHideFlags: 0
@@ -350,11 +354,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a7192f8921b4d4ebd51cb8e60524b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timePerWave: 0a0000000a0000000a0000001400000005000000050000000a000000020000000a00000002000000
+  _timePerWave: 0a0000000a0000000800000008000000060000000600000006000000060000000400000004000000
   _possibleWavesPrefabs:
   - {fileID: 7116097824945455643, guid: 3e09e7a53c8f3644c8448c08da46035c, type: 3}
   - {fileID: 182732292379629363, guid: cf3e41c75a64f544f8edfbc5b4adde43, type: 3}
   - {fileID: 689002518551519103, guid: 2888e0407f9775e4cad31e144a96707a, type: 3}
+  - {fileID: 8205948987594353117, guid: 0b5704d37fa90e94c8c9abbbd925f1b9, type: 3}
+  - {fileID: 3515834680709331941, guid: 46640d221b0742149a27f847b89fddee, type: 3}
 --- !u!1001 &76766397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -686,7 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb334728724fdd4293c8974820fc0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfEnemiesLeft: 0
 --- !u!1 &201050475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,21 +2578,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 186155507}
     m_Modifications:
-    - target: {fileID: 4001563146164310918, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
-      propertyPath: _knockBackDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4001563146164310918, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
-      propertyPath: _maxKnockBackSpeed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4103866414546287023, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: 4103866414546287023, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.1
+      value: 21.63
       objectReference: {fileID: 0}
     - target: {fileID: 4103866414546287023, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2621,17 +2618,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4938909469864416083, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
-      propertyPath: _health
-      value: 3
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _distanceToExitDetectingMode
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _distanceToEnterDetectingMode
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _movementSpeedMultiplierOnDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _movementAccuracyMultiplierOnDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8051137703593341224, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_Name
       value: Tower Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8051137703593341224, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8754499357261646566, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
-      propertyPath: _avoidHoleMultiplier
-      value: 2
+      propertyPath: _movementAccuracy
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

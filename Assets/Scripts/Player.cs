@@ -34,7 +34,14 @@ public class Player : MonoBehaviour
             _dasher.Dash().Forget();
         }
 
-        _timeSinceLastDashFinished += Time.deltaTime;
+        if (_immune)
+        {
+            _timeSinceLastDashFinished += Time.deltaTime;
+            if (_timeSinceLastDashFinished > _immunityTimeAfterDash)
+            {
+                _immune = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -66,9 +73,17 @@ public class Player : MonoBehaviour
                     _playerKnocker.Knock(transform.position + transform.forward, 1);
                 }
             }
-            else if (!_playerKnocker.BeingKnocked && !_immune)
+            else if (!_immune)
             {
-                _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
+                if (enemy.KillPlayerOnHit)
+                {
+                    Die();
+                }
+                else
+                {
+                    _playerKnocker.BeingKnocked = false;
+                    _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
+                }
             }
         }
     }
@@ -76,7 +91,7 @@ public class Player : MonoBehaviour
     public void SetImmune()
     {
         _immune = true;
-        _timeSinceLastDashFinished = _immunityTimeAfterDash;
+        _timeSinceLastDashFinished = 0;
     }
 
     public void Die()

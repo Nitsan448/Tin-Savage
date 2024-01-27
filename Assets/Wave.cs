@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    [HideInInspector] public int NumberOfEnemiesLeft;
+    // [HideInInspector] public int NumberOfEnemiesLeft;
 
     private void Start()
     {
-        Enemy[] enemiesInWave = GetComponentsInChildren<Enemy>();
-        foreach (Enemy enemy in enemiesInWave)
-        {
-            enemy.Init(this);
-        }
-
-        NumberOfEnemiesLeft = enemiesInWave.Length;
+        // Enemy[] enemiesInWave = GetComponentsInChildren<Enemy>();
+        // foreach (Enemy enemy in enemiesInWave)
+        // {
+        //     enemy.Init(this);
+        // }
+        //
+        // NumberOfEnemiesLeft = enemiesInWave.Length;
     }
 
     public void OnEnemyDeath()
     {
-        NumberOfEnemiesLeft--;
-        if (NumberOfEnemiesLeft == 0)
-        {
-            Destroy(gameObject);
-        }
+        // NumberOfEnemiesLeft--;
+        // if (NumberOfEnemiesLeft == 0)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }

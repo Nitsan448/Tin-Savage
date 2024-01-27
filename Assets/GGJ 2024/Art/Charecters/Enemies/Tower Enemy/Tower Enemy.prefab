@@ -571,11 +571,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103866414546287023}
-  - component: {fileID: 4938909469864416083}
+  - component: {fileID: 2398900562002581916}
   - component: {fileID: 8754499357261646566}
   - component: {fileID: 7145666275601963302}
   - component: {fileID: 6414838439060392322}
   - component: {fileID: 4001563146164310918}
+  - component: {fileID: 8009012864553737528}
   m_Layer: 8
   m_Name: Tower Enemy
   m_TagString: Untagged
@@ -603,7 +604,7 @@ Transform:
   - {fileID: 9098408992628744746}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4938909469864416083
+--- !u!114 &2398900562002581916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,12 +613,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8051137703593341224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ad9ef052ed49bc43890e10ded720999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   KnockPlayerDistance: 20
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
-  _health: 0
+  _health: 3
+  _particleSystemSpawnOffset: {x: 0, y: 4, z: 0}
+  KillPlayerOnHit: 1
+  _spheres:
+  - {fileID: 925045907361245267}
+  - {fileID: 700947369456692784}
+  - {fileID: 3930126426383701187}
 --- !u!114 &8754499357261646566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,7 +644,7 @@ MonoBehaviour:
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
   _radiusFromPlayer: 0
-  _avoidHoleMultiplier: 1.5
+  _avoidHoleMultiplier: 2
 --- !u!135 &7145666275601963302
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -698,8 +705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 40
-  _knockBackDistance: 15
+  _maxKnockBackSpeed: 30
+  _knockBackDistance: 10
   _knockBackCurve:
     serializedVersion: 2
     m_Curve:
@@ -751,8 +758,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _rig: {fileID: 0}
   BeingKnocked: 0
+--- !u!114 &8009012864553737528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8051137703593341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8122393543119032554
 GameObject:
   m_ObjectHideFlags: 0
