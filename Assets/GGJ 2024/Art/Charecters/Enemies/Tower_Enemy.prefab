@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6331796891103714956}
   - component: {fileID: 4950975496036680508}
   - component: {fileID: 6585222390242673025}
-  - component: {fileID: 6208266977402367990}
+  - component: {fileID: 8324246106812511114}
   - component: {fileID: 1350676239731313213}
   - component: {fileID: 6056836788064945439}
   - component: {fileID: 4178961782177820089}
@@ -73,15 +73,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b806cc9e97ac4a81dff54937c78ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 4
-  _movementAccuracy: 6
-  _rotationSpeed: 6
+  _movementSpeed: 5
+  _movementAccuracy: 25
+  _rotationSpeed: 0
   _timeBetweenRandomizationsRange: {x: 1, y: 2}
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
   _avoidHoleMultiplier: 2
---- !u!135 &6208266977402367990
-SphereCollider:
+--- !u!65 &8324246106812511114
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,8 +99,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.6606709
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 7.24055, y: 15.083866, z: 5.6902447}
+  m_Center: {x: 0.023174286, y: 7.041933, z: -0.082927704}
 --- !u!54 &1350676239731313213
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 30
+  _maxKnockBackSpeed: 5
   _knockBackDistance: 10
   _knockBackCurve:
     serializedVersion: 2
@@ -206,10 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToEnterDetectingMode: 0
-  _distanceToExitDetectingMode: 0
+  _distanceToEnterDetectingMode: 12
+  _distanceToExitDetectingMode: 14
   _movementSpeedMultiplierOnDetection: 2
-  _movementAccuracyMultiplierOnDetection: 2
+  _movementAccuracyMultiplierOnDetection: 3
   _separateSpeedMultiplierOnDetection: 0.5
 --- !u!1 &682615056298235147
 GameObject:
@@ -504,7 +504,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5706496424951590127}
