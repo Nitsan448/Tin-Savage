@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 1380773814098479214}
   - component: {fileID: 1140294627404405489}
   m_Layer: 8
-  m_Name: Enemy_Small
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
   _deathSoundName: SpiderDeath
-  Score: 1
+  Score: 0
 --- !u!114 &7004035183336598193
 MonoBehaviour:
   m_ObjectHideFlags: 0
