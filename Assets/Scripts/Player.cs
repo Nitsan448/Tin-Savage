@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     private bool _immune;
     private float _timeSinceLastDashFinished = 0;
+    [SerializeField] private MeshRenderer _mesh;
 
     private void Awake()
     {
@@ -80,6 +81,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        _mesh.sharedMaterial.SetFloat("_emissioin", 0);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
@@ -93,7 +99,8 @@ public class Player : MonoBehaviour
                 {
                     _dasher.Dashing = false;
                     _playerWalkSound.Stop();
-                    _playerKnocker.Knock(transform.position + transform.forward, 1);
+                    HitEffect.Instance.OnHit(_mesh.sharedMaterial).Forget();
+                    _playerKnocker.Knock(transform.position + transform.forward, 1).Forget();
                 }
             }
             else if (!_immune)
@@ -106,7 +113,8 @@ public class Player : MonoBehaviour
                 {
                     _playerWalkSound.Stop();
                     _playerKnocker.BeingKnocked = false;
-                    _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
+                    _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance).Forget();
+                    HitEffect.Instance.OnHit(_mesh.sharedMaterial).Forget();
                 }
             }
         }
