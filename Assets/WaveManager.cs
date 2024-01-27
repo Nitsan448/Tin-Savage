@@ -51,7 +51,7 @@ public class WaveManager : MonoBehaviour
             }
 
             int waveIndex = Random.Range(0, waves.Count);
-            Instantiate(waves[waveIndex], Vector3.zero, Quaternion.identity);
+            Instantiate(waves[waveIndex], Vector3.zero, Quaternion.identity, parent: transform);
             waves.RemoveAt(waveIndex);
             await UniTask.Delay(TimeSpan.FromSeconds(waveTime));
         }
