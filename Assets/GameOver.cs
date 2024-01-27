@@ -14,6 +14,7 @@ public class GameOver : ASingleton<GameOver>
     // Start is called before the first frame update
     void Start()
     {
+        GameOverAsync().Forget();
     }
 
     private async UniTask GameOverAsync()
@@ -31,6 +32,8 @@ public class GameOver : ASingleton<GameOver>
             if (Input.anyKey)
             {
             }
+
+            await UniTask.Yield();
         }
     }
 }
