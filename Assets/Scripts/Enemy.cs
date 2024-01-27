@@ -16,16 +16,22 @@ public class Enemy : MonoBehaviour
     private Wave _wave;
     [SerializeField] private Vector3 _particleSystemSpawnOffset;
     public bool KillPlayerOnHit;
+    [SerializeField] private string _deathSoundName;
+    [SerializeField] public int Score;
 
     private void Awake()
     {
         _enemyKnocker = GetComponent<EnemyKnocker>();
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.Play("EnemySpawn");
+    }
+
     public void Init(Wave wave)
     {
         _wave = wave;
-        _enemyKnocker = GetComponent<EnemyKnocker>();
     }
 
     public bool Hit()
@@ -51,11 +57,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die(bool diedFromDash = true)
     {
         if (_deathParticleSystemPrefab != null)
         {
             Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
+        }
+
+        AudioManager.Instance.Play(_deathSoundName);
+        if (!diedFromDash)
+        {
+            LaughterManager.Instance.PlayLaughsByScore(Score).Forget();
         }
 
         // _wave.OnEnemyDeath();

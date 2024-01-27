@@ -522,6 +522,8 @@ MonoBehaviour:
   _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
+  _deathSoundName: SpiderDeath
+  Score: 1
 --- !u!114 &7004035183336598193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,7 +575,52 @@ MonoBehaviour:
   _knockBackDistance: 20
   _knockBackCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25416663
+      value: 0.9292453
+      inSlope: 0.55675834
+      outSlope: 0.55675834
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5083333
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.68333334
+      value: 0.9481132
+      inSlope: -0.4185825
+      outSlope: -0.4185825
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0041667
+      value: 0.16037732
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

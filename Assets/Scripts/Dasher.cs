@@ -10,8 +10,10 @@ public class Dasher : MonoBehaviour
     private CharacterController _controller;
     private LookAtMouse _lookAtMouse;
     private KeyManager _keyManager;
+
     private PlayerKnocker _playerKnocker;
-    private BoxCollider _dashCollider;
+
+    // private BoxCollider _dashCollider;
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
     [SerializeField] private float _dashChargeTime;
@@ -19,6 +21,7 @@ public class Dasher : MonoBehaviour
     [SerializeField] private Transform _rig;
     [SerializeField] private float _chargedDashYPosition;
     [SerializeField] private float _chargedDashXRotation;
+    public int DashScore = 0;
 
 
     private void Awake()
@@ -27,17 +30,19 @@ public class Dasher : MonoBehaviour
         _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
         _playerKnocker = GetComponent<PlayerKnocker>();
-        _dashCollider = GetComponent<BoxCollider>();
+        // _dashCollider = GetComponent<BoxCollider>();
     }
 
     public async UniTask Dash()
     {
+        DashScore = 0;
         _lookAtMouse.SetEnabledState(false);
         _playerKnocker.BeingKnocked = false;
         Dashing = true;
-        _dashCollider.enabled = true;
+        // _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
         await ChargeDash();
+        AudioManager.Instance.Play("Dash");
         _keyManager.DropKey();
         Vector3 startingPosition = transform.position;
         Vector3 targetDirection = transform.forward;
@@ -67,8 +72,9 @@ public class Dasher : MonoBehaviour
     {
         SetRigTransform(0);
         Dashing = false;
-        _dashCollider.enabled = false;
+        // _dashCollider.enabled = false;
         _lookAtMouse.SetEnabledState(true);
+        LaughterManager.Instance.PlayLaughsByScore(DashScore).Forget();
         SceneReferencer.Instance.Player.SetImmune();
     }
 
@@ -76,6 +82,7 @@ public class Dasher : MonoBehaviour
     {
         float passedTime = 0;
 
+        AudioManager.Instance.Play("DashCharge");
         while (passedTime < _dashChargeTime)
         {
             float t = passedTime / _dashChargeTime;

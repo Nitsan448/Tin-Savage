@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/BaseScene.unity
     guid: a9878f1b2271db4449b0d090a9ef06ce
   - enabled: 1
-    path: Assets/GGJ 2024/Scenes/ARENA 1.unity
-    guid: ff720de8b8313d549bbf74d0d0958b5b
+    path: Assets/GGJ 2024/Scenes/ARENA.unity
+    guid: 7aa0a9768817a4a4e9551aa224b1ef32
   m_configObjects: {}

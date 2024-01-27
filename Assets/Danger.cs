@@ -15,7 +15,7 @@ public class Danger : MonoBehaviour
 
         if (other.TryGetComponent(out Enemy enemy))
         {
-            enemy.Die();
+            enemy.Die(false);
         }
     }
 }

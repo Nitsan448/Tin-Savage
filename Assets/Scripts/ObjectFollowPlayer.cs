@@ -65,7 +65,7 @@ public class ObjectFollowPlayer : MonoBehaviour
         Vector3 direction = (SceneReferencer.Instance.Player.transform.position - transform.position).normalized;
         if (_moveAwayFromHole)
         {
-            direction = (transform.position - SceneReferencer.Instance.danger.transform.position).normalized * _avoidHoleMultiplier +
+            direction = (transform.position - SceneReferencer.Instance.Danger.transform.position).normalized * _avoidHoleMultiplier +
                         direction;
         }
         else
@@ -113,13 +113,13 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void HandleHole()
     {
-        if (_moveAwayFromHole && Vector3.Distance(transform.position, SceneReferencer.Instance.danger.transform.position) >
+        if (_moveAwayFromHole && Vector3.Distance(transform.position, SceneReferencer.Instance.Danger.transform.position) >
             _radiusFromHole + 3)
         {
             _moveAwayFromHole = false;
         }
 
-        if (Vector3.Distance(transform.position, SceneReferencer.Instance.danger.transform.position) < _radiusFromHole)
+        if (Vector3.Distance(transform.position, SceneReferencer.Instance.Danger.transform.position) < _radiusFromHole)
         {
             _moveAwayFromHole = true;
         }
