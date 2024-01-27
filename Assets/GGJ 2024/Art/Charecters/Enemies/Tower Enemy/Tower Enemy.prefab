@@ -621,6 +621,7 @@ MonoBehaviour:
   _health: 3
   _particleSystemSpawnOffset: {x: 0, y: 4, z: 0}
   KillPlayerOnHit: 1
+  _deathSoundName: TowerDeath
   _spheres:
   - {fileID: 925045907361245267}
   - {fileID: 700947369456692784}
@@ -643,7 +644,6 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1, y: 2}
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
-  _radiusFromPlayer: 0
   _avoidHoleMultiplier: 2
 --- !u!135 &7145666275601963302
 SphereCollider:
@@ -771,6 +771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _distanceToEnterDetectingMode: 0
+  _distanceToExitDetectingMode: 0
+  _movementSpeedMultiplierOnDetection: 2
+  _movementAccuracyMultiplierOnDetection: 2
+  _separateSpeedMultiplierOnDetection: 0.5
 --- !u!1 &8122393543119032554
 GameObject:
   m_ObjectHideFlags: 0

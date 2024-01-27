@@ -13,12 +13,14 @@ public class Player : MonoBehaviour
     private KeyManager _keyManager;
     private PlayerKnocker _playerKnocker;
     [SerializeField, Range(0, 3)] private float _immunityTimeAfterDash;
+    private AudioSource _playerWalkSound;
 
     private bool _immune;
     private float _timeSinceLastDashFinished = 0;
 
     private void Awake()
     {
+        _playerWalkSound = GetComponent<AudioSource>();
         _dasher = GetComponent<Dasher>();
         _controller = GetComponent<CharacterController>();
         _keyManager = GetComponent<KeyManager>();
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
         _controller.UpdateInput();
         if (Input.GetMouseButtonDown(0) && GameManager.Instance.State == EGameState.Running && _keyManager.HoldingKey)
         {
+            _playerWalkSound.Stop();
             _dasher.Dash().Forget();
         }
 
@@ -48,11 +51,28 @@ public class Player : MonoBehaviour
     {
         if (GameManager.Instance.State == EGameState.Running && !_dasher.Dashing && !_playerKnocker.BeingKnocked)
         {
+            if (!_playerWalkSound.isPlaying && _controller.RigidBody.velocity.magnitude > 1)
+            {
+                _playerWalkSound.Play();
+            }
+            else if (_playerWalkSound.isPlaying && _controller.RigidBody.velocity.magnitude < 1)
+            {
+                _playerWalkSound.Stop();
+            }
+
             _controller.CalculateVelocity();
         }
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Key key))
+        {
+            _keyManager.PickUpKey(key);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out Key key))
         {
@@ -70,6 +90,7 @@ public class Player : MonoBehaviour
                 if (!enemyDied)
                 {
                     _dasher.Dashing = false;
+                    _playerWalkSound.Stop();
                     _playerKnocker.Knock(transform.position + transform.forward, 1);
                 }
             }
@@ -81,6 +102,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+                    _playerWalkSound.Stop();
                     _playerKnocker.BeingKnocked = false;
                     _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
                 }
@@ -96,6 +118,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.Instance.Play("Death");
+        _playerWalkSound.Stop();
         LevelLoader.Instance.LoadCurrentLevel();
     }
 }

@@ -21,7 +21,7 @@ public class AudioManager : ASingleton<AudioManager>
             sound.Source.outputAudioMixerGroup = sound.Output;
         }
 
-        // Play("Starting music", 0);
+        Play("Theme", 2);
     }
 
     public void Play(string soundName, float fadeInTime = 0)

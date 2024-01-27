@@ -522,6 +522,7 @@ MonoBehaviour:
   _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
+  _deathSoundName: SpiderDeath
 --- !u!114 &7004035183336598193
 MonoBehaviour:
   m_ObjectHideFlags: 0

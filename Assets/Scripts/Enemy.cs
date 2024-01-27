@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     private Wave _wave;
     [SerializeField] private Vector3 _particleSystemSpawnOffset;
     public bool KillPlayerOnHit;
+    [SerializeField] private string _deathSoundName;
 
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class Enemy : MonoBehaviour
             Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
         }
 
+        AudioManager.Instance.Play(_deathSoundName);
         // _wave.OnEnemyDeath();
         Destroy(gameObject);
     }
