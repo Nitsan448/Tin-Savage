@@ -16,7 +16,7 @@ public class GameOver : ASingleton<GameOver>
     {
     }
 
-    private async UniTask GameOver()
+    private async UniTask GameOverAsync()
     {
         float currentTime = 0;
         while (currentTime < _fadeInTime)
@@ -30,10 +30,7 @@ public class GameOver : ASingleton<GameOver>
         {
             if (Input.anyKey)
             {
-                
             }
-            
-            
         }
     }
 }
