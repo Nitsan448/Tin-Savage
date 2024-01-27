@@ -123,6 +123,7 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.Play("Death");
         _playerWalkSound.Stop();
+        LaughterManager.Instance.PlayLaughsByScore(6).Forget();
         Transitioner.Instance.GameOverAsync().Forget();
     }
 }

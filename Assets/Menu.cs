@@ -17,7 +17,6 @@ public class Menu : MonoBehaviour
 
     private async UniTask MainMenu()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(_timeUntilPlayPossible));
         while (true)
         {
             if (Input.anyKey)

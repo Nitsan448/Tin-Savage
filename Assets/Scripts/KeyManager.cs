@@ -7,7 +7,7 @@ public class KeyManager : MonoBehaviour
 {
     public bool HoldingKey => _holdingKey;
 
-    private bool _holdingKey = true;
+    private bool _holdingKey = false;
     [SerializeField] private GameObject _keyPrefab;
     [SerializeField] private GameObject _keyOnPlayer;
 
