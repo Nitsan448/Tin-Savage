@@ -32,6 +32,11 @@ public class PlayerKnocker : MonoBehaviour
 
         while (Vector3.Distance(startingPosition, transform.position) < knockBackDistance - 0.2f)
         {
+            if (!BeingKnocked)
+            {
+                _lookAtMouse.SetEnabledState(true);
+            }
+
             float t = Vector3.Distance(startingPosition, transform.position) / knockBackDistance;
             transform.eulerAngles =
                 Vector3.Lerp(startingRotation, new Vector3(startingRotation.x, startingRotation.y + 360, startingRotation.z),

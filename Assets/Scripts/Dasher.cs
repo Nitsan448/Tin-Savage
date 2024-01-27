@@ -44,6 +44,7 @@ public class Dasher : MonoBehaviour
 
         while (Vector3.Distance(startingPosition, transform.position) < _dashDistance - 0.2f)
         {
+            SceneReferencer.Instance.Player.SetImmune();
             if (!Dashing)
             {
                 ResetToNonDashingState();

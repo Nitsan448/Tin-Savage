@@ -9,14 +9,18 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<int> _timePerWave;
     [SerializeField] private List<GameObject> _possibleWavesPrefabs;
-    private List<GameObject> _possibleWavesPrefabsStarting;
+    private List<GameObject> _possibleWavesPrefabsStarting = new();
 
 
     private int _enemiesLeftInWave;
 
     private void Start()
     {
-        _possibleWavesPrefabsStarting = _possibleWavesPrefabs;
+        foreach (GameObject wave in _possibleWavesPrefabs)
+        {
+            _possibleWavesPrefabsStarting.Add(wave);
+        }
+
         SpawnWaves().Forget();
     }
 
