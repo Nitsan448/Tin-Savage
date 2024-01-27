@@ -19,6 +19,7 @@ public class Dasher : MonoBehaviour
     [SerializeField] private Transform _rig;
     [SerializeField] private float _chargedDashYPosition;
     [SerializeField] private float _chargedDashXRotation;
+    public int DashScore = 0;
 
 
     private void Awake()
@@ -32,6 +33,7 @@ public class Dasher : MonoBehaviour
 
     public async UniTask Dash()
     {
+        DashScore = 0;
         _lookAtMouse.SetEnabledState(false);
         _playerKnocker.BeingKnocked = false;
         Dashing = true;
@@ -70,6 +72,7 @@ public class Dasher : MonoBehaviour
         Dashing = false;
         _dashCollider.enabled = false;
         _lookAtMouse.SetEnabledState(true);
+        LaughterManager.Instance.PlayLaughsByScore(DashScore);
         SceneReferencer.Instance.Player.SetImmune();
     }
 

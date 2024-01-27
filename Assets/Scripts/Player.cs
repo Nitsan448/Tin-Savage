@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         {
             if (_dasher.Dashing)
             {
+                _dasher.DashScore += enemy.Score;
                 bool enemyDied = enemy.Hit();
                 if (!enemyDied)
                 {

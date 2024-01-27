@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Vector3 _particleSystemSpawnOffset;
     public bool KillPlayerOnHit;
     [SerializeField] private string _deathSoundName;
+    [SerializeField] public int Score;
 
     private void Awake()
     {
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die(bool diedFromDash = true)
     {
         if (_deathParticleSystemPrefab != null)
         {
@@ -64,6 +65,11 @@ public class Enemy : MonoBehaviour
         }
 
         AudioManager.Instance.Play(_deathSoundName);
+        if (!diedFromDash)
+        {
+            LaughterManager.Instance.PlayLaughsByScore(Score).Forget();
+        }
+
         // _wave.OnEnemyDeath();
         Destroy(gameObject);
     }
