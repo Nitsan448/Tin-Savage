@@ -10,6 +10,12 @@ public class Danger : MonoBehaviour
         if (other.TryGetComponent(out Player player))
         {
             player.Die();
+            return;
+        }
+
+        if (other.TryGetComponent(out Enemy enemy))
+        {
+            enemy.Die();
         }
     }
 }

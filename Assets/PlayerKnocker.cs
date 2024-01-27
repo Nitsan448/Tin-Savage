@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using CharacterController = Platformer3D.CharacterController;
 
-public class Knocker : MonoBehaviour
+public class PlayerKnocker : MonoBehaviour
 {
     [SerializeField] private float _maxKnockBackSpeed;
     [SerializeField] private AnimationCurve _knockBackCurve;

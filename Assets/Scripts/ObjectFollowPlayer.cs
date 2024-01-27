@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(EnemyKnocker))]
 public class ObjectFollowPlayer : MonoBehaviour
 {
     private const float ForcePower = 10;
@@ -19,6 +20,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     [SerializeField] private float _radiusFromPlayer;
     private float _radiusFromHole = 12;
+    [SerializeField, Range(0, 3)] private float _avoidHoleMultiplier;
 
     private float _separateSpeed;
     private float _separateRadius;
@@ -28,10 +30,12 @@ public class ObjectFollowPlayer : MonoBehaviour
     private float _currentSeparateSpeed;
     private Vector3 _awayFromHoleDirection;
     private bool _moveAwayFromHole;
+    private EnemyKnocker _enemyKnocker;
 
 
     private void Awake()
     {
+        _enemyKnocker = GetComponent<EnemyKnocker>();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -50,13 +54,23 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_enemyKnocker.BeingKnocked)
+        {
+            return;
+        }
+
         HandleHole();
         Vector3 direction = (SceneReferencer.Instance.Player.transform.position - transform.position).normalized;
-        direction = (direction * _movementSpeed + SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
         if (_moveAwayFromHole)
         {
-            direction = (transform.position - SceneReferencer.Instance.danger.transform.position).normalized + direction;
+            direction = (transform.position - SceneReferencer.Instance.danger.transform.position).normalized * _avoidHoleMultiplier +
+                        direction;
         }
+        else
+        {
+            direction = (direction * _movementSpeed + SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
+        }
+
 
         Vector3 desiredVelocity = direction.normalized * _movementSpeed;
         Vector3 deltaVelocity = desiredVelocity - _rigidbody.velocity;
