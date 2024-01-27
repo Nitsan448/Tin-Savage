@@ -10,7 +10,7 @@ public class Dasher : MonoBehaviour
     private CharacterController _controller;
     private LookAtMouse _lookAtMouse;
     private KeyManager _keyManager;
-    private Knocker _knocker;
+    private PlayerKnocker _playerKnocker;
     private BoxCollider _dashCollider;
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
@@ -26,14 +26,14 @@ public class Dasher : MonoBehaviour
         _keyManager = GetComponent<KeyManager>();
         _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
-        _knocker = GetComponent<Knocker>();
+        _playerKnocker = GetComponent<PlayerKnocker>();
         _dashCollider = GetComponent<BoxCollider>();
     }
 
     public async UniTask Dash()
     {
         _lookAtMouse.SetEnabledState(false);
-        _knocker.BeingKnocked = false;
+        _playerKnocker.BeingKnocked = false;
         Dashing = true;
         _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
@@ -44,6 +44,12 @@ public class Dasher : MonoBehaviour
 
         while (Vector3.Distance(startingPosition, transform.position) < _dashDistance - 0.2f)
         {
+            if (!Dashing)
+            {
+                ResetToNonDashingState();
+                return;
+            }
+
             float t = Vector3.Distance(startingPosition, transform.position) / _dashDistance;
             float currentDashSpeed = Mathf.Lerp(0, _maxDashSpeed, _dashCurve.Evaluate(t));
 
@@ -53,10 +59,16 @@ public class Dasher : MonoBehaviour
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         }
 
+        ResetToNonDashingState();
+    }
+
+    private void ResetToNonDashingState()
+    {
         SetRigTransform(0);
         Dashing = false;
         _dashCollider.enabled = false;
         _lookAtMouse.SetEnabledState(true);
+        SceneReferencer.Instance.Player.SetImmune();
     }
 
     private async UniTask ChargeDash()
