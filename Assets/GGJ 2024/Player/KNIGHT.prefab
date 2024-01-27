@@ -1066,8 +1066,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.80850315
-  m_Center: {x: 0, y: 1.2585032, z: 0}
+  m_Radius: 1.5057015
+  m_Center: {x: 0, y: 1.9557014, z: 0}
 --- !u!54 &256004251305013082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1179,6 +1179,7 @@ MonoBehaviour:
   _rig: {fileID: 132188474015297818}
   _chargedDashYPosition: -1.5
   _chargedDashXRotation: 15
+  DashScore: 0
 --- !u!114 &4120090253830892407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,7 +2013,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 3.288476
+  finalScaleReference: 3.288475
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0
