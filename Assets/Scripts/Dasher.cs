@@ -38,6 +38,7 @@ public class Dasher : MonoBehaviour
         _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
         await ChargeDash();
+        AudioManager.Instance.Play("Dash");
         _keyManager.DropKey();
         Vector3 startingPosition = transform.position;
         Vector3 targetDirection = transform.forward;
@@ -76,6 +77,7 @@ public class Dasher : MonoBehaviour
     {
         float passedTime = 0;
 
+        AudioManager.Instance.Play("DashCharge");
         while (passedTime < _dashChargeTime)
         {
             float t = passedTime / _dashChargeTime;

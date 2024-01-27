@@ -34,6 +34,7 @@ public class KeyManager : MonoBehaviour
 
         _keyOnPlayer.SetActive(true);
         _holdingKey = true;
+        AudioManager.Instance.Play("KeyPickup");
         Destroy(key.gameObject);
     }
 

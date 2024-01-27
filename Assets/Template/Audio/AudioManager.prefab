@@ -44,4 +44,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b500a4c18994f61488e41115254870a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  _sounds:
+  - Clip: {fileID: 8300000, guid: 0337330558028704387732125f9e0991, type: 3}
+    Volume: 1
+    Pitch: 1
+    Name: Theme
+    Source: {fileID: 0}
+    Loop: 1
+    Output: {fileID: 0}
+  - Clip: {fileID: 8300000, guid: 30ece1a4bb8cb0e40a3547ca81d3c802, type: 3}
+    Volume: 1
+    Pitch: 1
+    Name: Death
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 8300000, guid: 02233f9810c129b44a02a0cd96e8dd97, type: 3}
+    Volume: 1
+    Pitch: 1
+    Name: SpiderDeath
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 8300000, guid: 5b79f0f522786654ea615660c76d5ce6, type: 3}
+    Volume: 1
+    Pitch: 1
+    Name: TowerDeath
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 8300000, guid: de0f9e7ff4826dc4f91e5827601f9b37, type: 3}
+    Volume: 1
+    Pitch: 1
+    Name: DashCharge
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 0}
+    Volume: 1
+    Pitch: 1
+    Name: KeyPickup
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 0}
+    Volume: 1
+    Pitch: 1
+    Name: Dash
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}
+  - Clip: {fileID: 0}
+    Volume: 1
+    Pitch: 1
+    Name: EnemySpawn
+    Source: {fileID: 0}
+    Loop: 0
+    Output: {fileID: 0}

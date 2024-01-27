@@ -23,10 +23,14 @@ public class Enemy : MonoBehaviour
         _enemyKnocker = GetComponent<EnemyKnocker>();
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.Play("EnemySpawn");
+    }
+
     public void Init(Wave wave)
     {
         _wave = wave;
-        _enemyKnocker = GetComponent<EnemyKnocker>();
     }
 
     public bool Hit()
