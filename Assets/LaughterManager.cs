@@ -9,13 +9,13 @@ using Random = UnityEngine.Random;
 public class LaughterManager : ASingleton<LaughterManager>
 {
     [SerializeField] private AudioSource[] _laughTracks;
+    [SerializeField] private Animation[] _crowdAnimations;
     [SerializeField] private Vector2 _pitchRandomizationRange;
     [SerializeField] private Vector2 _timeBetweenLaughs;
 
     [Button]
     public async UniTask PlayLaughsByScore(int score)
     {
-        Debug.Log(score);
         for (int i = 0; i < score; i++)
         {
             if (i == 0)
@@ -42,6 +42,7 @@ public class LaughterManager : ASingleton<LaughterManager>
     {
         float pitch = Random.Range(_pitchRandomizationRange.x, _pitchRandomizationRange.y);
         int laughTrackIndex = Random.Range(0, _laughTracks.Length);
+        _crowdAnimations[laughTrackIndex].Play();
         _laughTracks[laughTrackIndex].pitch = pitch;
         _laughTracks[laughTrackIndex].Play();
     }
