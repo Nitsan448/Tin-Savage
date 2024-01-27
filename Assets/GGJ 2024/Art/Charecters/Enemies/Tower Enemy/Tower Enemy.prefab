@@ -619,6 +619,7 @@ MonoBehaviour:
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
   _health: 3
   _particleSystemSpawnOffset: {x: 0, y: 4, z: 0}
+  KillPlayerOnHit: 1
   _spheres:
   - {fileID: 925045907361245267}
   - {fileID: 700947369456692784}

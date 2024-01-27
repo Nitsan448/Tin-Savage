@@ -34,10 +34,13 @@ public class Player : MonoBehaviour
             _dasher.Dash().Forget();
         }
 
-        _timeSinceLastDashFinished += Time.deltaTime;
-        if (_timeSinceLastDashFinished > _immunityTimeAfterDash)
+        if (_immune)
         {
-            _immune = false;
+            _timeSinceLastDashFinished += Time.deltaTime;
+            if (_timeSinceLastDashFinished > _immunityTimeAfterDash)
+            {
+                _immune = false;
+            }
         }
     }
 
@@ -70,9 +73,17 @@ public class Player : MonoBehaviour
                     _playerKnocker.Knock(transform.position + transform.forward, 1);
                 }
             }
-            else if (!_playerKnocker.BeingKnocked && !_immune)
+            else if (!_immune)
             {
-                _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
+                if (enemy.KillPlayerOnHit)
+                {
+                    Die();
+                }
+                else
+                {
+                    _playerKnocker.BeingKnocked = false;
+                    _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
+                }
             }
         }
     }

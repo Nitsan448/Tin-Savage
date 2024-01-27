@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b139b48cc8e40d245b6bfcbe6abe17be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _immunityTimeAfterDash: 0
+  _immunityTimeAfterDash: 0.5
 --- !u!114 &4179057145393833347
 MonoBehaviour:
   m_ObjectHideFlags: 0

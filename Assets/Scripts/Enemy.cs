@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private EnemyKnocker _enemyKnocker;
     private Wave _wave;
     [SerializeField] private Vector3 _particleSystemSpawnOffset;
+    public bool KillPlayerOnHit;
 
     private void Awake()
     {
