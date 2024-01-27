@@ -11,29 +11,35 @@ public class Player : MonoBehaviour
     private LookAtMouse _lookAtMouse;
     private Dasher _dasher;
     private KeyManager _keyManager;
-    private Knocker _knocker;
+    private PlayerKnocker _playerKnocker;
+    [SerializeField, Range(0, 3)] private float _immunityTimeAfterDash;
+
+    private bool _immune;
+    private float _timeSinceLastDashFinished = 0;
 
     private void Awake()
     {
         _dasher = GetComponent<Dasher>();
         _controller = GetComponent<CharacterController>();
         _keyManager = GetComponent<KeyManager>();
-        _knocker = GetComponent<Knocker>();
+        _playerKnocker = GetComponent<PlayerKnocker>();
     }
 
     private void Update()
     {
-        if (_dasher.Dashing || _knocker.BeingKnocked) return;
+        if (_dasher.Dashing || _playerKnocker.BeingKnocked) return;
         _controller.UpdateInput();
         if (Input.GetMouseButtonDown(0) && GameManager.Instance.State == EGameState.Running && _keyManager.HoldingKey)
         {
             _dasher.Dash().Forget();
         }
+
+        _timeSinceLastDashFinished += Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.State == EGameState.Running && !_dasher.Dashing && !_knocker.BeingKnocked)
+        if (GameManager.Instance.State == EGameState.Running && !_dasher.Dashing && !_playerKnocker.BeingKnocked)
         {
             _controller.CalculateVelocity();
         }
@@ -53,12 +59,28 @@ public class Player : MonoBehaviour
         {
             if (_dasher.Dashing)
             {
-                enemy.Die();
+                bool enemyDied = enemy.Hit();
+                if (!enemyDied)
+                {
+                    _dasher.Dashing = false;
+                    _playerKnocker.Knock(transform.position + transform.forward, 1);
+                }
             }
-            else if (!_knocker.BeingKnocked)
+            else if (!_playerKnocker.BeingKnocked && !_immune)
             {
-                _knocker.Knock(enemy.transform.position, enemy.KnockBackDistance);
+                _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance);
             }
         }
+    }
+
+    public void SetImmune()
+    {
+        _immune = true;
+        _timeSinceLastDashFinished = _immunityTimeAfterDash;
+    }
+
+    public void Die()
+    {
+        LevelLoader.Instance.LoadCurrentLevel();
     }
 }

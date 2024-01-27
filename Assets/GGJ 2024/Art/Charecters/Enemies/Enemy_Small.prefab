@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackDistance: 30
+  KnockBackDistance: 20
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
 --- !u!114 &7004035183336598193
 MonoBehaviour:
@@ -535,6 +535,8 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 8}
   _seperateRadiusRange: {x: 0, y: 15}
+  _radiusFromPlayer: 0
+  _avoidHoleMultiplier: 1
 --- !u!111 &503703189310225577
 Animation:
   m_ObjectHideFlags: 0

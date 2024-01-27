@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class LevelLoader : ASingleton<LevelLoader>
 {
     public string CurrentLevel => _currentLevel;
 
-    private string _currentLevel = "Level1";
+    private string _currentLevel = "ARENA 1";
 
     [PropertySpace(5)]
     [Button]
@@ -42,7 +43,11 @@ public class LevelLoader : ASingleton<LevelLoader>
     [Button]
     public void LoadLevelByName(string levelName)
     {
-        SceneManager.UnloadSceneAsync(_currentLevel);
+        if (_currentLevel != levelName)
+        {
+            SceneManager.UnloadSceneAsync(_currentLevel);
+        }
+
         _currentLevel = levelName;
         SceneManager.LoadScene(_currentLevel, LoadSceneMode.Additive);
     }
@@ -52,5 +57,11 @@ public class LevelLoader : ASingleton<LevelLoader>
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadCurrentLevel()
+    {
+        SceneManager.LoadScene(_currentLevel);
+        SceneManager.LoadScene("BaseScene", LoadSceneMode.Additive);
     }
 }

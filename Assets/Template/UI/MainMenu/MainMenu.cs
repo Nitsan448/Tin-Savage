@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
             delegate
             {
                 SceneManager.LoadScene("BaseScene");
-                SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync("ARENA 1", LoadSceneMode.Additive);
             }
         );
 
