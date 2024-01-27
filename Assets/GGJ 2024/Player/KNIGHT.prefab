@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e687d23187a7a49b187ae4f36877f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 8
+  _rotationSpeed: 10
   _enabled: 1
 --- !u!114 &5135666151796202758
 MonoBehaviour:
@@ -1167,6 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b139b48cc8e40d245b6bfcbe6abe17be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _immunityTimeAfterDash: 0
 --- !u!114 &4179057145393833347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,7 +1871,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 3.288476
+  finalScaleReference: 3.288475
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0

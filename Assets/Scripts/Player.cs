@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
         }
 
         _timeSinceLastDashFinished += Time.deltaTime;
+        if (_timeSinceLastDashFinished > _immunityTimeAfterDash)
+        {
+            _immune = false;
+        }
     }
 
     private void FixedUpdate()
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
     public void SetImmune()
     {
         _immune = true;
-        _timeSinceLastDashFinished = _immunityTimeAfterDash;
+        _timeSinceLastDashFinished = 0;
     }
 
     public void Die()

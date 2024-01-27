@@ -11,9 +11,15 @@ public class Enemy : MonoBehaviour
 {
     public int KnockPlayerDistance = 20;
     [SerializeField] private GameObject _deathParticleSystemPrefab;
-    [SerializeField] protected int _health;
+    [SerializeField] protected int _health = 1;
     private EnemyKnocker _enemyKnocker;
     private Wave _wave;
+    [SerializeField] private Vector3 _particleSystemSpawnOffset;
+
+    private void Awake()
+    {
+        _enemyKnocker = GetComponent<EnemyKnocker>();
+    }
 
     public void Init(Wave wave)
     {
@@ -36,7 +42,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void DoOnHit()
+    protected virtual void DoOnHit()
     {
         if (_enemyKnocker != null)
         {
@@ -46,13 +52,12 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("here");
         if (_deathParticleSystemPrefab != null)
         {
-            Instantiate(_deathParticleSystemPrefab, transform.position, Quaternion.identity);
+            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
         }
 
-        _wave.OnEnemyDeath();
+        // _wave.OnEnemyDeath();
         Destroy(gameObject);
     }
 }
