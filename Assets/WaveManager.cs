@@ -8,17 +8,22 @@ using Random = UnityEngine.Random;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<int> _timePerWave;
-    [SerializeField] private List<GameObject> _possibleWavesPrefabs;
-    private List<GameObject> _possibleWavesPrefabsStarting = new();
+    [SerializeField] private List<GameObject> _possibleWavesEasyPrefabs;
+    [SerializeField] private List<GameObject> _possibleWavesMediumPrefabs;
+    [SerializeField] private List<GameObject> _possibleWavesHardPrefabs;
+    private List<GameObject> _possibleWavesPrefabsHardStarting = new();
+
+    [SerializeField] private int _mediumWavesStartIndex;
+    [SerializeField] private int _hardWavesStartIndex;
 
 
     private int _enemiesLeftInWave;
 
     private void Start()
     {
-        foreach (GameObject wave in _possibleWavesPrefabs)
+        foreach (GameObject wave in _possibleWavesHardPrefabs)
         {
-            _possibleWavesPrefabsStarting.Add(wave);
+            _possibleWavesPrefabsHardStarting.Add(wave);
         }
 
         SpawnWaves().Forget();
@@ -26,16 +31,28 @@ public class WaveManager : MonoBehaviour
 
     private async UniTask SpawnWaves()
     {
-        foreach (int waveTime in _timePerWave)
+        for (int waveTimeIndex = 0; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
         {
-            if (_possibleWavesPrefabs.Count == 0)
+            int waveTime = _timePerWave[waveTimeIndex];
+            if (_possibleWavesHardPrefabs.Count == 0)
             {
-                _possibleWavesPrefabs = _possibleWavesPrefabsStarting;
+                _possibleWavesHardPrefabs = _possibleWavesPrefabsHardStarting;
             }
 
-            int waveIndex = Random.Range(0, _possibleWavesPrefabs.Count);
-            Instantiate(_possibleWavesPrefabs[waveIndex], Vector3.zero, Quaternion.identity);
-            _possibleWavesPrefabs.RemoveAt(waveIndex);
+            List<GameObject> waves = _possibleWavesEasyPrefabs;
+            if (waveTimeIndex > _mediumWavesStartIndex)
+            {
+                waves = _possibleWavesMediumPrefabs;
+            }
+
+            if (waveTimeIndex > _hardWavesStartIndex)
+            {
+                waves = _possibleWavesHardPrefabs;
+            }
+
+            int waveIndex = Random.Range(0, waves.Count);
+            Instantiate(waves[waveIndex], Vector3.zero, Quaternion.identity);
+            waves.RemoveAt(waveIndex);
             await UniTask.Delay(TimeSpan.FromSeconds(waveTime));
         }
     }
