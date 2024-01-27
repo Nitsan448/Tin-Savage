@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public bool KillPlayerOnHit;
     [SerializeField] private string _deathSoundName;
     [SerializeField] public int Score;
+    [SerializeField] private MeshRenderer _mesh;
 
     private void Awake()
     {
@@ -53,12 +54,14 @@ public class Enemy : MonoBehaviour
     {
         if (_enemyKnocker != null)
         {
+            HitEffect.Instance.OnHit(_mesh.sharedMaterial).Forget();
             _enemyKnocker.Knock(SceneReferencer.Instance.Player.transform.position).Forget();
         }
     }
 
-    public void Die(bool diedFromDash = true)
+    public async UniTask Die(bool diedFromDash = true)
     {
+        await HitEffect.Instance.OnHit(_mesh.sharedMaterial);
         if (_deathParticleSystemPrefab != null)
         {
             Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);

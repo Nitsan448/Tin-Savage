@@ -80,10 +80,11 @@ public class ObjectFollowPlayer : MonoBehaviour
         Vector3 deltaVelocity = desiredVelocity - _rigidbody.velocity;
         Vector3 moveForce = deltaVelocity *
                             (_movementAccuracy * _playerDetector.MovementAccuracyMultiplier * ForcePower * Time.fixedDeltaTime);
-        transform.LookAt(direction);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         moveForce = new Vector3(moveForce.x, 0, moveForce.z);
         _rigidbody.AddForce(moveForce);
+
+        transform.LookAt(new Vector3(direction.x, transform.position.y, direction.z));
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     private Vector3 SeperateFromOtherEnemies()

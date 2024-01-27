@@ -18,6 +18,14 @@ public class Transitioner : ASingleton<Transitioner>
         FadeInToLevel().Forget();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LevelLoader.Instance.LoadCurrentLevel().Forget();
+        }
+    }
+
     public async UniTask GameOverAsync()
     {
         float currentTime = 0;

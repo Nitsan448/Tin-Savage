@@ -12,6 +12,8 @@ public class LaughterManager : ASingleton<LaughterManager>
     [SerializeField] private Animation[] _crowdAnimations;
     [SerializeField] private Vector2 _pitchRandomizationRange;
     [SerializeField] private Vector2 _timeBetweenLaughs;
+    [SerializeField] private Animation _kingAnimation;
+    [SerializeField] private AudioSource _kingLaugh;
 
     [Button]
     public async UniTask PlayLaughsByScore(int score)
@@ -27,7 +29,14 @@ public class LaughterManager : ASingleton<LaughterManager>
                 await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)));
             }
 
-            PlayRandomLaughTrack();
+            if (i == 2)
+            {
+                PlayKingLaugh();
+            }
+            else
+            {
+                PlayRandomLaughTrack();
+            }
         }
     }
 
@@ -35,6 +44,15 @@ public class LaughterManager : ASingleton<LaughterManager>
     private void GetLaughTracks()
     {
         _laughTracks = GetComponents<AudioSource>();
+    }
+
+    [Button]
+    private void PlayKingLaugh()
+    {
+        float pitch = Random.Range(0.97f, 1.03f);
+        _kingLaugh.pitch = pitch;
+        _kingLaugh.Play();
+        _kingAnimation.Play();
     }
 
     [Button]
