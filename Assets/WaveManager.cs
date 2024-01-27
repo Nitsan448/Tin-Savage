@@ -11,7 +11,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<GameObject> _possibleWavesEasyPrefabs;
     [SerializeField] private List<GameObject> _possibleWavesMediumPrefabs;
     [SerializeField] private List<GameObject> _possibleWavesHardPrefabs;
-    private List<GameObject> _possibleWavesPrefabsHardStarting = new();
+    private readonly List<GameObject> _possibleWavesPrefabsHardStarting = new();
 
     [SerializeField] private int _mediumWavesStartIndex;
     [SerializeField] private int _hardWavesStartIndex;

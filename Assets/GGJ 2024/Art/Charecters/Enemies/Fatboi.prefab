@@ -1168,9 +1168,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KnockPlayerDistance: 40
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
-  _health: 0
+  _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
+  _deathSoundName: 
+  Score: 1
 --- !u!114 &5239430567349447110
 MonoBehaviour:
   m_ObjectHideFlags: 0

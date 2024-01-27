@@ -15,9 +15,18 @@ public class LaughterManager : ASingleton<LaughterManager>
     [Button]
     public async UniTask PlayLaughsByScore(int score)
     {
+        Debug.Log(score);
         for (int i = 0; i < score; i++)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)));
+            if (i == 0)
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)) / 2);
+            }
+            else
+            {
+                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)));
+            }
+
             PlayRandomLaughTrack();
         }
     }
