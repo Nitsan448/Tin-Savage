@@ -20,7 +20,7 @@ public class LaughterManager : ASingleton<LaughterManager>
         {
             if (i == 0)
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)) / 2);
+                await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(_timeBetweenLaughs.x, _timeBetweenLaughs.y)) / 3);
             }
             else
             {
