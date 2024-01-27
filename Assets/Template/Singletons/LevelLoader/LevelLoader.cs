@@ -9,7 +9,7 @@ public class LevelLoader : ASingleton<LevelLoader>
 {
     public string CurrentLevel => _currentLevel;
 
-    private string _currentLevel = "ARENA 1";
+    private string _currentLevel = "ARENA";
 
     [PropertySpace(5)]
     [Button]
