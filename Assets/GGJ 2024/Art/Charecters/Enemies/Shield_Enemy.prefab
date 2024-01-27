@@ -1710,8 +1710,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.161437
-  m_Center: {x: 0, y: 5.037368, z: 0}
+  m_Radius: 4.56
+  m_Center: {x: 0.42, y: 5.037368, z: 0}
 --- !u!54 &2372255526345370242
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1751,13 +1751,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 20
+  KnockPlayerDistance: 15
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 2
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
   _deathSoundName: 
-  Score: 0
+  Score: 2
+  _mesh: {fileID: 0}
 --- !u!114 &5687667968483022148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,7 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxKnockBackSpeed: 3
-  _knockBackDistance: 5
+  _knockBackDistance: 15
   _knockBackCurve:
     serializedVersion: 2
     m_Curve:
@@ -1856,8 +1857,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distanceToEnterDetectingMode: 11
-  _distanceToExitDetectingMode: 15
-  _movementSpeedMultiplierOnDetection: 1
+  _distanceToExitDetectingMode: 12
+  _movementSpeedMultiplierOnDetection: 3
   _movementAccuracyMultiplierOnDetection: 4
   _separateSpeedMultiplierOnDetection: 0.5
 --- !u!1 &9186842539872514730
@@ -2026,6 +2027,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3729393629368292868, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775675628017017454, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4861074672976758262, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2069,7 +2078,11 @@ PrefabInstance:
     - target: {fileID: 5559928561813962758, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 03f0684e94ddeb246b448307e159f177, type: 2}
+      objectReference: {fileID: 2100000, guid: f31a6f420432cc244925e6956084cf68, type: 2}
+    - target: {fileID: 9152855541338093596, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18265003, g: 0.22836179, b: 0.30713865, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.9
+      value: -20.28
       objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -226,11 +226,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: KNIGHT
       objectReference: {fileID: 0}
+    - target: {fileID: 6603695290893175686, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603695290893175686, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f31a6f420432cc244925e6956084cf68, type: 2}
+    - target: {fileID: 6603695290893175686, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.32143426
+      objectReference: {fileID: 0}
     - target: {fileID: 6842959617749977563, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: finalScaleReference
-      value: 3.2884762
+      value: 3.2884722
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6603695290893175686, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -1079,6 +1079,7 @@ MonoBehaviour:
   KillPlayerOnHit: 0
   _deathSoundName: SpiderDeath
   Score: 1
+  _mesh: {fileID: 0}
 --- !u!114 &940116203692694102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,8 +1177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToEnterDetectingMode: 8
-  _distanceToExitDetectingMode: 9
+  _distanceToEnterDetectingMode: 9
+  _distanceToExitDetectingMode: 10
   _movementSpeedMultiplierOnDetection: 2
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.5
