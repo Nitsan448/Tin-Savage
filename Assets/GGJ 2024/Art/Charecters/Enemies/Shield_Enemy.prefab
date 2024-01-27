@@ -302,11 +302,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KnockPlayerDistance: 20
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
-  _health: 3
+  _health: 2
   _particleSystemSpawnOffset: {x: 0, y: 4, z: 0}
   KillPlayerOnHit: 1
   _deathSoundName: TowerDeath
-  Score: 0
+  Score: 2
   _spheres:
   - {fileID: 0}
   - {fileID: 0}
