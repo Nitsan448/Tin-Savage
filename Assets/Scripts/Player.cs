@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     private bool _immune;
     private float _timeSinceLastDashFinished = 0;
+    public bool InTutorial = true;
 
     private void Awake()
     {

@@ -32,6 +32,7 @@ public class KeyManager : MonoBehaviour
             return;
         }
 
+        SceneReferencer.Instance.Player.InTutorial = false;
         _keyOnPlayer.SetActive(true);
         _holdingKey = true;
         AudioManager.Instance.Play("KeyPickup");

@@ -29,8 +29,10 @@ public class WaveManager : MonoBehaviour
         SpawnWaves().Forget();
     }
 
+
     private async UniTask SpawnWaves()
     {
+        await PlayTutorial();
         for (int waveTimeIndex = 0; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
         {
             int waveTime = _timePerWave[waveTimeIndex];
@@ -54,6 +56,14 @@ public class WaveManager : MonoBehaviour
             Instantiate(waves[waveIndex], Vector3.zero, Quaternion.identity, parent: transform);
             waves.RemoveAt(waveIndex);
             await UniTask.Delay(TimeSpan.FromSeconds(waveTime));
+        }
+    }
+
+    private async UniTask PlayTutorial()
+    {
+        while (SceneReferencer.Instance.Player.InTutorial)
+        {
+            await UniTask.Yield();
         }
     }
 }
