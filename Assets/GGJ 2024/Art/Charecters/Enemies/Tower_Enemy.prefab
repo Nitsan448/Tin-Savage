@@ -56,7 +56,7 @@ MonoBehaviour:
   _particleSystemSpawnOffset: {x: 0, y: 4, z: 0}
   KillPlayerOnHit: 1
   _deathSoundName: TowerDeath
-  Score: 0
+  Score: 4
   _spheres:
   - {fileID: 8545414224760697989}
   - {fileID: 5034660465043251010}
