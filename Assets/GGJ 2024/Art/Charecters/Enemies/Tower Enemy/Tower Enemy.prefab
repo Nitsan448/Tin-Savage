@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 7145666275601963302}
   - component: {fileID: 6414838439060392322}
   - component: {fileID: 4001563146164310918}
+  - component: {fileID: 8009012864553737528}
   m_Layer: 8
   m_Name: Tower Enemy
   m_TagString: Untagged
@@ -758,6 +759,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   BeingKnocked: 0
+--- !u!114 &8009012864553737528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8051137703593341224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8122393543119032554
 GameObject:
   m_ObjectHideFlags: 0

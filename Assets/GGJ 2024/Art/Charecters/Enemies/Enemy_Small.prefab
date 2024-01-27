@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 7004035183336598193}
   - component: {fileID: 503703189310225577}
   - component: {fileID: 1380773814098479214}
+  - component: {fileID: 1140294627404405489}
   m_Layer: 8
   m_Name: Enemy_Small
   m_TagString: Untagged
@@ -520,6 +521,7 @@ MonoBehaviour:
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
+  KillPlayerOnHit: 0
 --- !u!114 &7004035183336598193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +540,6 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 8}
   _seperateRadiusRange: {x: 0, y: 15}
-  _radiusFromPlayer: 0
   _avoidHoleMultiplier: 1
 --- !u!111 &503703189310225577
 Animation:
@@ -577,6 +578,23 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   BeingKnocked: 0
+--- !u!114 &1140294627404405489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347466557518357159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distanceToEnterDetectingMode: 0
+  _distanceToExitDetectingMode: 0
+  _movementSpeedMultiplierOnDetection: 2
+  _movementAccuracyMultiplierOnDetection: 2
+  _separateSpeedMultiplierOnDetection: 0.5
 --- !u!1 &2440238371963316387
 GameObject:
   m_ObjectHideFlags: 0

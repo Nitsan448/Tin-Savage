@@ -18,7 +18,6 @@ public class ObjectFollowPlayer : MonoBehaviour
     [SerializeField] private Vector2 _seperateSpeedRange;
     [SerializeField] private Vector2 _seperateRadiusRange;
 
-    [SerializeField] private float _radiusFromPlayer;
     private float _radiusFromHole = 12;
     [SerializeField, Range(0, 3)] private float _avoidHoleMultiplier;
 
@@ -31,10 +30,12 @@ public class ObjectFollowPlayer : MonoBehaviour
     private Vector3 _awayFromHoleDirection;
     private bool _moveAwayFromHole;
     private EnemyKnocker _enemyKnocker;
+    private PlayerDetector _playerDetector;
 
 
     private void Awake()
     {
+        _playerDetector = GetComponent<PlayerDetector>();
         _enemyKnocker = GetComponent<EnemyKnocker>();
         _rigidbody = GetComponent<Rigidbody>();
     }
@@ -45,7 +46,8 @@ public class ObjectFollowPlayer : MonoBehaviour
         if (_timeSinceLastSeparateSpeedChanged > _timeBetweenRandomizations)
         {
             _timeBetweenRandomizations = Random.Range(_timeBetweenRandomizationsRange.x, _timeBetweenRandomizationsRange.y);
-            _separateSpeed = Random.Range(_seperateSpeedRange.x, _seperateSpeedRange.y);
+            _separateSpeed = Random.Range(_seperateSpeedRange.x, _seperateSpeedRange.y) *
+                             _playerDetector.SeparateSpeedMultiplierOnDetection;
             _separateRadius = Random.Range(_seperateRadiusRange.x, _seperateRadiusRange.y);
             _timeSinceLastSeparateSpeedChanged = 0;
             _currentSeparateSpeed = _separateSpeed;
@@ -68,13 +70,16 @@ public class ObjectFollowPlayer : MonoBehaviour
         }
         else
         {
-            direction = (direction * _movementSpeed + SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
+            direction = (direction * (_playerDetector.MovementSpeedMultiplier * _movementSpeed) +
+                         SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
         }
 
 
-        Vector3 desiredVelocity = direction.normalized * _movementSpeed;
+        Vector3 desiredVelocity = direction.normalized *
+                                  (_movementSpeed * _playerDetector.MovementSpeedMultiplier);
         Vector3 deltaVelocity = desiredVelocity - _rigidbody.velocity;
-        Vector3 moveForce = deltaVelocity * (_movementAccuracy * ForcePower * Time.fixedDeltaTime);
+        Vector3 moveForce = deltaVelocity *
+                            (_movementAccuracy * _playerDetector.MovementAccuracyMultiplier * ForcePower * Time.fixedDeltaTime);
         transform.LookAt(direction);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         moveForce = new Vector3(moveForce.x, 0, moveForce.z);
@@ -118,13 +123,5 @@ public class ObjectFollowPlayer : MonoBehaviour
         {
             _moveAwayFromHole = true;
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.x);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _seperateRadiusRange.y);
     }
 }

@@ -2618,13 +2618,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _distanceToExitDetectingMode
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _distanceToEnterDetectingMode
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _movementSpeedMultiplierOnDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009012864553737528, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _movementAccuracyMultiplierOnDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8051137703593341224, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_Name
       value: Tower Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8051137703593341224, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754499357261646566, guid: 50b80d0396b59bc4dbf7db41bb11f917, type: 3}
+      propertyPath: _movementAccuracy
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
