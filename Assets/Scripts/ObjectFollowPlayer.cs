@@ -19,6 +19,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     [SerializeField] private float _radiusFromPlayer;
     private float _radiusFromHole = 12;
+    [SerializeField, Range(0, 3)] private float _avoidHoleMultiplier;
 
     private float _separateSpeed;
     private float _separateRadius;
@@ -52,11 +53,17 @@ public class ObjectFollowPlayer : MonoBehaviour
     {
         HandleHole();
         Vector3 direction = (SceneReferencer.Instance.Player.transform.position - transform.position).normalized;
-        direction = (direction * _movementSpeed + SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
         if (_moveAwayFromHole)
         {
-            direction = (transform.position - SceneReferencer.Instance.danger.transform.position).normalized + direction;
+            Debug.Log("here");
+            direction = (transform.position - SceneReferencer.Instance.danger.transform.position).normalized * _avoidHoleMultiplier +
+                        direction;
         }
+        else
+        {
+            direction = (direction * _movementSpeed + SeperateFromOtherEnemies() * _currentSeparateSpeed).normalized;
+        }
+
 
         Vector3 desiredVelocity = direction.normalized * _movementSpeed;
         Vector3 deltaVelocity = desiredVelocity - _rigidbody.velocity;
