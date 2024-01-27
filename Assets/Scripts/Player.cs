@@ -122,6 +122,6 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.Play("Death");
         _playerWalkSound.Stop();
-        LevelLoader.Instance.LoadCurrentLevel();
+        Transitioner.Instance.GameOverAsync().Forget();
     }
 }
