@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _deathParticleSystemPrefab;
     [SerializeField] protected int _health = 1;
     private EnemyKnocker _enemyKnocker;
-    private Wave _wave;
     [SerializeField] private Vector3 _particleSystemSpawnOffset;
     public bool KillPlayerOnHit;
     [SerializeField] private string _deathSoundName;
@@ -32,11 +31,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.Play("EnemySpawn");
-    }
-
-    public void Init(Wave wave)
-    {
-        _wave = wave;
     }
 
     public bool Hit()
