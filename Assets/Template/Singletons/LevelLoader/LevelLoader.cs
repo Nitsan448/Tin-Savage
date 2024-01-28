@@ -57,7 +57,8 @@ public class LevelLoader : ASingleton<LevelLoader>
     [Button]
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("GameOver");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public async UniTask LoadCurrentLevel()

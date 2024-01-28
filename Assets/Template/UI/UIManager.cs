@@ -17,8 +17,8 @@ public class UIManager : ASingleton<UIManager>
     [Header("Overlay")] [SerializeField] private Image _overlay;
 
     [Header("Buttons")] [SerializeField] Button _backToMenuButton;
+    [SerializeField] private Button _quitButton;
     [SerializeField] Button _resumeButton;
-    [SerializeField] Button _continueDialogueButton;
 
     protected override void DoOnAwake()
     {
@@ -39,6 +39,7 @@ public class UIManager : ASingleton<UIManager>
     {
         _backToMenuButton.onClick.AddListener(delegate { LevelLoader.Instance.BackToMainMenu(); });
         _resumeButton.onClick.AddListener(delegate { GameManager.Instance.TogglePauseState(); });
+        _quitButton.onClick.AddListener(Application.Quit);
     }
 
     private void OnDestroy()
