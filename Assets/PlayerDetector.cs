@@ -32,7 +32,7 @@ public class PlayerDetector : MonoBehaviour
             EnterDetectionMode();
         }
         else if (_playerDetected && Vector3.Distance(transform.position, SceneReferencer.Instance.Player.transform.position) <
-                 _distanceToEnterDetectingMode)
+                 _distanceToExitDetectingMode)
         {
             ExitDetectionMode();
         }
@@ -47,7 +47,7 @@ public class PlayerDetector : MonoBehaviour
     {
         _playerDetected = false;
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

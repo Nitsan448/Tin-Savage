@@ -15,6 +15,11 @@ public class LaughterManager : ASingleton<LaughterManager>
     [SerializeField] private Animation _kingAnimation;
     [SerializeField] private AudioSource _kingLaugh;
 
+    private void Start()
+    {
+        PlayLaughsByScore(Random.Range(0, 2)).Forget();
+    }
+
     [Button]
     public async UniTask PlayLaughsByScore(int score)
     {

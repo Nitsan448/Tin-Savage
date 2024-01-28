@@ -1097,6 +1097,7 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 6}
   _seperateRadiusRange: {x: 4, y: 8}
+  _radiusFromHole: 12
   _avoidHoleMultiplier: 2
 --- !u!114 &5624728078604458656
 MonoBehaviour:
@@ -1176,8 +1177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToEnterDetectingMode: 8
-  _distanceToExitDetectingMode: 9
+  _distanceToEnterDetectingMode: 13
+  _distanceToExitDetectingMode: 18
   _movementSpeedMultiplierOnDetection: 2
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.5

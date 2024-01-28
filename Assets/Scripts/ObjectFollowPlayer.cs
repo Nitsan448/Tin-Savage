@@ -18,7 +18,7 @@ public class ObjectFollowPlayer : MonoBehaviour
     [SerializeField] private Vector2 _seperateSpeedRange;
     [SerializeField] private Vector2 _seperateRadiusRange;
 
-    private float _radiusFromHole = 12;
+    [SerializeField] private float _radiusFromHole = 12;
     [SerializeField, Range(0, 3)] private float _avoidHoleMultiplier;
 
     private float _separateSpeed;
@@ -31,6 +31,7 @@ public class ObjectFollowPlayer : MonoBehaviour
     private bool _moveAwayFromHole;
     private EnemyKnocker _enemyKnocker;
     private PlayerDetector _playerDetector;
+    private float _startingYRotation;
 
 
     private void Awake()
@@ -38,6 +39,11 @@ public class ObjectFollowPlayer : MonoBehaviour
         _playerDetector = GetComponent<PlayerDetector>();
         _enemyKnocker = GetComponent<EnemyKnocker>();
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        _startingYRotation = transform.eulerAngles.y;
     }
 
     private void Update()
@@ -83,8 +89,10 @@ public class ObjectFollowPlayer : MonoBehaviour
         moveForce = new Vector3(moveForce.x, 0, moveForce.z);
         _rigidbody.AddForce(moveForce);
 
-        transform.LookAt(new Vector3(direction.x, transform.position.y, direction.z));
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        Quaternion lookRotation =
+            Quaternion.LookRotation((SceneReferencer.Instance.Player.transform.position - transform.position).normalized);
+        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y + _startingYRotation, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
     }
 
     private Vector3 SeperateFromOtherEnemies()

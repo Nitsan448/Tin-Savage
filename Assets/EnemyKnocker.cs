@@ -28,8 +28,10 @@ public class EnemyKnocker : MonoBehaviour
         BeingKnocked = true;
         Vector3 startingPosition = transform.position;
         Vector3 startingRotation = transform.eulerAngles;
-        Vector3 targetDirection = (transform.position - knockingObjectPosition).normalized;
-
+        knockingObjectPosition = new Vector3(knockingObjectPosition.x, transform.position.y, knockingObjectPosition.z);
+        Vector3 targetDirection =
+            (new Vector3((transform.position - knockingObjectPosition).x, 0, (transform.position - knockingObjectPosition).z)).normalized;
+        Debug.Log(targetDirection);
         while (Vector3.Distance(startingPosition, transform.position) < _knockBackDistance - 0.2f)
         {
             float t = Vector3.Distance(startingPosition, transform.position) / _knockBackDistance;
