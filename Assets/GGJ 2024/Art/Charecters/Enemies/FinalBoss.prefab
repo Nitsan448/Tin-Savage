@@ -900,6 +900,7 @@ GameObject:
   - component: {fileID: 2779131527290548224}
   - component: {fileID: 1619535010030113816}
   - component: {fileID: 6729968844975703050}
+  - component: {fileID: 1089443715555678449}
   m_Layer: 11
   m_Name: EnemyHolder
   m_TagString: Untagged
@@ -1068,7 +1069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KnockPlayerDistance: 30
-  _deathParticleSystemPrefab: {fileID: 0}
+  _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
   _health: 300
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
@@ -1111,6 +1112,18 @@ MonoBehaviour:
   _movementSpeedMultiplierOnDetection: 3
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.5
+--- !u!114 &1089443715555678449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418150912784971118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba07beb2a6b0ab4ca672f12957054af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2747801259546017599
 GameObject:
   m_ObjectHideFlags: 0

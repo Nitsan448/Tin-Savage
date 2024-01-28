@@ -19,6 +19,6 @@ public class TowerEnemy : Enemy
         GameObject sphereToDestroy = _spheres[_health];
         Destroy(sphereToDestroy);
         _collider.center = new Vector3(_collider.center.x,
-            _collider.center.y + 2.3f, _collider.center.z);
+            _collider.center.y + 2.5f, _collider.center.z);
     }
 }
