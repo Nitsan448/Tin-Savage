@@ -3006,6 +3006,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6282301914008081947, guid: 423850c5aae0c26448433019ae06513a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6572182411143483459, guid: 423850c5aae0c26448433019ae06513a, type: 3}
       propertyPath: m_Name
       value: Crowd (4)
@@ -6964,7 +6968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6225259639617204814, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
