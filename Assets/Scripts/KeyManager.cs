@@ -28,7 +28,7 @@ public class KeyManager : MonoBehaviour
         _holdingKey = false;
         _keyOnPlayer.SetActive(false);
         Vector3 keySpawnPoint = transform.position + _keyDropDistanceFromPlayer;
-        Instantiate(_keyPrefab, keySpawnPoint, _keyPrefab.transform.rotation);
+        Instantiate(_keyPrefab, keySpawnPoint, _keyPrefab.transform.rotation, parent: SceneReferencer.Instance.KeysParent.transform);
     }
 
     public void PickUpKey(Key key)
