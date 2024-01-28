@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _dashChargeTime;
     private PlayerRigController _playerRigController;
+    private CancellationTokenSource _dashCts;
 
     private void Awake()
     {
@@ -41,7 +43,8 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && _keyManager.HoldingKey)
         {
-            _dasher.Dash().Forget();
+            _dashCts = new CancellationTokenSource();
+            _dasher.Dash(_dashCts).Forget();
         }
 
         UpdateImmuneState();
@@ -113,6 +116,11 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (_dasher.Dashing)
+            {
+                _dashCts.Cancel();
+            }
+
             _playerWalkSound.Stop();
             _playerKnocker.BeingKnocked = false;
             _playerKnocker.Knock(enemy.transform.position, enemy.KnockPlayerDistance).Forget();
@@ -123,10 +131,10 @@ public class Player : MonoBehaviour
     private void HitEnemyWithDash(Enemy enemy)
     {
         _dasher.DashScore += enemy.Score;
-        bool enemyDied = enemy.Hit();
+        bool enemyDied = enemy.Hit(this);
         if (enemyDied) return;
 
-        _dasher.Dashing = false;
+        _dashCts.Cancel();
         _playerWalkSound.Stop();
         _playerKnocker.Knock(transform.position + transform.forward, 1).Forget();
     }

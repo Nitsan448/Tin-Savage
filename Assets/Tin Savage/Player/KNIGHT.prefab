@@ -1108,59 +1108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dashing: 0
   DashScore: 0
-  _dashDistance: 25
-  _maxDashSpeed: 180
-  _dashCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25416663
-      value: 0.9292453
-      inSlope: 0.55675834
-      outSlope: 0.55675834
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5083333
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.68333334
-      value: 0.9481132
-      inSlope: -0.4185825
-      outSlope: -0.4185825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0041667
-      value: 0.16037732
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  _dashDistance: 30
+  _maxDashSpeed: 220
   _dashChargeTime: 0.3
   _dashTrail: {fileID: 8572538041328720512}
 --- !u!114 &4120090253830892407
@@ -1178,7 +1127,7 @@ MonoBehaviour:
   _immunityTimeAfterDash: 0.5
   InTutorial: 1
   _dashTrail: {fileID: 8572538041328720512}
-  _rotationSpeed: 10
+  _rotationSpeed: 6
   _dashChargeTime: 0.3
 --- !u!114 &4179057145393833347
 MonoBehaviour:
@@ -1372,8 +1321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae18e8aaa73fb24e8736bec8bb54785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chargedDashYPosition: -0.4
-  _chargedDashXRotation: 15
+  _chargedDashYPosition: -0.6
+  _chargedDashXRotation: 20
   _rig: {fileID: 132188474015297818}
 --- !u!1 &4333567095136598065
 GameObject:

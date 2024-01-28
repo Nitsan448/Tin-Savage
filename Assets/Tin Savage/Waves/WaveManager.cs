@@ -35,7 +35,7 @@ public class WaveManager : MonoBehaviour
     private async UniTask SpawnWaves()
     {
         await PlayTutorial();
-        for (int waveTimeIndex = 0; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
+        for (int waveTimeIndex = GameConfiguration.Instance.StartingWave; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
         {
             int waveTime = _timePerWave[waveTimeIndex];
             int waveIndex;

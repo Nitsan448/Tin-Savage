@@ -986,7 +986,6 @@ GameObject:
   - component: {fileID: 8831135666070995657}
   - component: {fileID: 2071757043864450964}
   - component: {fileID: 940116203692694102}
-  - component: {fileID: 5624728078604458656}
   - component: {fileID: 4147444922744926691}
   m_Layer: 8
   m_Name: EnemyHolder
@@ -1079,6 +1078,9 @@ MonoBehaviour:
   KillPlayerOnHit: 0
   _deathSoundName: SpiderDeath
   Score: 1
+  _maxKnockBackSpeed: 20
+  _knockBackDistance: 20
+  BeingKnockedBack: 0
 --- !u!114 &940116203692694102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,74 +1099,8 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 6}
   _seperateRadiusRange: {x: 4, y: 8}
-  _radiusFromHole: 12
+  _radiusFromHole: 13
   _avoidHoleMultiplier: 1.5
---- !u!114 &5624728078604458656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014849308855686830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 20
-  _knockBackDistance: 20
-  _knockBackCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25416663
-      value: 0.9292453
-      inSlope: 0.55675834
-      outSlope: 0.55675834
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5083333
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.68333334
-      value: 0.9481132
-      inSlope: -0.4185825
-      outSlope: -0.4185825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0041667
-      value: 0.16037732
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  BeingKnocked: 0
 --- !u!114 &4147444922744926691
 MonoBehaviour:
   m_ObjectHideFlags: 0

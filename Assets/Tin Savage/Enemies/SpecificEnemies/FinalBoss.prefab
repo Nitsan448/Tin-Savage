@@ -896,11 +896,9 @@ GameObject:
   - component: {fileID: 8413853547524886000}
   - component: {fileID: 8676960725348786665}
   - component: {fileID: 9086214892595285897}
-  - component: {fileID: 8265472477649430081}
-  - component: {fileID: 2779131527290548224}
+  - component: {fileID: 1089443715555678449}
   - component: {fileID: 1619535010030113816}
   - component: {fileID: 6729968844975703050}
-  - component: {fileID: 1089443715555678449}
   m_Layer: 11
   m_Name: EnemyHolder
   m_TagString: Untagged
@@ -990,7 +988,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8265472477649430081
+--- !u!114 &1089443715555678449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -999,82 +997,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2418150912784971118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 60
-  _knockBackDistance: 15
-  _knockBackCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25416663
-      value: 0.9292453
-      inSlope: 0.55675834
-      outSlope: 0.55675834
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5083333
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.68333334
-      value: 0.9481132
-      inSlope: -0.4185825
-      outSlope: -0.4185825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0041667
-      value: 0.16037732
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  BeingKnocked: 0
---- !u!114 &2779131527290548224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418150912784971118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ba07beb2a6b0ab4ca672f12957054af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   KnockPlayerDistance: 30
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
-  _health: 300
+  _health: 8
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
   KillPlayerOnHit: 0
   _deathSoundName: 
   Score: 6
+  _maxKnockBackSpeed: 60
+  _knockBackDistance: 15
 --- !u!114 &1619535010030113816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,18 +1046,6 @@ MonoBehaviour:
   _movementSpeedMultiplierOnDetection: 3
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.5
---- !u!114 &1089443715555678449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418150912784971118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba07beb2a6b0ab4ca672f12957054af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2747801259546017599
 GameObject:
   m_ObjectHideFlags: 0

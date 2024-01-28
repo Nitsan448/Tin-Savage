@@ -1664,7 +1664,6 @@ GameObject:
   - component: {fileID: 4458462455086858313}
   - component: {fileID: 2372255526345370242}
   - component: {fileID: 5687667968483022148}
-  - component: {fileID: 858808146903204686}
   - component: {fileID: 2669208292247730524}
   - component: {fileID: 4061780531550033211}
   m_Layer: 8
@@ -1759,72 +1758,6 @@ MonoBehaviour:
   _seperateRadiusRange: {x: 2, y: 15}
   _radiusFromHole: 12
   _avoidHoleMultiplier: 1
---- !u!114 &858808146903204686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8976521305945384798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 50
-  _knockBackDistance: 3
-  _knockBackCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25416663
-      value: 0.9292453
-      inSlope: 0.55675834
-      outSlope: 0.55675834
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5083333
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.68333334
-      value: 0.9481132
-      inSlope: -0.4185825
-      outSlope: -0.4185825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0041667
-      value: 0.16037732
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  BeingKnocked: 0
 --- !u!114 &2669208292247730524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1794,9 @@ MonoBehaviour:
   KillPlayerOnHit: 0
   _deathSoundName: SpiderDeath
   Score: 2
+  _maxKnockBackSpeed: 50
+  _knockBackDistance: 3
+  BeingKnockedBack: 0
   _shield: {fileID: 8223423216420546441}
 --- !u!1 &9186842539872514730
 GameObject:

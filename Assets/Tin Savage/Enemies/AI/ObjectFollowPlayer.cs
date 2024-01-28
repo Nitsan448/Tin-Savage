@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(EnemyKnocker))]
 public class ObjectFollowPlayer : MonoBehaviour
 {
     private const float ForcePower = 10;
@@ -28,15 +27,17 @@ public class ObjectFollowPlayer : MonoBehaviour
     private Rigidbody _rigidbody;
     private float _currentSeparateSpeed;
     private Vector3 _awayFromHoleDirection;
+
     private bool _moveAwayFromHole;
-    private EnemyKnocker _enemyKnocker;
+
     private PlayerDetector _playerDetector;
+    private Enemy _enemy;
 
 
     private void Awake()
     {
+        _enemy = GetComponent<Enemy>();
         _playerDetector = GetComponent<PlayerDetector>();
-        _enemyKnocker = GetComponent<EnemyKnocker>();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -56,7 +57,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_enemyKnocker.BeingKnocked)
+        if (_enemy.BeingKnockedBack)
         {
             return;
         }

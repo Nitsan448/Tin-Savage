@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -11,7 +12,6 @@ public class Dasher : MonoBehaviour
 
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
-    [SerializeField] private AnimationCurve _dashCurve;
     [SerializeField] private float _dashChargeTime;
     [SerializeField] private GameObject _dashTrail;
 
@@ -26,40 +26,48 @@ public class Dasher : MonoBehaviour
         _playerRigController = playerRigController;
     }
 
-    public async UniTask Dash()
+    public async UniTask Dash(CancellationTokenSource dashCts)
     {
-        DoBeforeDashCharge();
-        await ChargeDash(_dashChargeTime);
-        DoBeforeDash();
-        await _controller.RigidBody.ControlledPush(transform.forward, _dashDistance, _maxDashSpeed, _dashCurve,
-            _playerRigController.SetRigTransformDuringDash);
+        try
+        {
+            DoBeforeDashCharge();
+            await ChargeDash(dashCts.Token);
+            DoBeforeDash();
+            await _controller.RigidBody.ControlledPush(transform.forward, _dashDistance, _maxDashSpeed,
+                GameConfiguration.Instance.PushCurve,
+                _playerRigController.SetRigTransformDuringDash, cancellationToken: dashCts.Token);
+        }
+        catch (OperationCanceledException e)
+        {
+            DoOnDashCanceled();
+        }
+
         DoAfterDash();
     }
 
 
     private void DoBeforeDashCharge()
     {
+        Dashing = true;
         DashScore = 0;
         _keyManager.KeyAnimator.SetTrigger("Charge");
-        _controller.SetVelocity(Vector3.zero);
-        Dashing = true;
         SceneReferencer.Instance.Player.SetImmune();
         // _playerKnocker.BeingKnocked = false;
+        transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
         _controller.RigidBody.isKinematic = true;
-        _dashTrail.SetActive(true);
         AudioManager.Instance.Play("DashCharge");
     }
 
-    private async UniTask ChargeDash(float chargeTime)
+    private async UniTask ChargeDash(CancellationToken cancellationToken)
     {
         float passedTime = 0;
 
-        while (passedTime < chargeTime)
+        while (passedTime < _dashChargeTime)
         {
-            float t = passedTime / chargeTime;
+            float t = passedTime / _dashChargeTime;
             _playerRigController.SetRigTransformDuringDashCharge(t);
             passedTime += Time.deltaTime;
-            await UniTask.Yield();
+            await UniTask.Yield(cancellationToken);
         }
 
         _playerRigController.SetRigTransformDuringDashCharge(1);
@@ -67,10 +75,13 @@ public class Dasher : MonoBehaviour
 
     private void DoBeforeDash()
     {
+        _dashTrail.SetActive(true);
         _controller.RigidBody.isKinematic = false;
         AudioManager.Instance.Play("Dash");
-        _keyManager.DropKey();
-        transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
+        if (!GameConfiguration.Instance.InfiniteDashes)
+        {
+            _keyManager.DropKey();
+        }
     }
 
     private void DoAfterDash()
@@ -79,5 +90,10 @@ public class Dasher : MonoBehaviour
         CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
         _dashTrail.SetActive(false);
         SceneReferencer.Instance.Player.SetImmune();
+    }
+
+    private void DoOnDashCanceled()
+    {
+        _playerRigController.SetRigTransformDuringDashCharge(0);
     }
 }
