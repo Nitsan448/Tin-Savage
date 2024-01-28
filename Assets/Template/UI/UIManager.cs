@@ -39,10 +39,6 @@ public class UIManager : ASingleton<UIManager>
     {
         _backToMenuButton.onClick.AddListener(delegate { LevelLoader.Instance.BackToMainMenu(); });
         _resumeButton.onClick.AddListener(delegate { GameManager.Instance.TogglePauseState(); });
-        if (_continueDialogueButton != null)
-        {
-            _continueDialogueButton.onClick.AddListener(delegate { DialogueManager.Instance.DisplayNextSentence(); });
-        }
     }
 
     private void OnDestroy()
