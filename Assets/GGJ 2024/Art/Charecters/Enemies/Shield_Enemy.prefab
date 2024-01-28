@@ -1771,8 +1771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 5
-  _knockBackDistance: 5
+  _maxKnockBackSpeed: 50
+  _knockBackDistance: 3
   _knockBackCurve:
     serializedVersion: 2
     m_Curve:
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distanceToEnterDetectingMode: 11
   _distanceToExitDetectingMode: 15
-  _movementSpeedMultiplierOnDetection: 1
+  _movementSpeedMultiplierOnDetection: 3
   _movementAccuracyMultiplierOnDetection: 4
   _separateSpeedMultiplierOnDetection: 0.5
 --- !u!114 &4061780531550033211
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28771f9339c06041a1ef32f9477a0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 20
+  KnockPlayerDistance: 30
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 2
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}

@@ -1177,8 +1177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToEnterDetectingMode: 13
-  _distanceToExitDetectingMode: 18
+  _distanceToEnterDetectingMode: 15
+  _distanceToExitDetectingMode: 17
   _movementSpeedMultiplierOnDetection: 2
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.5
