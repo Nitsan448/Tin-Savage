@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18265003, g: 0.22836179, b: 0.30713865, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7011,10 +7011,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
-      propertyPath: _bossWave
-      value: 
-      objectReference: {fileID: 2142443302341159373, guid: 1c0fa432f4dc6434ab3d3a5a74a90230, type: 3}
     - target: {fileID: 6225259639617204814, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
       propertyPath: m_Name
       value: WaveManager

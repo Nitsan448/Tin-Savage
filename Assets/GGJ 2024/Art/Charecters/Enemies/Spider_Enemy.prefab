@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 10
+  KnockPlayerDistance: 5
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   _seperateSpeedRange: {x: 1, y: 6}
   _seperateRadiusRange: {x: 4, y: 8}
   _radiusFromHole: 12
-  _avoidHoleMultiplier: 2
+  _avoidHoleMultiplier: 1.5
 --- !u!114 &5624728078604458656
 MonoBehaviour:
   m_ObjectHideFlags: 0
