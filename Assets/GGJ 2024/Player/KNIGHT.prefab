@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyAnimator: {fileID: 8357615458667353559}
+  _holdingKey: 0
   _keyPrefab: {fileID: 6517285927963964741, guid: cffac27bc8784114c994f163e1c5a01b, type: 3}
   _keyOnPlayer: {fileID: 3618534067311290360}
   _keyDropDistanceFromPlayer: {x: 0, y: 5, z: -1.55}

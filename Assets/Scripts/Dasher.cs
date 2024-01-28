@@ -39,12 +39,22 @@ public class Dasher : MonoBehaviour
         _lookAtMouse.SetEnabledState(false);
         _playerKnocker.BeingKnocked = false;
         Dashing = true;
+        GetComponent<Rigidbody>().isKinematic = true;
         _keyManager.KeyAnimator.SetTrigger("Charge");
         // _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
+
+        Vector3 direction = GetMousePosition() - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+        transform.rotation = lookRotation;
+
         await ChargeDash();
+        Debug.Log(transform.eulerAngles);
+        GetComponent<Rigidbody>().isKinematic = false;
         AudioManager.Instance.Play("Dash");
         _keyManager.DropKey();
+        transform.rotation = lookRotation;
         Vector3 startingPosition = transform.position;
         Vector3 targetDirection = transform.forward;
 
@@ -61,12 +71,25 @@ public class Dasher : MonoBehaviour
             float currentDashSpeed = Mathf.Lerp(0, _maxDashSpeed, _dashCurve.Evaluate(t));
 
             SetRigTransform(1 - t);
-
             _controller.SetVelocity(targetDirection * currentDashSpeed);
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         }
 
         ResetToNonDashingState();
+    }
+
+    Plane _plane = new(Vector3.up, 0);
+
+    private Vector3 GetMousePosition()
+    {
+        _plane.distance = -transform.position.y;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (_plane.Raycast(ray, out float distance))
+        {
+            return ray.GetPoint(distance);
+        }
+
+        return Vector3.zero;
     }
 
     private void ResetToNonDashingState()
