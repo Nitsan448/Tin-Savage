@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        foreach (GameObject wave in _possibleWavesHardPrefabs)
+        foreach (GameObject wave in _possibleWavesEasyPrefabs)
         {
             _possibleWavesPrefabsEasyStarting.Add(wave);
         }
