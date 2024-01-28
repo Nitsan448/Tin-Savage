@@ -42,6 +42,11 @@ public class Enemy : MonoBehaviour
     public bool Hit()
     {
         _health--;
+        if (_deathParticleSystemPrefab != null)
+        {
+            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
+        }
+
         if (_health <= 0)
         {
             Die();
@@ -65,11 +70,6 @@ public class Enemy : MonoBehaviour
 
     public async UniTask Die(bool diedFromDash = true)
     {
-        if (_deathParticleSystemPrefab != null)
-        {
-            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
-        }
-
         AudioManager.Instance.Play(_deathSoundName);
         if (!diedFromDash)
         {

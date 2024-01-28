@@ -51,7 +51,6 @@ MonoBehaviour:
   - {fileID: 7116097824945455643, guid: 2839a82946a6a934484b3979609a6f05, type: 3}
   - {fileID: 7116097824945455643, guid: cabc3d2389b0b6743bed1ecce38a5493, type: 3}
   - {fileID: 7116097824945455643, guid: 376b113436527744088b3c5af390b7ca, type: 3}
-  - {fileID: 0}
   _possibleWavesMediumPrefabs:
   - {fileID: 7116097824945455643, guid: 7c4eeafbe4845f2408ad192e33036048, type: 3}
   - {fileID: 7116097824945455643, guid: 815a7f8dab164044b849375f263dea56, type: 3}
@@ -66,5 +65,6 @@ MonoBehaviour:
   - {fileID: 7116097824945455643, guid: f6540c005e3d3104aa2231571e7ce916, type: 3}
   - {fileID: 7116097824945455643, guid: e791e39af1efc884291d3a6d34a83672, type: 3}
   - {fileID: 7116097824945455643, guid: 2aa973c270d1a5341ad7257581d403e0, type: 3}
+  _bossWave: {fileID: 0}
   _mediumWavesStartIndex: 4
   _hardWavesStartIndex: 8
