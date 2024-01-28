@@ -57,6 +57,7 @@ MonoBehaviour:
   KillPlayerOnHit: 1
   _deathSoundName: TowerDeath
   Score: 4
+  _mesh: {fileID: 0}
   _spheres:
   - {fileID: 8545414224760697989}
   - {fileID: 5034660465043251010}
@@ -73,13 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b806cc9e97ac4a81dff54937c78ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _movementAccuracy: 25
-  _rotationSpeed: 0
+  _movementSpeed: 6
+  _movementAccuracy: 5
+  _rotationSpeed: 10
   _timeBetweenRandomizationsRange: {x: 1, y: 2}
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
-  _avoidHoleMultiplier: 2
+  _avoidHoleMultiplier: 3
 --- !u!65 &8324246106812511114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 5
-  _knockBackDistance: 10
+  _maxKnockBackSpeed: 1
+  _knockBackDistance: 1
   _knockBackCurve:
     serializedVersion: 2
     m_Curve:
@@ -206,11 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cedbbddfa8898645b4c52d509d321e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceToEnterDetectingMode: 12
-  _distanceToExitDetectingMode: 14
-  _movementSpeedMultiplierOnDetection: 2
+  _distanceToEnterDetectingMode: 20
+  _distanceToExitDetectingMode: 21
+  _movementSpeedMultiplierOnDetection: 3
   _movementAccuracyMultiplierOnDetection: 3
-  _separateSpeedMultiplierOnDetection: 0.5
+  _separateSpeedMultiplierOnDetection: 3
 --- !u!1 &682615056298235147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,6 +1110,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3729393629368292868, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775675628017017454, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4861074672976758262, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1148,6 +1157,14 @@ PrefabInstance:
     - target: {fileID: 4861074672976758262, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152855541338093596, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152855541338093596, guid: 52f2648161767c6488a0582f43927ce1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
