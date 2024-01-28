@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private Plane _mouseRayCastPlane = new(Vector3.up, 0);
     [SerializeField] private GameObject _dashTrail;
     [SerializeField] private float _rotationSpeed;
-    private int _dashScore;
     [SerializeField] private float _dashChargeTime;
     private PlayerRigController _playerRigController;
 
@@ -27,11 +26,11 @@ public class Player : MonoBehaviour
     {
         _playerWalkSound = GetComponent<AudioSource>();
         _dasher = GetComponent<Dasher>();
-        _dasher.Init(_controller, _keyManager, _playerRigController);
         _controller = GetComponent<CharacterController>();
         _keyManager = GetComponent<KeyManager>();
         _playerKnocker = GetComponent<PlayerKnocker>();
         _playerRigController = GetComponent<PlayerRigController>();
+        _dasher.Init(_controller, _keyManager, _playerRigController);
     }
 
     private void Update()
@@ -123,7 +122,7 @@ public class Player : MonoBehaviour
 
     private void HitEnemyWithDash(Enemy enemy)
     {
-        _dashScore += enemy.Score;
+        _dasher.DashScore += enemy.Score;
         bool enemyDied = enemy.Hit();
         if (enemyDied) return;
 

@@ -1001,7 +1001,6 @@ GameObject:
   - component: {fileID: 9053219121046163614}
   - component: {fileID: 4500887314024659374}
   - component: {fileID: 8437685904414821507}
-  - component: {fileID: 7637084968678214586}
   m_Layer: 9
   m_Name: KNIGHT
   m_TagString: Untagged
@@ -1107,8 +1106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0536085d5929f6443a02410caf27a8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashDistance: 30
-  _maxDashSpeed: 220
+  Dashing: 0
+  DashScore: 0
+  _dashDistance: 25
+  _maxDashSpeed: 180
   _dashCurve:
     serializedVersion: 2
     m_Curve:
@@ -1160,6 +1161,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _dashChargeTime: 0.3
+  _dashTrail: {fileID: 8572538041328720512}
 --- !u!114 &4120090253830892407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,26 +1375,6 @@ MonoBehaviour:
   _chargedDashYPosition: -0.4
   _chargedDashXRotation: 15
   _rig: {fileID: 132188474015297818}
---- !u!114 &7637084968678214586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4209717066384063609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac5d141cf3fd0f4e821b0d8dc2ed04a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dashDistance: 0
-  _maxDashSpeed: 0
-  _dashCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &4333567095136598065
 GameObject:
   m_ObjectHideFlags: 0

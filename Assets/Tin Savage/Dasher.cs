@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Dasher : MonoBehaviour
 {
-    public bool Dashing;
-    public int DashScore;
+    [HideInInspector] public bool Dashing;
+    [HideInInspector] public int DashScore;
 
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
