@@ -13,7 +13,7 @@ public class LookAtMouse : MonoBehaviour
     {
         if (!_enabled) return;
 
-        transform.RotateTowards(SceneReferencer.Instance.Player.GetMousePosition(), _rotationSpeed);
+        transform.RotateTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition(), _rotationSpeed);
     }
 
 

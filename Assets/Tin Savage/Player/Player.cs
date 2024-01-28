@@ -131,6 +131,7 @@ public class Player : MonoBehaviour
     public Vector3 GetMousePosition()
     {
         _mouseRayCastPlane.distance = -transform.position.y;
+        if (Camera.main == null) return Vector3.zero;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         return _mouseRayCastPlane.Raycast(ray, out float distance) ? ray.GetPoint(distance) : Vector3.zero;
     }

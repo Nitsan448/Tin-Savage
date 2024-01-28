@@ -45,13 +45,9 @@ public class Dasher : MonoBehaviour
         _keyManager.KeyAnimator.SetTrigger("Charge");
         _controller.SetVelocity(Vector3.zero);
 
-        Vector3 direction = GetMousePosition() - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+        Quaternion lookRotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
         transform.rotation = lookRotation;
-
         await ChargeDash();
-        Debug.Log(transform.eulerAngles);
         _controller.RigidBody.isKinematic = false;
         AudioManager.Instance.Play("Dash");
         _keyManager.DropKey();
@@ -77,20 +73,6 @@ public class Dasher : MonoBehaviour
         }
 
         ResetToNonDashingState();
-    }
-
-    Plane _plane = new(Vector3.up, 0);
-
-    private Vector3 GetMousePosition()
-    {
-        _plane.distance = -transform.position.y;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (_plane.Raycast(ray, out float distance))
-        {
-            return ray.GetPoint(distance);
-        }
-
-        return Vector3.zero;
     }
 
     private void ResetToNonDashingState()

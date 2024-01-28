@@ -4,11 +4,17 @@ using UnityEngine;
 
 public static class TransformExtensions
 {
-    public static void RotateTowards(this Transform transformToRotate, Vector3 positionToRotateTowards, float rotationSpeed)
+    public static void RotateTowardsOnYAxis(this Transform transformToRotate, Vector3 positionToRotateTowards, float rotationSpeed)
     {
-        Vector3 direction = positionToRotateTowards - transformToRotate.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+        Quaternion lookRotation = transformToRotate.GetRotationTowardsOnYAxis(positionToRotateTowards);
         transformToRotate.rotation = Quaternion.Lerp(transformToRotate.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public static Quaternion GetRotationTowardsOnYAxis(this Transform transformToRotate, Vector3 positionToRotateTowards)
+    {
+        positionToRotateTowards = positionToRotateTowards.GetWithNewYValue(transformToRotate.position.y);
+        Vector3 direction = (positionToRotateTowards - transformToRotate.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        return lookRotation;
     }
 }

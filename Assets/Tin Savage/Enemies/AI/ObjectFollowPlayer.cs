@@ -83,10 +83,7 @@ public class ObjectFollowPlayer : MonoBehaviour
         moveForce = new Vector3(moveForce.x, 0, moveForce.z);
         _rigidbody.AddForce(moveForce);
 
-        Quaternion lookRotation =
-            Quaternion.LookRotation((SceneReferencer.Instance.Player.transform.position - transform.position).normalized);
-        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
+        transform.RotateTowardsOnYAxis(SceneReferencer.Instance.Player.transform.position, _rotationSpeed);
     }
 
     private Vector3 SeperateFromOtherEnemies()
