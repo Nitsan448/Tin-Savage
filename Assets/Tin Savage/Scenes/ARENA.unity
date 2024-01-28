@@ -6452,10 +6452,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaughterManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5604105871974472352, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: m_Pitch
-      value: 1.0640424
-      objectReference: {fileID: 0}
     - target: {fileID: 5897487460711405006, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6497,56 +6493,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _kingLaugh
-      value: 
-      objectReference: {fileID: 1934335855}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _kingAnimation
+      propertyPath: _kingLaughAnimation
       value: 
       objectReference: {fileID: 664985506}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _laughTracks.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _laughTracks.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _laughTracks.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _laughTracks.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.data[0]
+      propertyPath: _crowdLaughAnimations.Array.data[0]
       value: 
       objectReference: {fileID: 940052324}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.data[1]
+      propertyPath: _crowdLaughAnimations.Array.data[1]
       value: 
       objectReference: {fileID: 2115152162}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.data[2]
+      propertyPath: _crowdLaughAnimations.Array.data[2]
       value: 
       objectReference: {fileID: 1760663722}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.data[3]
+      propertyPath: _crowdLaughAnimations.Array.data[3]
       value: 
       objectReference: {fileID: 1527963306}
     - target: {fileID: 7937750995566201946, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-      propertyPath: _crowdAnimations.Array.data[4]
+      propertyPath: _crowdLaughAnimations.Array.data[4]
       value: 
       objectReference: {fileID: 1709495799}
-    m_RemovedComponents:
-    - {fileID: 6307770157221159473, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-    - {fileID: 2343532345355116612, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6554,11 +6524,6 @@ PrefabInstance:
 --- !u!4 &1934335854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5897487460711405006, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
-  m_PrefabInstance: {fileID: 1934335853}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1934335855 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8542745182614225936, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
   m_PrefabInstance: {fileID: 1934335853}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1993495379 stripped

@@ -4,15 +4,22 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class LaughterManager : ASingleton<LaughterManager>
+public class CrowdManager : ASingleton<CrowdManager>
 {
     [SerializeField] private AudioSource[] _laughTracks;
-    [SerializeField] private Animation[] _crowdAnimations;
+
+    [FormerlySerializedAs("_crowdAnimations")] [SerializeField]
+    private Animation[] _crowdLaughAnimations;
+
     [SerializeField] private Vector2 _pitchRandomizationRange;
     [SerializeField] private Vector2 _timeBetweenLaughs;
-    [SerializeField] private Animation _kingAnimation;
+
+    [FormerlySerializedAs("_kingAnimation")] [SerializeField]
+    private Animation _kingLaughAnimation;
+
     [SerializeField] private AudioSource _kingLaugh;
 
     private void Start()
@@ -57,7 +64,7 @@ public class LaughterManager : ASingleton<LaughterManager>
         float pitch = Random.Range(0.97f, 1.03f);
         _kingLaugh.pitch = pitch;
         _kingLaugh.Play();
-        _kingAnimation.Play();
+        _kingLaughAnimation.Play();
     }
 
     [Button]
@@ -65,7 +72,7 @@ public class LaughterManager : ASingleton<LaughterManager>
     {
         float pitch = Random.Range(_pitchRandomizationRange.x, _pitchRandomizationRange.y);
         int laughTrackIndex = Random.Range(0, _laughTracks.Length);
-        _crowdAnimations[laughTrackIndex].Play();
+        _crowdLaughAnimations[laughTrackIndex].Play();
         _laughTracks[laughTrackIndex].pitch = pitch;
         _laughTracks[laughTrackIndex].Play();
     }

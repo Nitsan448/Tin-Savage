@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
         AudioManager.Instance.Play(_deathSoundName);
         if (!diedFromDash)
         {
-            LaughterManager.Instance.PlayLaughsByScore(Score).Forget();
+            CrowdManager.Instance.PlayLaughsByScore(Score).Forget();
         }
 
         DoOnDeath();

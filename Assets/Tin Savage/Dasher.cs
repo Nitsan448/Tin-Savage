@@ -99,7 +99,7 @@ public class Dasher : MonoBehaviour
         Dashing = false;
         // _dashCollider.enabled = false;
         _lookAtMouse.SetEnabledState(true);
-        LaughterManager.Instance.PlayLaughsByScore(DashScore).Forget();
+        CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
         _dashTrail.SetActive(false);
         SceneReferencer.Instance.Player.SetImmune();
     }

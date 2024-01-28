@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private bool _immune;
     private float _timeSinceLastDashFinished = 0;
     public bool InTutorial = true;
+    private Plane _mouseRayCastPlane = new(Vector3.up, 0);
 
     private void Awake()
     {
@@ -123,7 +124,14 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.Play("Death");
         _playerWalkSound.Stop();
-        LaughterManager.Instance.PlayLaughsByScore(6).Forget();
+        CrowdManager.Instance.PlayLaughsByScore(6).Forget();
         Transitioner.Instance.GameOverAsync().Forget();
+    }
+
+    public Vector3 GetMousePosition()
+    {
+        _mouseRayCastPlane.distance = -transform.position.y;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        return _mouseRayCastPlane.Raycast(ray, out float distance) ? ray.GetPoint(distance) : Vector3.zero;
     }
 }
