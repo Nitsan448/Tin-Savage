@@ -76,7 +76,12 @@ public class Enemy : MonoBehaviour
             LaughterManager.Instance.PlayLaughsByScore(Score).Forget();
         }
 
+        DoOnDeath();
         // _wave.OnEnemyDeath();
         Destroy(gameObject);
+    }
+
+    protected virtual void DoOnDeath()
+    {
     }
 }

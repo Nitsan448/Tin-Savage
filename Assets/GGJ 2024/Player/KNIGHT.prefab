@@ -1178,6 +1178,7 @@ MonoBehaviour:
   _rig: {fileID: 132188474015297818}
   _chargedDashYPosition: -2.5
   _chargedDashXRotation: 15
+  _dashTrail: {fileID: 8572538041328720512}
   DashScore: 0
 --- !u!114 &4120090253830892407
 MonoBehaviour:

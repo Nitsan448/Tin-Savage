@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainMenu.unity
-    guid: d95ce232fc3efcc47bc7be9f785ed60d
   - enabled: 1
     path: Assets/GGJ 2024/Scenes/GameOver.unity
     guid: 78b5f2c6e8c11d144b51cd99acff6d79

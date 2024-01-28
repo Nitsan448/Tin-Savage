@@ -17,14 +17,17 @@ public class Menu : MonoBehaviour
 
     private async UniTask MainMenu()
     {
+        float passedTime = 0;
         while (true)
         {
-            if (Input.anyKey)
+            if (Input.anyKey && passedTime > 8.5f)
             {
                 SceneManager.LoadScene("BaseScene");
                 SceneManager.LoadScene("ARENA", LoadSceneMode.Additive);
                 return;
             }
+
+            passedTime += Time.deltaTime;
 
             await UniTask.Yield();
         }

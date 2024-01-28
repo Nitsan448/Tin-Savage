@@ -21,6 +21,8 @@ public class Dasher : MonoBehaviour
     [SerializeField] private Transform _rig;
     [SerializeField] private float _chargedDashYPosition;
     [SerializeField] private float _chargedDashXRotation;
+
+    [SerializeField] private GameObject _dashTrail;
     [HideInInspector] public int DashScore = 0;
 
 
@@ -30,7 +32,6 @@ public class Dasher : MonoBehaviour
         _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
         _playerKnocker = GetComponent<PlayerKnocker>();
-        // _dashCollider = GetComponent<BoxCollider>();
     }
 
     public async UniTask Dash()
@@ -39,9 +40,9 @@ public class Dasher : MonoBehaviour
         _lookAtMouse.SetEnabledState(false);
         _playerKnocker.BeingKnocked = false;
         Dashing = true;
-        GetComponent<Rigidbody>().isKinematic = true;
+        _controller.RigidBody.isKinematic = true;
+        _dashTrail.SetActive(true);
         _keyManager.KeyAnimator.SetTrigger("Charge");
-        // _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
 
         Vector3 direction = GetMousePosition() - transform.position;
@@ -51,7 +52,7 @@ public class Dasher : MonoBehaviour
 
         await ChargeDash();
         Debug.Log(transform.eulerAngles);
-        GetComponent<Rigidbody>().isKinematic = false;
+        _controller.RigidBody.isKinematic = false;
         AudioManager.Instance.Play("Dash");
         _keyManager.DropKey();
         transform.rotation = lookRotation;
@@ -99,6 +100,7 @@ public class Dasher : MonoBehaviour
         // _dashCollider.enabled = false;
         _lookAtMouse.SetEnabledState(true);
         LaughterManager.Instance.PlayLaughsByScore(DashScore).Forget();
+        _dashTrail.SetActive(false);
         SceneReferencer.Instance.Player.SetImmune();
     }
 
