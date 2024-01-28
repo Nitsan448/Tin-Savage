@@ -22,6 +22,11 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _enemyKnocker = GetComponent<EnemyKnocker>();
+        DoOnAwake();
+    }
+
+    protected virtual void DoOnAwake()
+    {
     }
 
     private void Start()
@@ -44,6 +49,11 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            if (_enemyKnocker != null)
+            {
+                _enemyKnocker.Knock(SceneReferencer.Instance.Player.transform.position).Forget();
+            }
+
             DoOnHit();
             return false;
         }
@@ -51,10 +61,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void DoOnHit()
     {
-        if (_enemyKnocker != null)
-        {
-            _enemyKnocker.Knock(SceneReferencer.Instance.Player.transform.position).Forget();
-        }
     }
 
     public async UniTask Die(bool diedFromDash = true)

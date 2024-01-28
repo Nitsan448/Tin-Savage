@@ -8,7 +8,7 @@ public class TowerEnemy : Enemy
     [SerializeField] private List<GameObject> _spheres;
     private BoxCollider _collider;
 
-    private void Awake()
+    protected override void DoOnAwake()
     {
         _collider = GetComponent<BoxCollider>();
     }
@@ -19,6 +19,6 @@ public class TowerEnemy : Enemy
         GameObject sphereToDestroy = _spheres[_health];
         Destroy(sphereToDestroy);
         _collider.center = new Vector3(_collider.center.x,
-            _collider.center.y + 1.1f, _collider.center.z);
+            _collider.center.y + 2.3f, _collider.center.z);
     }
 }
