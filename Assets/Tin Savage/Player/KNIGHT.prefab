@@ -995,7 +995,6 @@ GameObject:
   - component: {fileID: 2051097520746191568}
   - component: {fileID: 6025373038463838656}
   - component: {fileID: 256004251305013082}
-  - component: {fileID: 6816626662274624810}
   - component: {fileID: 5135666151796202758}
   - component: {fileID: 4120090253830892407}
   - component: {fileID: 4179057145393833347}
@@ -1094,20 +1093,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6816626662274624810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4209717066384063609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1e687d23187a7a49b187ae4f36877f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 6
-  _enabled: 1
 --- !u!114 &5135666151796202758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,7 +1105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0536085d5929f6443a02410caf27a8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dashing: 0
   _dashDistance: 30
   _maxDashSpeed: 220
   _dashChargeTime: 0.3
@@ -1194,6 +1178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _immunityTimeAfterDash: 0.5
   InTutorial: 1
+  _dashTrail: {fileID: 8572538041328720512}
+  _rotationSpeed: 10
 --- !u!114 &4179057145393833347
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,12 +6,7 @@ using CharacterController = Platformer3D.CharacterController;
 
 public class Dasher : MonoBehaviour
 {
-    [HideInInspector] public bool Dashing;
     private CharacterController _controller;
-    private LookAtMouse _lookAtMouse;
-    private KeyManager _keyManager;
-
-    private PlayerKnocker _playerKnocker;
 
     // private BoxCollider _dashCollider;
     [SerializeField] private float _dashDistance;
@@ -28,39 +23,21 @@ public class Dasher : MonoBehaviour
 
     private void Awake()
     {
-        _keyManager = GetComponent<KeyManager>();
-        _lookAtMouse = GetComponent<LookAtMouse>();
         _controller = GetComponent<CharacterController>();
-        _playerKnocker = GetComponent<PlayerKnocker>();
     }
 
     public async UniTask Dash()
     {
-        DashScore = 0;
-        _lookAtMouse.SetEnabledState(false);
-        _playerKnocker.BeingKnocked = false;
-        Dashing = true;
-        _controller.RigidBody.isKinematic = true;
-        _dashTrail.SetActive(true);
-        _keyManager.KeyAnimator.SetTrigger("Charge");
-        _controller.SetVelocity(Vector3.zero);
-
         Quaternion lookRotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
-        transform.rotation = lookRotation;
-        await ChargeDash();
-        _controller.RigidBody.isKinematic = false;
-        AudioManager.Instance.Play("Dash");
-        _keyManager.DropKey();
         transform.rotation = lookRotation;
         Vector3 startingPosition = transform.position;
         Vector3 targetDirection = transform.forward;
 
         while (Vector3.Distance(startingPosition, transform.position) < _dashDistance - 0.2f)
         {
-            SceneReferencer.Instance.Player.SetImmune();
-            if (!Dashing)
+            if (!SceneReferencer.Instance.Player.Dashing)
             {
-                ResetToNonDashingState();
+                FinishDash();
                 return;
             }
 
@@ -68,25 +45,20 @@ public class Dasher : MonoBehaviour
             float currentDashSpeed = Mathf.Lerp(0, _maxDashSpeed, _dashCurve.Evaluate(t));
 
             SetRigTransform(1 - t);
-            _controller.SetVelocity(targetDirection * currentDashSpeed);
+            SceneReferencer.Instance.Player.Controller.SetVelocity(targetDirection * currentDashSpeed);
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         }
 
-        ResetToNonDashingState();
+        FinishDash();
     }
 
-    private void ResetToNonDashingState()
+    private void FinishDash()
     {
         SetRigTransform(0);
-        Dashing = false;
-        // _dashCollider.enabled = false;
-        _lookAtMouse.SetEnabledState(true);
-        CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
-        _dashTrail.SetActive(false);
-        SceneReferencer.Instance.Player.SetImmune();
+        DashScore = 0;
     }
 
-    private async UniTask ChargeDash()
+    public async UniTask ChargeDash()
     {
         float passedTime = 0;
 
