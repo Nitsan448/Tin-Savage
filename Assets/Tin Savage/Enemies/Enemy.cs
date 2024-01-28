@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
     {
     }
 
-    public async UniTask Die(bool diedFromDash = true)
+    public void Die(bool diedFromDash = true)
     {
         AudioManager.Instance.Play(_deathSoundName);
         if (!diedFromDash)
@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
         }
 
         DoOnDeath();
-        // _wave.OnEnemyDeath();
         Destroy(gameObject);
     }
 

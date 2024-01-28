@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using CharacterController = Platformer3D.CharacterController;
 
 public class PlayerKnocker : MonoBehaviour
 {

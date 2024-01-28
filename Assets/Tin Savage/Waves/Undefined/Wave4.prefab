@@ -46,7 +46,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4546281592999170351}
-  - component: {fileID: 9015743143559480224}
   m_Layer: 0
   m_Name: Wave4
   m_TagString: Untagged
@@ -70,19 +69,6 @@ Transform:
   - {fileID: 5673018184487488079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9015743143559480224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8205948987594353117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb334728724fdd4293c8974820fc0c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NumberOfEnemiesLeft: 0
 --- !u!1001 &310657985041011087
 PrefabInstance:
   m_ObjectHideFlags: 0

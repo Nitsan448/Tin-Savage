@@ -1,82 +1,83 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using CharacterController = Platformer3D.CharacterController;
 
 public class Dasher : MonoBehaviour
 {
-    private CharacterController _controller;
+    public bool Dashing;
+    public int DashScore;
 
-    // private BoxCollider _dashCollider;
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _maxDashSpeed;
-    [SerializeField] private float _dashChargeTime;
     [SerializeField] private AnimationCurve _dashCurve;
-    [SerializeField] private Transform _rig;
-    [SerializeField] private float _chargedDashYPosition;
-    [SerializeField] private float _chargedDashXRotation;
-
+    [SerializeField] private float _dashChargeTime;
     [SerializeField] private GameObject _dashTrail;
-    [HideInInspector] public int DashScore = 0;
 
+    private CharacterController _controller;
+    private KeyManager _keyManager;
+    private PlayerRigController _playerRigController;
 
-    private void Awake()
+    public void Init(CharacterController controller, KeyManager keyManager, PlayerRigController playerRigController)
     {
-        _controller = GetComponent<CharacterController>();
+        _controller = controller;
+        _keyManager = keyManager;
+        _playerRigController = playerRigController;
     }
 
     public async UniTask Dash()
     {
-        Quaternion lookRotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
-        transform.rotation = lookRotation;
-        Vector3 startingPosition = transform.position;
-        Vector3 targetDirection = transform.forward;
-
-        while (Vector3.Distance(startingPosition, transform.position) < _dashDistance - 0.2f)
-        {
-            if (!SceneReferencer.Instance.Player.Dashing)
-            {
-                FinishDash();
-                return;
-            }
-
-            float t = Vector3.Distance(startingPosition, transform.position) / _dashDistance;
-            float currentDashSpeed = Mathf.Lerp(0, _maxDashSpeed, _dashCurve.Evaluate(t));
-
-            SetRigTransform(1 - t);
-            SceneReferencer.Instance.Player.Controller.SetVelocity(targetDirection * currentDashSpeed);
-            await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
-        }
-
-        FinishDash();
+        DoBeforeDashCharge();
+        await ChargeDash(_dashChargeTime);
+        DoBeforeDash();
+        await _controller.RigidBody.ControlledPush(transform.forward, _dashDistance, _maxDashSpeed, _dashCurve,
+            _playerRigController.SetRigTransformDuringDash);
+        DoAfterDash();
     }
 
-    private void FinishDash()
+
+    private void DoBeforeDashCharge()
     {
-        SetRigTransform(0);
         DashScore = 0;
+        _keyManager.KeyAnimator.SetTrigger("Charge");
+        _controller.SetVelocity(Vector3.zero);
+        Dashing = true;
+        SceneReferencer.Instance.Player.SetImmune();
+        // _playerKnocker.BeingKnocked = false;
+        _controller.RigidBody.isKinematic = true;
+        _dashTrail.SetActive(true);
+        AudioManager.Instance.Play("DashCharge");
     }
 
-    public async UniTask ChargeDash()
+    private async UniTask ChargeDash(float chargeTime)
     {
         float passedTime = 0;
 
-        AudioManager.Instance.Play("DashCharge");
-        while (passedTime < _dashChargeTime)
+        while (passedTime < chargeTime)
         {
-            float t = passedTime / _dashChargeTime;
-            SetRigTransform(t);
+            float t = passedTime / chargeTime;
+            _playerRigController.SetRigTransformDuringDashCharge(t);
             passedTime += Time.deltaTime;
             await UniTask.Yield();
         }
 
-        SetRigTransform(1);
+        _playerRigController.SetRigTransformDuringDashCharge(1);
     }
 
-    private void SetRigTransform(float t)
+    private void DoBeforeDash()
     {
-        _rig.localPosition = new Vector3(0, Mathf.Lerp(0, _chargedDashYPosition, t), 0);
-        _rig.localEulerAngles = new Vector3(Mathf.Lerp(0, _chargedDashXRotation, t), 0, 0);
+        _controller.RigidBody.isKinematic = false;
+        AudioManager.Instance.Play("Dash");
+        _keyManager.DropKey();
+        transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
+    }
+
+    private void DoAfterDash()
+    {
+        Dashing = false;
+        CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
+        _dashTrail.SetActive(false);
+        SceneReferencer.Instance.Player.SetImmune();
     }
 }

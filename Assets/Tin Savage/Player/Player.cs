@@ -3,13 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using CharacterController = Platformer3D.CharacterController;
 
 public class Player : MonoBehaviour
 {
-    public CharacterController Controller => _controller;
-    public bool Dashing => _dashing;
-
     private CharacterController _controller;
     private Dasher _dasher;
     private KeyManager _keyManager;
@@ -21,73 +17,40 @@ public class Player : MonoBehaviour
     private float _timeSinceLastDashFinished = 0;
     public bool InTutorial = true;
     private Plane _mouseRayCastPlane = new(Vector3.up, 0);
-    private bool _dashing;
     [SerializeField] private GameObject _dashTrail;
     [SerializeField] private float _rotationSpeed;
+    private int _dashScore;
+    [SerializeField] private float _dashChargeTime;
+    private PlayerRigController _playerRigController;
 
     private void Awake()
     {
         _playerWalkSound = GetComponent<AudioSource>();
         _dasher = GetComponent<Dasher>();
+        _dasher.Init(_controller, _keyManager, _playerRigController);
         _controller = GetComponent<CharacterController>();
         _keyManager = GetComponent<KeyManager>();
         _playerKnocker = GetComponent<PlayerKnocker>();
+        _playerRigController = GetComponent<PlayerRigController>();
     }
 
     private void Update()
     {
-        if (_dashing || _playerKnocker.BeingKnocked || GameManager.Instance.State != EGameState.Running) return;
+        if (_dasher.Dashing || _playerKnocker.BeingKnocked || GameManager.Instance.State != EGameState.Running) return;
 
         _controller.UpdateInput();
 
         if (Input.GetMouseButtonDown(0) && _keyManager.HoldingKey)
         {
-            Dash().Forget();
+            _dasher.Dash().Forget();
         }
 
         UpdateImmuneState();
     }
 
-    private async UniTask Dash()
-    {
-        DoBeforeDashCharge();
-        await _dasher.ChargeDash();
-        DoBeforeDash();
-        await _dasher.Dash();
-        DoAfterDash();
-    }
-
-
-    private void DoBeforeDashCharge()
-    {
-        _keyManager.KeyAnimator.SetTrigger("Charge");
-        _controller.SetVelocity(Vector3.zero);
-        _dashing = true;
-        _immune = true;
-        _playerKnocker.BeingKnocked = false;
-        _controller.RigidBody.isKinematic = true;
-        _dashTrail.SetActive(true);
-    }
-
-    private void DoBeforeDash()
-    {
-        _controller.RigidBody.isKinematic = false;
-        AudioManager.Instance.Play("Dash");
-        _keyManager.DropKey();
-    }
-
-    private void DoAfterDash()
-    {
-        _dashing = false;
-        _timeSinceLastDashFinished = 0;
-        CrowdManager.Instance.PlayLaughsByScore(_dasher.DashScore).Forget();
-        _dashTrail.SetActive(false);
-        SceneReferencer.Instance.Player.SetImmune();
-    }
-
     private void UpdateImmuneState()
     {
-        if (!_immune || _dashing) return;
+        if (!_immune || _dasher.Dashing) return;
 
         _timeSinceLastDashFinished += Time.deltaTime;
         if (_timeSinceLastDashFinished > _immunityTimeAfterDash)
@@ -99,7 +62,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         SetPlayerWalkSoundPlayingState();
-        if (GameManager.Instance.State != EGameState.Running || _dashing || _playerKnocker.BeingKnocked) return;
+        if (GameManager.Instance.State != EGameState.Running || _dasher.Dashing || _playerKnocker.BeingKnocked) return;
 
         _controller.CalculateVelocity();
         transform.RotateTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition(), _rotationSpeed);
@@ -112,7 +75,7 @@ public class Player : MonoBehaviour
             _playerWalkSound.Play();
         }
         else if (_playerWalkSound.isPlaying &&
-                 (_controller.RigidBody.velocity.magnitude < 1 || _playerKnocker.BeingKnocked || _dashing))
+                 (_controller.RigidBody.velocity.magnitude < 1 || _playerKnocker.BeingKnocked || _dasher.Dashing))
         {
             _playerWalkSound.Stop();
         }
@@ -137,7 +100,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (!other.gameObject.TryGetComponent(out Enemy enemy)) return;
-        if (_dashing)
+        if (_dasher.Dashing)
         {
             HitEnemyWithDash(enemy);
             return;
@@ -160,11 +123,11 @@ public class Player : MonoBehaviour
 
     private void HitEnemyWithDash(Enemy enemy)
     {
-        _dasher.DashScore += enemy.Score;
+        _dashScore += enemy.Score;
         bool enemyDied = enemy.Hit();
         if (enemyDied) return;
 
-        _dashing = false;
+        _dasher.Dashing = false;
         _playerWalkSound.Stop();
         _playerKnocker.Knock(transform.position + transform.forward, 1).Forget();
     }
