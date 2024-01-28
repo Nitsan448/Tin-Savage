@@ -833,7 +833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3456342547126507699}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -18}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 72}
 --- !u!33 &7111557223181443188
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 1619535010030113816}
   - component: {fileID: 6729968844975703050}
   m_Layer: 11
-  m_Name: FinalBoss
+  m_Name: EnemyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 20
+  KnockPlayerDistance: 30
   _deathParticleSystemPrefab: {fileID: 0}
   _health: 300
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
@@ -10946,7 +10946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3456342547126507699}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.296297}
 --- !u!33 &6912658687799608750
 MeshFilter:
   m_ObjectHideFlags: 0
