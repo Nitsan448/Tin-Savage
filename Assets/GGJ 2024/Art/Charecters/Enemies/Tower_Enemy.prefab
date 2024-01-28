@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 10
+  _maxKnockBackSpeed: 20
   _knockBackDistance: 5
   _knockBackCurve:
     serializedVersion: 2
