@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class KeyManager : MonoBehaviour
 {
+    public Animator KeyAnimator;
     public bool HoldingKey => _holdingKey;
 
     private bool _holdingKey = false;
@@ -15,6 +16,11 @@ public class KeyManager : MonoBehaviour
 
     [SerializeField] private float _minimumTimeBetweenDropToPickup;
     private float _keyDropTime;
+
+    private void Awake()
+    {
+        KeyAnimator = _keyOnPlayer.GetComponent<Animator>();
+    }
 
     public void DropKey()
     {
@@ -38,11 +44,11 @@ public class KeyManager : MonoBehaviour
         AudioManager.Instance.Play("KeyPickup");
         Destroy(key.gameObject);
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Vector3 keySpawnPoint = transform.position + _keyDropDistanceFromPlayer;
-        Gizmos.DrawSphere(keySpawnPoint, 0.3f);
-    }
+    //
+    // private void OnDrawGizmosSelected()
+    // {
+    //     Gizmos.color = Color.green;
+    //     Vector3 keySpawnPoint = transform.position + _keyDropDistanceFromPlayer;
+    //     Gizmos.DrawSphere(keySpawnPoint, 0.3f);
+    // }
 }

@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 73.5
+      value: 28.18
       objectReference: {fileID: 0}
     - target: {fileID: 967115738896843554, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -226,9 +226,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: KNIGHT
       objectReference: {fileID: 0}
+    - target: {fileID: 5135666151796202758, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: _dashChargeTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816626662274624810, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: _rotationSpeed
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6842959617749977563, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: finalScaleReference
-      value: 3.2884762
+      value: 3.288476
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

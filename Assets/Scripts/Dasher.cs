@@ -21,7 +21,7 @@ public class Dasher : MonoBehaviour
     [SerializeField] private Transform _rig;
     [SerializeField] private float _chargedDashYPosition;
     [SerializeField] private float _chargedDashXRotation;
-    public int DashScore = 0;
+    [HideInInspector] public int DashScore = 0;
 
 
     private void Awake()
@@ -39,6 +39,7 @@ public class Dasher : MonoBehaviour
         _lookAtMouse.SetEnabledState(false);
         _playerKnocker.BeingKnocked = false;
         Dashing = true;
+        _keyManager.KeyAnimator.SetTrigger("Charge");
         // _dashCollider.enabled = true;
         _controller.SetVelocity(Vector3.zero);
         await ChargeDash();

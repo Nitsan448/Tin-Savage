@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     public bool KillPlayerOnHit;
     [SerializeField] private string _deathSoundName;
     [SerializeField] public int Score;
-    [SerializeField] private MeshRenderer _mesh;
 
     private void Awake()
     {

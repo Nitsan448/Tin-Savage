@@ -6,11 +6,11 @@ using UnityEngine;
 public class TowerEnemy : Enemy
 {
     [SerializeField] private List<GameObject> _spheres;
-    private SphereCollider _collider;
+    private BoxCollider _collider;
 
     private void Awake()
     {
-        _collider = GetComponent<SphereCollider>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     protected override void DoOnHit()

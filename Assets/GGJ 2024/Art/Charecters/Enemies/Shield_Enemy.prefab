@@ -1663,10 +1663,10 @@ GameObject:
   - component: {fileID: 6704805275414345159}
   - component: {fileID: 4458462455086858313}
   - component: {fileID: 2372255526345370242}
-  - component: {fileID: 6684839977545928019}
   - component: {fileID: 5687667968483022148}
   - component: {fileID: 858808146903204686}
   - component: {fileID: 2669208292247730524}
+  - component: {fileID: 4061780531550033211}
   m_Layer: 8
   m_Name: Fatboi
   m_TagString: Untagged
@@ -1739,25 +1739,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6684839977545928019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8976521305945384798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KnockPlayerDistance: 20
-  _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
-  _health: 2
-  _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
-  KillPlayerOnHit: 0
-  _deathSoundName: 
-  Score: 0
 --- !u!114 &5687667968483022148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,6 +1841,26 @@ MonoBehaviour:
   _movementSpeedMultiplierOnDetection: 1
   _movementAccuracyMultiplierOnDetection: 4
   _separateSpeedMultiplierOnDetection: 0.5
+--- !u!114 &4061780531550033211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976521305945384798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28771f9339c06041a1ef32f9477a0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KnockPlayerDistance: 20
+  _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
+  _health: 2
+  _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
+  KillPlayerOnHit: 0
+  _deathSoundName: SpiderDeath
+  Score: 2
+  _shield: {fileID: 8223423216420546441}
 --- !u!1 &9186842539872514730
 GameObject:
   m_ObjectHideFlags: 0
