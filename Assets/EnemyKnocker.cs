@@ -30,7 +30,9 @@ public class EnemyKnocker : MonoBehaviour
         Vector3 startingRotation = transform.eulerAngles;
         knockingObjectPosition = new Vector3(knockingObjectPosition.x, transform.position.y, knockingObjectPosition.z);
         Vector3 targetDirection =
-            (new Vector3((transform.position - knockingObjectPosition).x, 0, (transform.position - knockingObjectPosition).z)).normalized;
+            new Vector3((transform.position - knockingObjectPosition).x, 0, (transform.position - knockingObjectPosition).z).normalized;
+        targetDirection = -transform.forward;
+        targetDirection.Normalize();
         Debug.Log(targetDirection);
         while (Vector3.Distance(startingPosition, transform.position) < _knockBackDistance - 0.2f)
         {
@@ -40,6 +42,7 @@ public class EnemyKnocker : MonoBehaviour
                     _knockBackCurve.Evaluate(t));
             float currentDashSpeed = Mathf.Lerp(0, _maxKnockBackSpeed, _knockBackCurve.Evaluate(t));
 
+            // _rigidbody.AddForce(targetDirection * currentDashSpeed);
             _rigidbody.velocity = targetDirection * currentDashSpeed;
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate);
         }

@@ -31,7 +31,6 @@ public class ObjectFollowPlayer : MonoBehaviour
     private bool _moveAwayFromHole;
     private EnemyKnocker _enemyKnocker;
     private PlayerDetector _playerDetector;
-    private float _startingYRotation;
 
 
     private void Awake()
@@ -39,11 +38,6 @@ public class ObjectFollowPlayer : MonoBehaviour
         _playerDetector = GetComponent<PlayerDetector>();
         _enemyKnocker = GetComponent<EnemyKnocker>();
         _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    private void Start()
-    {
-        _startingYRotation = transform.eulerAngles.y;
     }
 
     private void Update()
@@ -91,7 +85,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
         Quaternion lookRotation =
             Quaternion.LookRotation((SceneReferencer.Instance.Player.transform.position - transform.position).normalized);
-        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y + _startingYRotation, 0);
+        lookRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, _rotationSpeed * Time.deltaTime);
     }
 

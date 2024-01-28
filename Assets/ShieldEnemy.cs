@@ -8,7 +8,6 @@ public class ShieldEnemy : Enemy
 
     protected override void DoOnHit()
     {
-        base.DoOnHit();
         _shield.SetActive(false);
     }
 }
