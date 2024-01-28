@@ -57,7 +57,6 @@ MonoBehaviour:
   KillPlayerOnHit: 1
   _deathSoundName: TowerDeath
   Score: 4
-  _mesh: {fileID: 0}
   _spheres:
   - {fileID: 8545414224760697989}
   - {fileID: 5034660465043251010}
@@ -80,6 +79,7 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1, y: 2}
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
+  _radiusFromHole: 12
   _avoidHoleMultiplier: 3
 --- !u!65 &8324246106812511114
 BoxCollider:
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01a92c65c0fa604bbbf03e4a6511115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 1
-  _knockBackDistance: 1
+  _maxKnockBackSpeed: 0.5
+  _knockBackDistance: 5
   _knockBackCurve:
     serializedVersion: 2
     m_Curve:
