@@ -5,6 +5,12 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+[RequireComponent(typeof(Dasher))]
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(KeyManager))]
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerRigController))]
 public class Player : MonoBehaviour
 {
     private CharacterController _controller;

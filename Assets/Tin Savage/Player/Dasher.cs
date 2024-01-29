@@ -50,7 +50,7 @@ public class Dasher : MonoBehaviour
     {
         Dashing = true;
         DashScore = 0;
-        _keyManager.KeyAnimator.SetTrigger("Charge");
+        _keyManager.PlayKeyChargeAnimation();
         SceneReferencer.Instance.Player.SetImmune();
         // _playerKnocker.BeingKnocked = false;
         transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());

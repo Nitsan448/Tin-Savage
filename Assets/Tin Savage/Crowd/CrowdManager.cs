@@ -61,7 +61,7 @@ public class CrowdManager : ASingleton<CrowdManager>
     [Button]
     private void PlayKingLaugh()
     {
-        float pitch = Random.Range(0.97f, 1.03f);
+        float pitch = Random.Range((1 + _pitchRandomizationRange.x) / 2, (1 + _pitchRandomizationRange.y) / 2);
         _kingLaugh.pitch = pitch;
         _kingLaugh.Play();
         _kingLaughAnimation.Play();

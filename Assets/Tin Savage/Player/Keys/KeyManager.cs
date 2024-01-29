@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KeyManager : MonoBehaviour
 {
-    public Animator KeyAnimator;
+    [SerializeField] private Animator _keyAnimator;
     public bool HoldingKey => _holdingKey;
 
     [SerializeField] private bool _holdingKey = false;
@@ -19,7 +19,7 @@ public class KeyManager : MonoBehaviour
 
     private void Awake()
     {
-        KeyAnimator = _keyOnPlayer.GetComponent<Animator>();
+        _keyAnimator = _keyOnPlayer.GetComponent<Animator>();
     }
 
     public void DropKey()
@@ -43,6 +43,11 @@ public class KeyManager : MonoBehaviour
         _holdingKey = true;
         AudioManager.Instance.Play("KeyPickup");
         Destroy(key.gameObject);
+    }
+
+    public void PlayKeyChargeAnimation()
+    {
+        _keyAnimator.SetTrigger("Charge");
     }
     //
     // private void OnDrawGizmosSelected()
