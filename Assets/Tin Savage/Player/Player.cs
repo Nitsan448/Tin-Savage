@@ -118,7 +118,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("here");
             _playerWalkSound.Stop();
             _beingPushed = false;
             Vector3 pushDirection = (transform.position - enemy.transform.position);

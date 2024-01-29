@@ -1003,12 +1003,13 @@ MonoBehaviour:
   KnockPlayerDistance: 30
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
   _health: 8
-  _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}
+  _particleSystemSpawnOffset: {x: 0, y: 2.2, z: 0}
   KillPlayerOnHit: 0
-  _deathSoundName: 
+  _deathSoundName: TowerDeath
   Score: 6
   _maxKnockBackSpeed: 60
   _knockBackDistance: 15
+  BeingKnockedBack: 0
 --- !u!114 &1619535010030113816
 MonoBehaviour:
   m_ObjectHideFlags: 0

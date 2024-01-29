@@ -37,7 +37,7 @@ public class Dasher : MonoBehaviour
                 GameConfiguration.Instance.PushCurve,
                 _playerRigController.SetRigTransformDuringDash, cancellationToken: dashCts.Token);
         }
-        catch (OperationCanceledException e)
+        catch (OperationCanceledException)
         {
             DoOnDashCanceled();
         }
