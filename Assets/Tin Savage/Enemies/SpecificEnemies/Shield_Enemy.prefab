@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28771f9339c06041a1ef32f9477a0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 30
+  KnockPlayerDistance: 25
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 2
   _particleSystemSpawnOffset: {x: 0, y: 0, z: 0}

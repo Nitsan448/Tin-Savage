@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 public static class RigidBodyExtensions
@@ -12,7 +13,6 @@ public static class RigidBodyExtensions
         CancellationToken cancellationToken = default)
     {
         Vector3 startingPosition = rigidBody.position;
-        //push direction = transform.forward
 
         while (Vector3.Distance(startingPosition, rigidBody.position) < pushDistance)
         {
@@ -21,7 +21,7 @@ public static class RigidBodyExtensions
 
             onPushProgress?.Invoke(evaluatePushProgressByCurve ? pushCurve.Evaluate(t) : t);
 
-            rigidBody.velocity = pushDirection * currentDashSpeed;
+            rigidBody.velocity = pushDirection.normalized * currentDashSpeed;
             await UniTask.Yield(PlayerLoopTiming.FixedUpdate, cancellationToken);
         }
 

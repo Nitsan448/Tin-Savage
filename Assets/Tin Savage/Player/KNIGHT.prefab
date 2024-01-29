@@ -998,7 +998,6 @@ GameObject:
   - component: {fileID: 5135666151796202758}
   - component: {fileID: 4120090253830892407}
   - component: {fileID: 4179057145393833347}
-  - component: {fileID: 9053219121046163614}
   - component: {fileID: 4500887314024659374}
   - component: {fileID: 8437685904414821507}
   m_Layer: 9
@@ -1129,6 +1128,9 @@ MonoBehaviour:
   _dashTrail: {fileID: 8572538041328720512}
   _rotationSpeed: 6
   _dashChargeTime: 0.3
+  _playerKnockBackSpeedOnHitByEnemy: 80
+  _playerKnockBackSpeedOnEnemyHitWithDash: 160
+  _playerKnockBackDistanceOnEnemyHitWithDash: 1
 --- !u!114 &4179057145393833347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,72 +1149,6 @@ MonoBehaviour:
   _keyOnPlayer: {fileID: 3618534067311290360}
   _keyDropDistanceFromPlayer: {x: 0, y: 5, z: -1.55}
   _minimumTimeBetweenDropToPickup: 0.3
---- !u!114 &9053219121046163614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4209717066384063609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d06b9578279a8234e861168fead1676c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxKnockBackSpeed: 80
-  _knockBackCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25416663
-      value: 0.9292453
-      inSlope: 0.55675834
-      outSlope: 0.55675834
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5083333
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.68333334
-      value: 0.9481132
-      inSlope: -0.4185825
-      outSlope: -0.4185825
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.0041667
-      value: 0.16037732
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _rig: {fileID: 132188474015297818}
-  BeingKnocked: 0
 --- !u!82 &4500887314024659374
 AudioSource:
   m_ObjectHideFlags: 0
