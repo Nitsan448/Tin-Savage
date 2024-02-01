@@ -92,14 +92,9 @@ public class Enemy : MonoBehaviour
     {
     }
 
-    public void Die(bool diedFromDash = true)
+    public void Die()
     {
         AudioManager.Instance.Play(_deathSoundName);
-        if (!diedFromDash)
-        {
-            CrowdManager.Instance.PlayLaughsByScore(Score).Forget();
-        }
-
         DoOnDeath();
         Destroy(gameObject);
     }
