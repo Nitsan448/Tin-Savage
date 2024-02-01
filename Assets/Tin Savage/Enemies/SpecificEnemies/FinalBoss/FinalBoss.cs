@@ -6,6 +6,6 @@ public class FinalBoss : Enemy
 {
     protected override void DoOnDeath()
     {
-        GameManager.Instance.State = EGameState.Finished;
+        // GameManager.Instance.State = EGameState.Finished;
     }
 }
