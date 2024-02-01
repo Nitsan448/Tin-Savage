@@ -43,11 +43,6 @@ public class Enemy : MonoBehaviour
     public bool Hit(Player player)
     {
         _health--;
-        if (_deathParticleSystemPrefab != null)
-        {
-            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
-        }
-
         if (_health <= 0)
         {
             Die();
@@ -57,6 +52,11 @@ public class Enemy : MonoBehaviour
         {
             KnockBack(player).Forget();
             DoOnHit();
+            if (_deathParticleSystemPrefab != null)
+            {
+                Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
+            }
+
             return false;
         }
     }
@@ -94,6 +94,11 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        if (_deathParticleSystemPrefab != null)
+        {
+            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
+        }
+
         AudioManager.Instance.Play(_deathSoundName);
         DoOnDeath();
         Destroy(gameObject);

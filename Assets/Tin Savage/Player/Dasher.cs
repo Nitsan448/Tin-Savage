@@ -88,6 +88,7 @@ public class Dasher : MonoBehaviour
     {
         Dashing = false;
         CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
+        Debug.Log(DashScore);
         _dashTrail.SetActive(false);
         SceneReferencer.Instance.Player.SetImmune();
     }

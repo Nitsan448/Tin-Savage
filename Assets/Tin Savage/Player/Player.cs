@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _playerKnockBackSpeedOnHitByEnemy;
     [SerializeField] private int _playerKnockBackSpeedOnEnemyHitWithDash;
     [SerializeField] private int _playerKnockBackDistanceOnEnemyHitWithDash;
+    [SerializeField] private AWeapon _currentWeapon;
     private PlayerRigController _playerRigController;
     private CancellationTokenSource _dashCts;
 
@@ -41,11 +42,12 @@ public class Player : MonoBehaviour
         _keyManager = GetComponent<KeyManager>();
         _playerRigController = GetComponent<PlayerRigController>();
         _dasher.Init(_controller, _keyManager, _playerRigController);
+        _currentWeapon.Init(_playerRigController, _controller);
     }
 
     private void Update()
     {
-        if (_dasher.Dashing || _beingPushed || GameManager.Instance.State != EGameState.Running) return;
+        if (_dasher.Dashing || _beingPushed || _currentWeapon.Shooting || GameManager.Instance.State != EGameState.Running) return;
 
         _controller.UpdateInput();
 
@@ -53,6 +55,11 @@ public class Player : MonoBehaviour
         {
             _dashCts = new CancellationTokenSource();
             _dasher.Dash(_dashCts).Forget();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            _currentWeapon.Shoot();
         }
 
         UpdateImmuneState();
@@ -89,6 +96,11 @@ public class Player : MonoBehaviour
         {
             _playerWalkSound.Stop();
         }
+    }
+
+    private void LateUpdate()
+    {
+        Debug.Log(_dasher.DashScore);
     }
 
     private void OnTriggerEnter(Collider other)
