@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AWeapon _currentWeapon;
     private PlayerRigController _playerRigController;
     private CancellationTokenSource _dashCts;
+    private bool _isShooting => _currentWeapon != null && _currentWeapon.Shooting;
 
     private void Awake()
     {
@@ -47,8 +48,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        bool holdingWeapon = _currentWeapon != null;
-        bool doingAction = (holdingWeapon && _currentWeapon.Shooting) || _dasher.Dashing || _beingPushed;
+        bool doingAction = _isShooting || _dasher.Dashing || _beingPushed;
         if (doingAction || GameManager.Instance.State != EGameState.Running) return;
 
         _controller.UpdateInput();
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
         if (_currentWeapon != null && Input.GetMouseButtonDown(1))
         {
-            _currentWeapon.Shoot();
+            _currentWeapon.Shoot().Forget();
         }
 
         UpdateImmuneState();
@@ -101,11 +101,6 @@ public class Player : MonoBehaviour
         {
             _playerWalkSound.Stop();
         }
-    }
-
-    private void LateUpdate()
-    {
-        Debug.Log(_dasher.DashScore);
     }
 
     private void OnTriggerEnter(Collider other)

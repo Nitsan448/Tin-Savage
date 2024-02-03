@@ -7,4 +7,5 @@ public class GameConfiguration : ASingleton<GameConfiguration>
     public AnimationCurve PushCurve;
     public bool InfiniteDashes = false;
     public int StartingWave = 0;
+    public int TimeBetweenWavesScale = 1;
 }

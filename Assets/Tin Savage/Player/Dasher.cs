@@ -50,11 +50,11 @@ public class Dasher : MonoBehaviour
     {
         Dashing = true;
         DashScore = 0;
+        _controller.SetVelocity(Vector3.zero);
         _keyManager.PlayKeyChargeAnimation();
         SceneReferencer.Instance.Player.SetImmune();
         // _playerKnocker.BeingKnocked = false;
         transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
-        _controller.RigidBody.isKinematic = true;
         AudioManager.Instance.Play("DashCharge");
     }
 
@@ -76,7 +76,6 @@ public class Dasher : MonoBehaviour
     private void DoBeforeDash()
     {
         _dashTrail.SetActive(true);
-        _controller.RigidBody.isKinematic = false;
         AudioManager.Instance.Play("Dash");
         if (!GameConfiguration.Instance.InfiniteDashes)
         {
@@ -88,7 +87,6 @@ public class Dasher : MonoBehaviour
     {
         Dashing = false;
         CrowdManager.Instance.PlayLaughsByScore(DashScore).Forget();
-        Debug.Log(DashScore);
         _dashTrail.SetActive(false);
         SceneReferencer.Instance.Player.SetImmune();
     }

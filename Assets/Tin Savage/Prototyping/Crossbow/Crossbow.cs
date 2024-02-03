@@ -17,6 +17,7 @@ public class Crossbow : AWeapon
 
         //TODO: find another way without setting iskinematic
         // _characterController.RigidBody.isKinematic = true;
+        _characterController.SetVelocity(Vector3.zero);
         await ChargeShot();
         ShootArrow();
         // _characterController.RigidBody.isKinematic = false;
@@ -40,14 +41,14 @@ public class Crossbow : AWeapon
 
     private void ShootArrow()
     {
-        Arrow arrow = Instantiate(_arrowPrefab, transform.position, transform.rotation).GetComponent<Arrow>();
-        arrow.Shoot(transform.forward);
+        Projectile arrow = Instantiate(_arrowPrefab, transform.position, transform.rotation).GetComponent<Projectile>();
+        arrow.Shoot(transform.forward).Forget();
     }
 
 
     private async UniTask KnockBack()
     {
-        _characterController.RigidBody.ControlledPush(-transform.forward, 15, 100, GameConfiguration.Instance.PushCurve,
-            _playerRigController.SetRigTransformAfterCrossbowShot, false).Forget();
+        await _characterController.RigidBody.ControlledPush(-transform.forward, 15, 100, GameConfiguration.Instance.PushCurve,
+            _playerRigController.SetRigTransformAfterCrossbowShot);
     }
 }
