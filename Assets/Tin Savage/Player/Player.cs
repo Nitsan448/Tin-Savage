@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
     private PlayerRigController _playerRigController;
     private CancellationTokenSource _dashCts;
     private bool _isShooting => _currentWeapon != null && _currentWeapon.Shooting;
-    private CancellationTokenSource _playerCts = new();
 
     private void Awake()
     {
@@ -44,7 +43,10 @@ public class Player : MonoBehaviour
         _keyManager = GetComponent<KeyManager>();
         _playerRigController = GetComponent<PlayerRigController>();
         _dasher.Init(_controller, _keyManager, _playerRigController);
-        _currentWeapon.Init(_playerRigController, _controller);
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.Init(_playerRigController, _controller);
+        }
     }
 
     private void Update()

@@ -15,11 +15,11 @@ public class CursorSetter : MonoBehaviour
 
     private void Start()
     {
-        _standardCursor = Resources.Load<Texture2D>("Cursors/StandardCursor");
-        _standardCursor = null;
+        // _standardCursor = Resources.Load<Texture2D>("Cursors/StandardCursor");
+        // _standardCursor = null;
         _inputFieldCursor = Resources.Load<Texture2D>("Cursors/InputFieldCursor");
         _buttonCursor = Resources.Load<Texture2D>("Cursors/ButtonCursor");
-        SetCursorToStandard();
+        // SetCursorToStandard();
         AddCursorOnHoverScriptToChildren();
     }
 
@@ -43,7 +43,7 @@ public class CursorSetter : MonoBehaviour
 
     public static void SetCursorToStandard()
     {
-        Cursor.SetCursor(_standardCursor, new Vector2(6, 6), cursorMode: CursorMode.Auto);
+        Cursor.SetCursor(_standardCursor, new Vector2(0, 0), cursorMode: CursorMode.Auto);
     }
 
     public static void SetCursorToInputField()

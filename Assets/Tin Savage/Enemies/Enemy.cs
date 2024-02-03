@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         _enemyCts.Cancel();
+        //TODO: refactor
+        Destroy(transform.parent.gameObject);
     }
 
     public bool Hit(Vector3 hittingObjectDirection, int damage = 1)
@@ -61,8 +63,8 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            KnockBack(hittingObjectDirection).Forget();
             DoOnHit();
+            KnockBack(hittingObjectDirection).Forget();
             if (_deathParticleSystemPrefab != null)
             {
                 Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
