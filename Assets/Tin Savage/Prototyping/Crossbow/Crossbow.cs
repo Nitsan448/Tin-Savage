@@ -14,13 +14,9 @@ public class Crossbow : AWeapon
     {
         Shooting = true;
         transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
-
-        //TODO: find another way without setting iskinematic
-        // _characterController.RigidBody.isKinematic = true;
         _characterController.SetVelocity(Vector3.zero);
         await ChargeShot();
         ShootArrow();
-        // _characterController.RigidBody.isKinematic = false;
         await KnockBack();
         Shooting = false;
     }

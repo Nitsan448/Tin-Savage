@@ -40,9 +40,9 @@ public class Enemy : MonoBehaviour
         AudioManager.Instance.Play("EnemySpawn");
     }
 
-    public bool Hit(Player player)
+    public bool Hit(Transform hittingObject, int damage = 1)
     {
-        _health--;
+        _health -= damage;
         if (_health <= 0)
         {
             Die();
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            KnockBack(player).Forget();
+            KnockBack(hittingObject).Forget();
             DoOnHit();
             if (_deathParticleSystemPrefab != null)
             {
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private async UniTask KnockBack(Player hittingPlayer)
+    private async UniTask KnockBack(Transform hittingObject)
     {
         if (BeingKnockedBack)
         {
@@ -70,11 +70,11 @@ public class Enemy : MonoBehaviour
 
         BeingKnockedBack = true;
         _rotationOnPush = transform.rotation;
-        Vector3 playerPosition = new(hittingPlayer.transform.position.x, transform.position.y, hittingPlayer.transform.position.z);
-        Vector3 targetDirection =
-            new Vector3((transform.position - playerPosition).x, 0, (transform.position - playerPosition).z)
-                .normalized;
-        targetDirection = -transform.forward;
+        Vector3 hittingObjectPosition = new(hittingObject.position.x, transform.position.y, hittingObject.position.z);
+        // Vector3 targetDirection =
+        //     new Vector3((transform.position - hittingObjectPosition).x, 0, (transform.position - hittingObjectPosition).z)
+        //         .normalized;
+        Vector3 targetDirection = -transform.forward;
         targetDirection.Normalize();
         await _rigidbody.ControlledPush(targetDirection, _knockBackDistance, _maxKnockBackSpeed, GameConfiguration.Instance.PushCurve,
             UpdateRotationOnPushProgress);

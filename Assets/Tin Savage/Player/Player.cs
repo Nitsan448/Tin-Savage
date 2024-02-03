@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
 
     private void HitEnemyWithDash(Enemy enemy)
     {
-        bool enemyDied = enemy.Hit(this);
+        bool enemyDied = enemy.Hit(transform);
         if (enemyDied)
         {
             _dasher.DashScore += enemy.Score;

@@ -37,7 +37,7 @@ public class WaveManager : MonoBehaviour
         await PlayTutorial();
         for (int waveTimeIndex = GameConfiguration.Instance.StartingWave; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
         {
-            int waveTime = _timePerWave[waveTimeIndex] / GameConfiguration.Instance.TimeBetweenWavesScale;
+            float waveTime = _timePerWave[waveTimeIndex] / GameConfiguration.Instance.TimeBetweenWavesScale;
             int waveIndex;
 
             List<GameObject> waves = _possibleWavesEasyPrefabs;

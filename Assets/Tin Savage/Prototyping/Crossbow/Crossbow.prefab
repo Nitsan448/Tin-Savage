@@ -262,10 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8f7a7f17a532348a44c375e741773a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
   Shooting: 0
-  _shotChargeTime: 0
-  _arrowPrefab: {fileID: 0}
+  _shotChargeTime: 0.5
+  _arrowPrefab: {fileID: 638562350167414630, guid: 7f58ce7c48d037643b0ff312b04dba43, type: 3}
 --- !u!1 &8154550848576407170
 GameObject:
   m_ObjectHideFlags: 0

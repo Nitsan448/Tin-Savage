@@ -5,7 +5,6 @@ using UnityEngine;
 
 public abstract class AWeapon : MonoBehaviour
 {
-    [SerializeField] protected int _damage;
     protected PlayerRigController _playerRigController;
     protected CharacterController _characterController;
     public bool Shooting;

@@ -1289,8 +1289,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4333567095136598065}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14349404, y: 0, z: 0, w: 0.9896512}
-  m_LocalPosition: {x: 0, y: -0.57750577, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 2.9262214
+  finalScaleReference: 3.288476
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0
@@ -8330,7 +8330,7 @@ PrefabInstance:
       objectReference: {fileID: 638562350167414630, guid: 7f58ce7c48d037643b0ff312b04dba43, type: 3}
     - target: {fileID: 487068389549658896, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: _shotChargeTime
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalScale.x
