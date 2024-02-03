@@ -7,7 +7,7 @@ public abstract class AWeapon : MonoBehaviour
 {
     protected PlayerRigController _playerRigController;
     protected CharacterController _characterController;
-    public bool Shooting;
+    [HideInInspector] public bool Shooting;
 
 
     public void Init(PlayerRigController playerRigController, CharacterController controller)

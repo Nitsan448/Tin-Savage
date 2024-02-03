@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
@@ -19,11 +20,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private string _deathSoundName;
     [SerializeField] public int Score;
     private Rigidbody _rigidbody;
-    [SerializeField] private float _maxKnockBackSpeed = 20;
-    [SerializeField] private float _knockBackDistance = 20;
+
+    [FormerlySerializedAs("_maxKnockBackSpeed")] [SerializeField]
+    private float _maxKnockSpeed = 20;
+
+    [FormerlySerializedAs("_knockBackDistance")] [SerializeField]
+    private float _knockDistance = 20;
 
     private Quaternion _rotationOnPush;
-    [HideInInspector] public bool BeingKnockedBack;
+    [HideInInspector] public bool BeingKnocked;
+    private CancellationTokenSource _enemyCts = new();
 
     private void Awake()
     {
@@ -40,7 +46,12 @@ public class Enemy : MonoBehaviour
         AudioManager.Instance.Play("EnemySpawn");
     }
 
-    public bool Hit(Transform hittingObject, int damage = 1)
+    private void OnDestroy()
+    {
+        _enemyCts.Cancel();
+    }
+
+    public bool Hit(Vector3 hittingObjectDirection, int damage = 1)
     {
         _health -= damage;
         if (_health <= 0)
@@ -50,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            KnockBack(hittingObject).Forget();
+            KnockBack(hittingObjectDirection).Forget();
             DoOnHit();
             if (_deathParticleSystemPrefab != null)
             {
@@ -61,31 +72,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private async UniTask KnockBack(Transform hittingObject)
+    private async UniTask KnockBack(Vector3 knockDirection)
     {
-        if (BeingKnockedBack)
+        if (BeingKnocked)
         {
             return;
         }
 
-        BeingKnockedBack = true;
-        _rotationOnPush = transform.rotation;
-        Vector3 hittingObjectPosition = new(hittingObject.position.x, transform.position.y, hittingObject.position.z);
-        // Vector3 targetDirection =
-        //     new Vector3((transform.position - hittingObjectPosition).x, 0, (transform.position - hittingObjectPosition).z)
-        //         .normalized;
-        Vector3 targetDirection = -transform.forward;
-        targetDirection.Normalize();
-        await _rigidbody.ControlledPush(targetDirection, _knockBackDistance, _maxKnockBackSpeed, GameConfiguration.Instance.PushCurve,
-            UpdateRotationOnPushProgress);
-        BeingKnockedBack = false;
-    }
-
-    private void UpdateRotationOnPushProgress(float t)
-    {
-        transform.rotation =
-            Quaternion.Lerp(_rotationOnPush,
-                Quaternion.Euler(_rotationOnPush.eulerAngles.x, _rotationOnPush.eulerAngles.y + 360, _rotationOnPush.eulerAngles.z), t);
+        BeingKnocked = true;
+        await _rigidbody.ControlledPush(knockDirection.normalized, _knockDistance, _maxKnockSpeed, GameConfiguration.Instance.PushCurve,
+            cancellationToken: _enemyCts.Token);
+        BeingKnocked = false;
     }
 
     protected virtual void DoOnHit()

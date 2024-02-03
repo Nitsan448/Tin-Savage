@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private PlayerRigController _playerRigController;
     private CancellationTokenSource _dashCts;
     private bool _isShooting => _currentWeapon != null && _currentWeapon.Shooting;
+    private CancellationTokenSource _playerCts = new();
 
     private void Awake()
     {
@@ -147,7 +148,7 @@ public class Player : MonoBehaviour
 
     private void HitEnemyWithDash(Enemy enemy)
     {
-        bool enemyDied = enemy.Hit(transform);
+        bool enemyDied = enemy.Hit(transform.forward);
         if (enemyDied)
         {
             _dasher.DashScore += enemy.Score;

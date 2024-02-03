@@ -57,7 +57,7 @@ public class ObjectFollowPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_enemy.BeingKnockedBack)
+        if (_enemy.BeingKnocked)
         {
             return;
         }

@@ -1885,7 +1885,7 @@ MonoBehaviour:
   baseTransform: {fileID: 967115738896843554}
   Hips: {fileID: 5975280802364008428}
   ScaleReferenceMode: 3
-  finalScaleReference: 3.288476
+  finalScaleReference: 3.288475
   finalScaleReferenceSqrt: 11.018627
   customScaleReferenceValue: 0.5
   DelayedInitialization: 0
@@ -8321,28 +8321,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 967115738896843554}
     m_Modifications:
     - target: {fileID: 487068389549658896, guid: 0b2116053264be6468763d163d8fc556, type: 3}
-      propertyPath: _damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 487068389549658896, guid: 0b2116053264be6468763d163d8fc556, type: 3}
-      propertyPath: _arrowPrefab
-      value: 
-      objectReference: {fileID: 638562350167414630, guid: 7f58ce7c48d037643b0ff312b04dba43, type: 3}
-    - target: {fileID: 487068389549658896, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: _shotChargeTime
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8350,11 +8342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.271
+      value: 3.789999
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1064279191083459430, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8387,10 +8379,6 @@ PrefabInstance:
     - target: {fileID: 6895714300305089746, guid: 0b2116053264be6468763d163d8fc556, type: 3}
       propertyPath: m_Name
       value: Crossbow
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895714300305089746, guid: 0b2116053264be6468763d163d8fc556, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
