@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -9,21 +10,17 @@ public class Crossbow : AWeapon
     [SerializeField] private float _shotChargeTime;
     [SerializeField] private GameObject _arrowPrefab;
 
-    public override void Shoot()
-    {
-        Debug.Log("here");
-        ShootAsync().Forget();
-    }
-
-    private async UniTask ShootAsync()
+    public override async UniTask Shoot()
     {
         Shooting = true;
         transform.rotation = transform.GetRotationTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition());
-        _characterController.RigidBody.isKinematic = true;
+
+        //TODO: find another way without setting iskinematic
+        // _characterController.RigidBody.isKinematic = true;
         await ChargeShot();
         ShootArrow();
-        _characterController.RigidBody.isKinematic = false;
-
+        // _characterController.RigidBody.isKinematic = false;
+        await KnockBack();
         Shooting = false;
     }
 
@@ -45,20 +42,12 @@ public class Crossbow : AWeapon
     {
         Arrow arrow = Instantiate(_arrowPrefab, transform.position, transform.rotation).GetComponent<Arrow>();
         arrow.Shoot(transform.forward);
-        ReturnRigToRegularPosition().Forget();
     }
 
-    private async UniTask ReturnRigToRegularPosition()
-    {
-        float currentTime = 0;
-        while (currentTime < 0.15f)
-        {
-            float t = currentTime / 0.1f;
-            _playerRigController.SetRigTransformDuringCrossbowShot(1 - t);
-            currentTime += Time.deltaTime;
-            await UniTask.Yield();
-        }
 
-        _playerRigController.SetRigTransformDuringCrossbowShot(0);
+    private async UniTask KnockBack()
+    {
+        _characterController.RigidBody.ControlledPush(-transform.forward, 15, 100, GameConfiguration.Instance.PushCurve,
+            _playerRigController.SetRigTransformAfterCrossbowShot, false).Forget();
     }
 }

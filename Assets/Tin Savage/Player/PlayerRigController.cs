@@ -21,7 +21,7 @@ public class PlayerRigController : MonoBehaviour
         _rig.localEulerAngles = new Vector3(Mathf.Lerp(0, _chargedDashXRotation, t), 0, 0);
     }
 
-    public void SetRigTransformDuringCrossbow(float t)
+    public void SetRigTransformAfterCrossbowShot(float t)
     {
         SetRigTransformDuringCrossbowShot(1 - t);
     }

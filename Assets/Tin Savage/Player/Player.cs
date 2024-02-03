@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _dashTrail;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _dashChargeTime;
-    [SerializeField] private int _playerKnockBackSpeedOnHitByEnemy;
-    [SerializeField] private int _playerKnockBackSpeedOnEnemyHitWithDash;
-    [SerializeField] private int _playerKnockBackDistanceOnEnemyHitWithDash;
+    [SerializeField] private int _knockBackSpeedOnHitByEnemy;
+    [SerializeField] private int _knockBackSpeedOnEnemyHitWithDash;
+    [SerializeField] private int _knockBackDistanceOnEnemyHitWithDash;
     [SerializeField] private AWeapon _currentWeapon;
     private PlayerRigController _playerRigController;
     private CancellationTokenSource _dashCts;
@@ -47,7 +47,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_dasher.Dashing || _beingPushed || _currentWeapon.Shooting || GameManager.Instance.State != EGameState.Running) return;
+        bool holdingWeapon = _currentWeapon != null;
+        bool doingAction = (holdingWeapon && _currentWeapon.Shooting) || _dasher.Dashing || _beingPushed;
+        if (doingAction || GameManager.Instance.State != EGameState.Running) return;
 
         _controller.UpdateInput();
 
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
             _dasher.Dash(_dashCts).Forget();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (_currentWeapon != null && Input.GetMouseButtonDown(1))
         {
             _currentWeapon.Shoot();
         }
@@ -82,7 +84,10 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.State != EGameState.Running || _dasher.Dashing || _beingPushed) return;
 
         _controller.CalculateVelocity();
-        transform.RotateTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition(), _rotationSpeed);
+        if (!_dasher.Dashing && !(_currentWeapon != null && _currentWeapon.Shooting))
+        {
+            transform.RotateTowardsOnYAxis(SceneReferencer.Instance.Player.GetMousePosition(), _rotationSpeed);
+        }
     }
 
     private void SetPlayerWalkSoundPlayingState()
@@ -139,7 +144,7 @@ public class Player : MonoBehaviour
             _playerWalkSound.Stop();
             _beingPushed = false;
             Vector3 pushDirection = (transform.position - enemy.transform.position);
-            _controller.RigidBody.ControlledPush(pushDirection, enemy.KnockPlayerDistance, _playerKnockBackSpeedOnHitByEnemy,
+            _controller.RigidBody.ControlledPush(pushDirection, enemy.KnockPlayerDistance, _knockBackSpeedOnHitByEnemy,
                 GameConfiguration.Instance.PushCurve).Forget();
         }
     }
@@ -156,8 +161,8 @@ public class Player : MonoBehaviour
 
         _dashCts.Cancel();
         _playerWalkSound.Stop();
-        _controller.RigidBody.ControlledPush(-transform.forward, _playerKnockBackDistanceOnEnemyHitWithDash,
-            _playerKnockBackSpeedOnEnemyHitWithDash,
+        _controller.RigidBody.ControlledPush(-transform.forward, _knockBackDistanceOnEnemyHitWithDash,
+            _knockBackSpeedOnEnemyHitWithDash,
             GameConfiguration.Instance.PushCurve).Forget();
     }
 

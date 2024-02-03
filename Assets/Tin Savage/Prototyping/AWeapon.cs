@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public abstract class AWeapon : MonoBehaviour
@@ -16,5 +17,7 @@ public abstract class AWeapon : MonoBehaviour
         _characterController = controller;
     }
 
-    public abstract void Shoot();
+    public virtual async UniTask Shoot()
+    {
+    }
 }
