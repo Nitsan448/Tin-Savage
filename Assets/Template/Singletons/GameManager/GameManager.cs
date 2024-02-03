@@ -9,6 +9,12 @@ public class GameManager : ASingleton<GameManager>
 {
     public EGameState State = EGameState.Running;
 
+    // protected override void DoOnAwake()
+    // {
+    //     QualitySettings.vSyncCount = 0; // VSync must be disabled
+    //     Application.targetFrameRate = 45;
+    // }
+
     private void Update()
     {
         //TODO: move to input manager
