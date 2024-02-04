@@ -56,6 +56,11 @@ public class Enemy : MonoBehaviour
     public bool Hit(Vector3 hittingObjectDirection, int damage = 1)
     {
         _health -= damage;
+        if (_deathParticleSystemPrefab != null)
+        {
+            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
+        }
+
         if (_health <= 0)
         {
             Die();
@@ -65,10 +70,6 @@ public class Enemy : MonoBehaviour
         {
             DoOnHit();
             KnockBack(hittingObjectDirection).Forget();
-            if (_deathParticleSystemPrefab != null)
-            {
-                Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
-            }
 
             return false;
         }
@@ -93,11 +94,6 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        if (_deathParticleSystemPrefab != null)
-        {
-            Instantiate(_deathParticleSystemPrefab, transform.position + _particleSystemSpawnOffset, Quaternion.identity);
-        }
-
         AudioManager.Instance.Play(_deathSoundName);
         DoOnDeath();
         Destroy(gameObject);

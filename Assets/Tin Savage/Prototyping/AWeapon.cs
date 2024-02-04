@@ -16,7 +16,5 @@ public abstract class AWeapon : MonoBehaviour
         _characterController = controller;
     }
 
-    public virtual async UniTask Shoot()
-    {
-    }
+    public abstract UniTask Shoot();
 }
