@@ -141,6 +141,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            ScreenShaker.Instance.Shake((float)enemy.KnockPlayerDistance / 40f, (float)enemy.KnockPlayerDistance / 40f);
             _playerWalkSound.Stop();
             _beingPushed = false;
             Vector3 pushDirection = (transform.position - enemy.transform.position);
@@ -160,6 +161,7 @@ public class Player : MonoBehaviour
             return;
         }
 
+        ScreenShaker.Instance.Shake(0.5f, 0.5f);
         _dashCts.Cancel();
         _playerWalkSound.Stop();
         _controller.RigidBody.ControlledPush(-transform.forward, _knockBackDistanceOnEnemyHitWithDash,

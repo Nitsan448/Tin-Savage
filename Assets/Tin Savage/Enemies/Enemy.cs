@@ -85,12 +85,12 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        gameObject.layer = LayerMask.GetMask("Default");
+        gameObject.layer = LayerMask.NameToLayer("Default");
         BeingKnocked = true;
         await _rigidbody.ControlledPush(knockDirection.normalized, _knockDistance, _maxKnockSpeed, GameConfiguration.Instance.PushCurve,
             cancellationToken: _enemyCts.Token);
         BeingKnocked = false;
-        gameObject.layer = LayerMask.GetMask("Agent");
+        gameObject.layer = LayerMask.NameToLayer("Agent");
     }
 
     protected virtual void DoOnHit()

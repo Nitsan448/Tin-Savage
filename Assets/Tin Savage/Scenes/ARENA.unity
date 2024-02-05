@@ -2802,6 +2802,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870745218}
   m_Mesh: {fileID: 9188603553798411242, guid: ef6c33e404acc2141b78ede536fbe3e3, type: 3}
+--- !u!1 &946176398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4293751708958726245, guid: bb21728fea81fb740907e37a32379b05, type: 3}
+  m_PrefabInstance: {fileID: 6529024365908815560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &946176405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946176398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7db6afe5f638dc4e9647491f86e429a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &969245117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6948,6 +6965,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _mediumWavesStartIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
       propertyPath: _possibleWavesHardPrefabs.Array.size
       value: 14
       objectReference: {fileID: 0}
@@ -7176,7 +7197,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4293751708958726245, guid: bb21728fea81fb740907e37a32379b05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 946176405}
   m_SourcePrefab: {fileID: 100100000, guid: bb21728fea81fb740907e37a32379b05, type: 3}
 --- !u!1001 &7241107803726214829
 PrefabInstance:
