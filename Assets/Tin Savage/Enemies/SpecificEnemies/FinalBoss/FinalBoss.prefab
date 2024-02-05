@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2318737985147161202}
   - component: {fileID: 6045245273011573411}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FinalBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 7717401843697696699}
   - component: {fileID: 1936431420664468945}
   - component: {fileID: 3919124384250499532}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +4895,7 @@ GameObject:
   - component: {fileID: 3310275092088232364}
   - component: {fileID: 9153673220923385010}
   - component: {fileID: 9031852827949433652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9725,7 +9725,7 @@ GameObject:
   - component: {fileID: 6764774460075885014}
   - component: {fileID: 6553509743522955095}
   - component: {fileID: 1296408257591135337}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: R_Knee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9830,7 +9830,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2677481009762107052}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.296297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2372847342881910765
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9892,7 +9892,7 @@ GameObject:
   - component: {fileID: 1274800324831936860}
   - component: {fileID: 3503106446851426154}
   - component: {fileID: 6331021694913644278}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9913,7 +9913,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2677481009762107052}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 72}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!33 &3503106446851426154
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9975,7 +9975,7 @@ GameObject:
   - component: {fileID: 5720772606485717169}
   - component: {fileID: 7059951529906111351}
   - component: {fileID: 3651745999248997679}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14864,7 +14864,7 @@ GameObject:
   - component: {fileID: 8353005917111592890}
   - component: {fileID: 3424890610328007188}
   - component: {fileID: 1321944510800370049}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: L_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14947,7 +14947,7 @@ GameObject:
   - component: {fileID: 6817350134189031265}
   - component: {fileID: 1438733099336072033}
   - component: {fileID: 3357789957447750120}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: L_Knee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15031,7 +15031,7 @@ GameObject:
   - component: {fileID: 9200827957851989259}
   - component: {fileID: 2400720748602405856}
   - component: {fileID: 2393111643116276492}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: L_Shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15115,7 +15115,7 @@ GameObject:
   - component: {fileID: 2023143099464784110}
   - component: {fileID: 1375479456280405549}
   - component: {fileID: 2471644381122806071}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: R_Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15939,7 +15939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba07beb2a6b0ab4ca672f12957054af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 30
+  KnockPlayerDistance: 25
   _deathParticleSystemPrefab: {fileID: 1198321794609478898, guid: 7ff079e6dab4f98409241af098d74782, type: 3}
   _health: 8
   _particleSystemSpawnOffset: {x: 0, y: 2.2, z: 0}
@@ -15949,6 +15949,7 @@ MonoBehaviour:
   _maxKnockSpeed: 60
   _knockDistance: 15
   BeingKnocked: 0
+  _timeUntilDeadly: 0.4
 --- !u!114 &8114796611681274580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15967,7 +15968,7 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 0, y: 0}
   _seperateSpeedRange: {x: 0, y: 0}
   _seperateRadiusRange: {x: 0, y: 0}
-  _radiusFromHole: 20
+  _radiusFromHole: 16
   _avoidHoleMultiplier: 1
 --- !u!114 &3372142452460452961
 MonoBehaviour:
@@ -15997,7 +15998,7 @@ GameObject:
   - component: {fileID: 8114767368045865710}
   - component: {fileID: 4439664679117226039}
   - component: {fileID: 4839277054130641670}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: R_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16081,7 +16082,7 @@ GameObject:
   - component: {fileID: 148545248688685105}
   - component: {fileID: 4055576784852150285}
   - component: {fileID: 5473664414874449231}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: R_Shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16165,7 +16166,7 @@ GameObject:
   - component: {fileID: 8973701669359055968}
   - component: {fileID: 1207455828680405401}
   - component: {fileID: 9023831908861879932}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20993,7 +20994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7228852051751013060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpwanFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21028,7 +21029,7 @@ GameObject:
   - component: {fileID: 4551980320789920222}
   - component: {fileID: 6442082199311860416}
   - component: {fileID: 1125269858526549085}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: L_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

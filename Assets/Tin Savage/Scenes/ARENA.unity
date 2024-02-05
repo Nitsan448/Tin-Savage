@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KNIGHT
       objectReference: {fileID: 0}
+    - target: {fileID: 6162022727213275692, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
+      propertyPath: _shotChargeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6842959617749977563, guid: 7a3702d266117d840a508cff2f9b5bc3, type: 3}
       propertyPath: finalScaleReference
       value: 3.288476
@@ -6456,6 +6460,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrowdManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1392008280554387883, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600305149825978503, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342439437403612195, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933180299010349058, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5897487460711405006, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6499,6 +6519,10 @@ PrefabInstance:
     - target: {fileID: 6343091997440044115, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
       propertyPath: m_Name
       value: Boss Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166088430987989579, guid: f97772d2c05ae1c46bc991cca852632b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6977,6 +7001,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1342566350122010441, guid: bb21728fea81fb740907e37a32379b05, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230961137124397043, guid: bb21728fea81fb740907e37a32379b05, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4293751708958726245, guid: bb21728fea81fb740907e37a32379b05, type: 3}

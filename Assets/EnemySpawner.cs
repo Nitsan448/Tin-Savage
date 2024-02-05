@@ -29,7 +29,6 @@ public class EnemySpawner : MonoBehaviour
 
     private async UniTask SpawnEnemy()
     {
-        //TODO: refactor this
         _enemy.SetActive(false);
         foreach (GameObject particleSystem in _particleSystems)
         {

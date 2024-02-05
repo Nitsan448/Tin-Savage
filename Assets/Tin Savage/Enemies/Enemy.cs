@@ -30,9 +30,12 @@ public class Enemy : MonoBehaviour
     private Quaternion _rotationOnPush;
     [HideInInspector] public bool BeingKnocked;
     private CancellationTokenSource _enemyCts = new();
+    [SerializeField] private float _timeUntilDeadly = 1;
+    public bool IsDeadly => _timeUntilDeadly < Time.time;
 
     private void Awake()
     {
+        _timeUntilDeadly += Time.time;
         _rigidbody = GetComponent<Rigidbody>();
         DoOnAwake();
     }

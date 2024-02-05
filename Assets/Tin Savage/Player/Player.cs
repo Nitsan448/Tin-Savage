@@ -132,7 +132,8 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (_immune) return;
+        if (_immune || !enemy.IsDeadly) return;
+
 
         if (enemy.KillPlayerOnHit)
         {
@@ -143,6 +144,7 @@ public class Player : MonoBehaviour
             _playerWalkSound.Stop();
             _beingPushed = false;
             Vector3 pushDirection = (transform.position - enemy.transform.position);
+            pushDirection = new Vector3(pushDirection.x, 0, pushDirection.z);
             _controller.RigidBody.ControlledPush(pushDirection, enemy.KnockPlayerDistance, _knockBackSpeedOnHitByEnemy,
                 GameConfiguration.Instance.PushCurve).Forget();
         }
@@ -173,10 +175,14 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        AudioManager.Instance.Play("Death");
-        _playerWalkSound.Stop();
-        CrowdManager.Instance.PlayLaughsByScore(6).Forget();
-        Transitioner.Instance.GameOver().Forget();
+        if (GameManager.Instance.State != EGameState.Finished)
+        {
+            AudioManager.Instance.Play("Death");
+            _playerWalkSound.Stop();
+            CrowdManager.Instance.PlayLaughsByScore(6).Forget();
+            Transitioner.Instance.GameOver().Forget();
+            Destroy(gameObject);
+        }
     }
 
     public Vector3 GetMousePosition()

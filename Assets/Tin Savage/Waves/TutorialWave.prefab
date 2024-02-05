@@ -84,6 +84,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 6906162772357767573, guid: ec17159a34be7a64a9c3bc23508f3a9b, type: 3}
+      propertyPath: _movementSpeedMultiplierOnDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228705742603667771, guid: ec17159a34be7a64a9c3bc23508f3a9b, type: 3}
+      propertyPath: _timeBetweenParticlesAndEnemySpawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607649048031353653, guid: ec17159a34be7a64a9c3bc23508f3a9b, type: 3}
+      propertyPath: _movementSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

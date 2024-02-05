@@ -1300,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7815946255791086832, guid: 6130191c1ca63174aadcd3884bcbb36e, type: 3}
       propertyPath: PlayTutorial
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7815946255791086832, guid: 6130191c1ca63174aadcd3884bcbb36e, type: 3}
       propertyPath: StartingWave

@@ -6402,7 +6402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99b1e0a3f79fb54db19474c21adea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockPlayerDistance: 6
+  KnockPlayerDistance: 7
   _deathParticleSystemPrefab: {fileID: 4570092709023735990, guid: 5c120833fd26f7a4fa8373f58acc30bd, type: 3}
   _health: 1
   _particleSystemSpawnOffset: {x: 0, y: 0.5, z: 0}
@@ -6412,6 +6412,7 @@ MonoBehaviour:
   _maxKnockSpeed: 20
   _knockDistance: 20
   BeingKnocked: 0
+  _timeUntilDeadly: 0.4
 --- !u!114 &8607649048031353653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6424,12 +6425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b806cc9e97ac4a81dff54937c78ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 10
+  _movementSpeed: 11
   _movementAccuracy: 30
   _rotationSpeed: 15
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
-  _seperateSpeedRange: {x: 1, y: 6}
-  _seperateRadiusRange: {x: 4, y: 8}
+  _seperateSpeedRange: {x: 3, y: 8}
+  _seperateRadiusRange: {x: 6, y: 12}
   _radiusFromHole: 13
   _avoidHoleMultiplier: 1.5
 --- !u!114 &6906162772357767573
@@ -6446,9 +6447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distanceToEnterDetectingMode: 15
   _distanceToExitDetectingMode: 17
-  _movementSpeedMultiplierOnDetection: 2
+  _movementSpeedMultiplierOnDetection: 1.9
   _movementAccuracyMultiplierOnDetection: 2
-  _separateSpeedMultiplierOnDetection: 0.5
+  _separateSpeedMultiplierOnDetection: 0.6
 --- !u!1 &4221843770908180737
 GameObject:
   m_ObjectHideFlags: 0

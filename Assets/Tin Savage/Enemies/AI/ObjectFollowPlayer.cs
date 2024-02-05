@@ -115,7 +115,7 @@ public class ObjectFollowPlayer : MonoBehaviour
     private void HandleHole()
     {
         if (_moveAwayFromHole && Vector3.Distance(transform.position, SceneReferencer.Instance.Danger.transform.position) >
-            _radiusFromHole + 3)
+            _radiusFromHole + 5)
         {
             _moveAwayFromHole = false;
         }

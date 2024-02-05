@@ -7,6 +7,9 @@ public class FinalBoss : Enemy
 {
     protected override void DoOnDeath()
     {
-        Transitioner.Instance.Win().Forget();
+        if (SceneReferencer.Instance.Player != null)
+        {
+            Transitioner.Instance.Win().Forget();
+        }
     }
 }

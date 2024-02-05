@@ -9961,6 +9961,7 @@ MonoBehaviour:
   _maxKnockSpeed: 20
   _knockDistance: 5
   BeingKnocked: 0
+  _timeUntilDeadly: 0.4
   _spheres:
   - {fileID: 2601188167008497985}
   - {fileID: 4096766109734266098}
@@ -9984,7 +9985,7 @@ MonoBehaviour:
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
   _radiusFromHole: 13
-  _avoidHoleMultiplier: 3
+  _avoidHoleMultiplier: 2
 --- !u!65 &3251996107241248326
 BoxCollider:
   m_ObjectHideFlags: 0
