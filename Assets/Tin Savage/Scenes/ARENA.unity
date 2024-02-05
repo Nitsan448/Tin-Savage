@@ -6363,7 +6363,7 @@ MonoBehaviour:
   _movementText: {fileID: 410346535}
   _keyText: {fileID: 1253583595}
   _dashText: {fileID: 160528125}
-  _moveDistanceToFinishMovementTutorial: 10
+  _moveDistanceToFinishMovementTutorial: 6
   _tutorialKey: {fileID: 1351422401}
 --- !u!1 &2036662569
 GameObject:

@@ -65,7 +65,7 @@ public class WaveManager : MonoBehaviour
         Instantiate(_bossWave, Vector3.zero, Quaternion.identity, parent: transform);
         while (GameManager.Instance.State == EGameState.Running)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(7));
+            await UniTask.Delay(TimeSpan.FromSeconds(7)/ GameConfiguration.Instance.TimeBetweenWavesScale);
             int waveIndex = Random.Range(0, _possibleWavesPrefabsEasyStarting.Count);
             Instantiate(_possibleWavesPrefabsEasyStarting[waveIndex], Vector3.zero, Quaternion.identity, parent: transform);
         }
