@@ -43,7 +43,7 @@ public class CursorSetter : MonoBehaviour
 
     public static void SetCursorToStandard()
     {
-        Cursor.SetCursor(_standardCursor, new Vector2(0, 0), cursorMode: CursorMode.Auto);
+        Cursor.SetCursor(_standardCursor, new Vector2(128, 0), cursorMode: CursorMode.Auto);
     }
 
     public static void SetCursorToInputField()
