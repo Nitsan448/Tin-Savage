@@ -50,6 +50,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _controller.RigidBody.isKinematic = false;
+    }
+
     private void Update()
     {
         bool doingAction = _isShooting || _dasher.Dashing || _beingPushed;

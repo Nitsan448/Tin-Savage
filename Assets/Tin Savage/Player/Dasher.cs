@@ -48,6 +48,7 @@ public class Dasher : MonoBehaviour
 
     private void DoBeforeDashCharge()
     {
+        _controller.RigidBody.isKinematic = true;
         Dashing = true;
         DashScore = 0;
         _controller.SetVelocity(Vector3.zero);
@@ -75,6 +76,7 @@ public class Dasher : MonoBehaviour
 
     private void DoBeforeDash()
     {
+        _controller.RigidBody.isKinematic = false;
         _dashTrail.SetActive(true);
         AudioManager.Instance.Play("Dash");
         if (!GameConfiguration.Instance.InfiniteDashes)
@@ -93,6 +95,7 @@ public class Dasher : MonoBehaviour
 
     private void DoOnDashCanceled()
     {
+        _controller.RigidBody.isKinematic = false;
         _playerRigController.SetRigTransformDuringDashCharge(0);
     }
 }
