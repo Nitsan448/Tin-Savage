@@ -6947,6 +6947,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: 27bfa83ea60ba2c4bb15cb59d0e1783d, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: 515a503abd6cf9745a79f431197b6dfe, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: b76c396d2ce48ee46a545cdc1631f571, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: 882390f8af9017040917cdeff2737aab, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: f6540c005e3d3104aa2231571e7ce916, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 7116097824945455643, guid: e791e39af1efc884291d3a6d34a83672, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 5608279947864056145, guid: e6217dfcdd4cb164cb4c08b83872d4e7, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 5536305170427234444, guid: b264cf8a0c5c98c4493aba6ad259fa5c, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1213526640889748897, guid: 114aa9b0b0289ae4db1e55e792ea7dcb, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 4133623091425071312, guid: 735612bc25474af43b2ee72c15f16610, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 4524774577166328716, guid: 59dd434ce036a214398cddd728e40c50, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 5746688013882490045, guid: 1550b3d9e069a414ba36a38468ea9099, type: 3}
+    - target: {fileID: 1716874150218573959, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
+      propertyPath: _possibleWavesHardPrefabs.Array.data[13]
+      value: 
+      objectReference: {fileID: 8102837550097520531, guid: 3aa54ab81bb59d14981eaeda672f5dc2, type: 3}
     - target: {fileID: 6225259639617204814, guid: d8cac187674c62145aea819ef1e73c77, type: 3}
       propertyPath: m_Name
       value: WaveManager
