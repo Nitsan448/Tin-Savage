@@ -143,7 +143,7 @@ MonoBehaviour:
   _deathSoundName: SpiderDeath
   Score: 2
   _maxKnockSpeed: 50
-  _knockDistance: 3
+  _knockDistance: 4
   BeingKnocked: 0
   _shield: {fileID: 8405028146756639970}
 --- !u!1 &935759293242041887
