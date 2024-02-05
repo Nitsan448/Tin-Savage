@@ -54,6 +54,7 @@ public class UIManager : ASingleton<UIManager>
         _winRestartButton.onClick.AddListener(() =>
         {
             WinPanel.SetActive(false);
+            GameManager.Instance.State = EGameState.Running;
             Time.timeScale = 1;
             LevelLoader.Instance.LoadCurrentLevel().Forget();
         });

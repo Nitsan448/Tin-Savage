@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         bool doingAction = _isShooting || _dasher.Dashing || _beingPushed;
-        if (doingAction || GameManager.Instance.State != EGameState.Running) return;
+        if (doingAction) return;
 
         _controller.UpdateInput();
 
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         SetPlayerWalkSoundPlayingState();
-        if (GameManager.Instance.State != EGameState.Running || _dasher.Dashing || _beingPushed) return;
+        if (_dasher.Dashing || _beingPushed) return;
 
         _controller.CalculateVelocity();
         if (!_dasher.Dashing && !(_currentWeapon != null && _currentWeapon.Shooting))

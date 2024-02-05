@@ -71,6 +71,7 @@ public class Transitioner : ASingleton<Transitioner>
 
     public async UniTask Win()
     {
+        GameManager.Instance.State = EGameState.Finished;
         float currentTime = 0;
         Material transitionPlaneMaterial = _transitionPlane.material;
         UIManager.Instance.WinPanel.gameObject.SetActive(true);

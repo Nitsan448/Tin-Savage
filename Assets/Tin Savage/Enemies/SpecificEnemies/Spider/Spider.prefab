@@ -6426,7 +6426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b806cc9e97ac4a81dff54937c78ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 11
+  _movementSpeed: 10
   _movementAccuracy: 30
   _rotationSpeed: 15
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
@@ -6448,7 +6448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distanceToEnterDetectingMode: 15
   _distanceToExitDetectingMode: 17
-  _movementSpeedMultiplierOnDetection: 1.9
+  _movementSpeedMultiplierOnDetection: 2
   _movementAccuracyMultiplierOnDetection: 2
   _separateSpeedMultiplierOnDetection: 0.6
 --- !u!1 &4221843770908180737
