@@ -104,7 +104,7 @@ MonoBehaviour:
   _timeBetweenRandomizationsRange: {x: 1.5, y: 4}
   _seperateSpeedRange: {x: 1, y: 8}
   _seperateRadiusRange: {x: 2, y: 15}
-  _radiusFromHole: 12
+  _radiusFromHole: 13
   _avoidHoleMultiplier: 1
 --- !u!114 &2572663038461053243
 MonoBehaviour:
