@@ -9985,7 +9985,7 @@ MonoBehaviour:
   _seperateSpeedRange: {x: 2, y: 10}
   _seperateRadiusRange: {x: 2, y: 15}
   _radiusFromHole: 13
-  _avoidHoleMultiplier: 2
+  _avoidHoleMultiplier: 3
 --- !u!65 &3251996107241248326
 BoxCollider:
   m_ObjectHideFlags: 0
