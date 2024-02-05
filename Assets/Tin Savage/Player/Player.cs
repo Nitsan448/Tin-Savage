@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
             // {
             //     ScreenShaker.Instance.Shake((float)1, (float)0.15f);
             // }
-
+            AudioManager.Instance.Play(enemy._hitPlayerSoundName);
             _playerWalkSound.Stop();
             _beingPushed = false;
             Vector3 pushDirection = (transform.position - enemy.transform.position);

@@ -15950,6 +15950,7 @@ MonoBehaviour:
   _knockDistance: 15
   BeingKnocked: 0
   _timeUntilDeadly: 0.4
+  _hitPlayerSoundName: HitByShield
 --- !u!114 &8114796611681274580
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -145,6 +145,7 @@ MonoBehaviour:
   _knockDistance: 4
   BeingKnocked: 0
   _timeUntilDeadly: 0.4
+  _hitPlayerSoundName: HitByShield
   _shield: {fileID: 8405028146756639970}
 --- !u!1 &935759293242041887
 GameObject:

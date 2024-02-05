@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool BeingKnocked;
     private CancellationTokenSource _enemyCts = new();
     [SerializeField] private float _timeUntilDeadly = 1;
+    public string _hitPlayerSoundName;
     public bool IsDeadly => _timeUntilDeadly < Time.time;
 
     private void Awake()

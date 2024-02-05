@@ -6413,6 +6413,7 @@ MonoBehaviour:
   _knockDistance: 20
   BeingKnocked: 0
   _timeUntilDeadly: 0.4
+  _hitPlayerSoundName: HitBySpider
 --- !u!114 &8607649048031353653
 MonoBehaviour:
   m_ObjectHideFlags: 0
