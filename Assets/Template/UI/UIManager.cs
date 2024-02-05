@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : ASingleton<UIManager>
@@ -19,6 +20,9 @@ public class UIManager : ASingleton<UIManager>
     [Header("Buttons")] [SerializeField] Button _backToMenuButton;
     [SerializeField] private Button _quitButton;
     [SerializeField] Button _resumeButton;
+    [SerializeField] Button _pauseRestartButton;
+    [SerializeField] Button _winRestartButton;
+    public GameObject WinPanel;
 
     protected override void DoOnAwake()
     {
@@ -37,9 +41,22 @@ public class UIManager : ASingleton<UIManager>
 
     private void SetButtonEvents()
     {
-        _backToMenuButton.onClick.AddListener(delegate { LevelLoader.Instance.BackToMainMenu(); });
+        _backToMenuButton.onClick.AddListener(BackToMainMenu);
         _resumeButton.onClick.AddListener(delegate { GameManager.Instance.TogglePauseState(); });
         _quitButton.onClick.AddListener(Application.Quit);
+        _pauseRestartButton.onClick.AddListener(() =>
+        {
+            ChangePanelState(_pausePanel);
+            GameManager.Instance.State = EGameState.Running;
+            Time.timeScale = 1;
+            LevelLoader.Instance.LoadCurrentLevel().Forget();
+        });
+        _winRestartButton.onClick.AddListener(() =>
+        {
+            WinPanel.SetActive(false);
+            Time.timeScale = 1;
+            LevelLoader.Instance.LoadCurrentLevel().Forget();
+        });
     }
 
     private void OnDestroy()
@@ -71,5 +88,15 @@ public class UIManager : ASingleton<UIManager>
     public void UpdatePauseMenuState()
     {
         ChangePanelState(_pausePanel);
+    }
+
+    public void BackToMainMenu()
+    {
+        LevelLoader.Instance.BackToMainMenu();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -12,6 +12,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<GameObject> _possibleWavesMediumPrefabs;
     [SerializeField] private List<GameObject> _possibleWavesHardPrefabs;
     [SerializeField] private GameObject _bossWave;
+    [SerializeField] private GameObject _tutorialWave;
 
     private readonly List<GameObject> _possibleWavesPrefabsEasyStarting = new();
 
@@ -34,7 +35,11 @@ public class WaveManager : MonoBehaviour
 
     private async UniTask SpawnWaves()
     {
-        await PlayTutorial();
+        if (GameConfiguration.Instance.PlayTutorial)
+        {
+            await Tutorial.Instance.PlayTutorial();
+        }
+
         for (int waveTimeIndex = GameConfiguration.Instance.StartingWave; waveTimeIndex < _timePerWave.Count; waveTimeIndex++)
         {
             float waveTime = _timePerWave[waveTimeIndex] / GameConfiguration.Instance.TimeBetweenWavesScale;
@@ -60,17 +65,16 @@ public class WaveManager : MonoBehaviour
         Instantiate(_bossWave, Vector3.zero, Quaternion.identity, parent: transform);
         while (GameManager.Instance.State == EGameState.Running)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(8));
+            await UniTask.Delay(TimeSpan.FromSeconds(7));
             int waveIndex = Random.Range(0, _possibleWavesPrefabsEasyStarting.Count);
             Instantiate(_possibleWavesPrefabsEasyStarting[waveIndex], Vector3.zero, Quaternion.identity, parent: transform);
         }
     }
 
-    private async UniTask PlayTutorial()
+    public async UniTask PlayTutorialWave()
     {
-        while (SceneReferencer.Instance.Player.InTutorial)
-        {
-            await UniTask.Yield();
-        }
+        GameObject tutorialWave = Instantiate(_tutorialWave, Vector3.zero, Quaternion.identity, parent: transform);
+        Enemy spider = tutorialWave.GetComponentInChildren<Enemy>();
+        await UniTask.WaitUntil(() => spider == null);
     }
 }

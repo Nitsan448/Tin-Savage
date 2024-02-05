@@ -6,9 +6,8 @@ using UnityEngine;
 public class KeyManager : MonoBehaviour
 {
     [SerializeField] private Animator _keyAnimator;
-    public bool HoldingKey => _holdingKey;
+    public bool HoldingKey => _keyOnPlayer.activeSelf;
 
-    [SerializeField] private bool _holdingKey = false;
     [SerializeField] private GameObject _keyPrefab;
     [SerializeField] private GameObject _keyOnPlayer;
 
@@ -22,10 +21,21 @@ public class KeyManager : MonoBehaviour
         _keyAnimator = _keyOnPlayer.GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        if (GameConfiguration.Instance.PlayTutorial)
+        {
+            _keyOnPlayer.SetActive(false);
+        }
+        else
+        {
+            _keyOnPlayer.SetActive(true);
+        }
+    }
+
     public void DropKey()
     {
         _keyDropTime = Time.time;
-        _holdingKey = false;
         _keyOnPlayer.SetActive(false);
         Vector3 keySpawnPoint = transform.position + _keyDropDistanceFromPlayer;
         Instantiate(_keyPrefab, keySpawnPoint, _keyPrefab.transform.rotation, parent: SceneReferencer.Instance.KeysParent.transform);
@@ -38,9 +48,7 @@ public class KeyManager : MonoBehaviour
             return;
         }
 
-        SceneReferencer.Instance.Player.InTutorial = false;
         _keyOnPlayer.SetActive(true);
-        _holdingKey = true;
         AudioManager.Instance.Play("KeyPickup");
         Destroy(key.gameObject);
     }
@@ -49,11 +57,4 @@ public class KeyManager : MonoBehaviour
     {
         _keyAnimator.SetTrigger("Charge");
     }
-    //
-    // private void OnDrawGizmosSelected()
-    // {
-    //     Gizmos.color = Color.green;
-    //     Vector3 keySpawnPoint = transform.position + _keyDropDistanceFromPlayer;
-    //     Gizmos.DrawSphere(keySpawnPoint, 0.3f);
-    // }
 }

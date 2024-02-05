@@ -12,6 +12,7 @@ public class Transitioner : ASingleton<Transitioner>
     [SerializeField] private float _startFadeInTime = 2;
     [SerializeField] private float _transitionPlaneIntensity;
     [SerializeField] private GameObject _gameOverTitle;
+    [SerializeField] private GameObject _waveManager;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Transitioner : ASingleton<Transitioner>
         }
     }
 
-    public async UniTask GameOverAsync()
+    public async UniTask GameOver()
     {
         float currentTime = 0;
         _gameOverTitle.SetActive(true);
@@ -38,6 +39,8 @@ public class Transitioner : ASingleton<Transitioner>
             currentTime += Time.deltaTime;
             await UniTask.Yield();
         }
+
+        transitionPlaneMaterial.SetFloat("_Transition", _transitionPlaneIntensity);
 
         while (true)
         {
@@ -64,5 +67,30 @@ public class Transitioner : ASingleton<Transitioner>
         }
 
         transitionPlaneMaterial.SetFloat("_Transition", 0);
+    }
+
+    public async UniTask Win()
+    {
+        float currentTime = 0;
+        Material transitionPlaneMaterial = _transitionPlane.material;
+        UIManager.Instance.WinPanel.gameObject.SetActive(true);
+
+        // foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+        // {
+        //     Debug.Log(enemy.name);
+        // }
+        //
+        Destroy(_waveManager);
+        //
+
+        while (currentTime < _gameOverFadeInTime)
+        {
+            float t = currentTime / _gameOverFadeInTime;
+            transitionPlaneMaterial.SetFloat("_Transition", Mathf.Lerp(0, _transitionPlaneIntensity, t));
+            currentTime += Time.deltaTime;
+            await UniTask.Yield();
+        }
+
+        transitionPlaneMaterial.SetFloat("_Transition", _transitionPlaneIntensity);
     }
 }

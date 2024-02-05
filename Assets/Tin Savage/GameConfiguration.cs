@@ -8,4 +8,5 @@ public class GameConfiguration : ASingleton<GameConfiguration>
     public bool InfiniteDashes = false;
     public int StartingWave = 0;
     public float TimeBetweenWavesScale = 1;
+    public bool PlayTutorial = true;
 }

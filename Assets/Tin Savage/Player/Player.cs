@@ -13,6 +13,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerRigController))]
 public class Player : MonoBehaviour
 {
+    public bool HoldingKey => _keyManager.HoldingKey;
+
     private CharacterController _controller;
     private Dasher _dasher;
     private KeyManager _keyManager;
@@ -22,7 +24,6 @@ public class Player : MonoBehaviour
 
     private bool _immune;
     private float _timeSinceLastDashFinished = 0;
-    public bool InTutorial = true;
     private Plane _mouseRayCastPlane = new(Vector3.up, 0);
     [SerializeField] private GameObject _dashTrail;
     [SerializeField] private float _rotationSpeed;
@@ -175,7 +176,7 @@ public class Player : MonoBehaviour
         AudioManager.Instance.Play("Death");
         _playerWalkSound.Stop();
         CrowdManager.Instance.PlayLaughsByScore(6).Forget();
-        Transitioner.Instance.GameOverAsync().Forget();
+        Transitioner.Instance.GameOver().Forget();
     }
 
     public Vector3 GetMousePosition()
